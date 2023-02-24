@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hello World | Myblog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Hello World | Myblog">
+  <title>Mybatis-插件mybatis-generator不顯示 | Myblog</title>
+  <meta name="keywords" content=" mybatis , 踩坑 ">
+  <meta name="description" content="Mybatis-插件mybatis-generator不顯示 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="踩坑紀錄練習mybatis逆向工程時，遇到兩個小問題 問題一plugin中的依賴”mybatis-generator-core”報紅，maven無法自動下載 解決方案：須將依賴先配置到中，由maven下載完後，再配置到plugin內 問題二[mybatis-generator]插件不顯示的問題。 mybatis-generator插件已配置在配置文件中，但右側maven的視窗plugin中沒顯示，">
 <meta property="og:type" content="article">
@@ -379,24 +379,43 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-05_Mybatis-插件mybatis-generator不顯示" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Hello World</h1>
+        <h1 class="article-title">Mybatis-插件mybatis-generator不顯示</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="後端">後端</a> > 
+            
+            <a  data-rel="後端&lt;---&gt;Spring">Spring</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">mybatis</a>
+            
+            <a class="color3">踩坑</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-02-23 10:58:33'>2023-02-23 16:37</time>
+            Created At : <time class="date" title='Updated At: 2023-02-25 00:54:59'>2023-02-25 00:28</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:75</span>
+        <span>Count:122</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -415,7 +434,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E4%B8%80"><span class="toc-text">問題一</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E4%BA%8C"><span class="toc-text">問題二</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -431,19 +450,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>練習mybatis逆向工程時，遇到兩個小問題</p>
+<h5 id="問題一"><a href="#問題一" class="headerlink" title="問題一"></a>問題一</h5><p>plugin中的依賴”mybatis-generator-core”報紅，maven無法自動下載</p>
+<p>解決方案：<br>須將依賴先配置到<dependencies>中，由maven下載完後，再配置到plugin內</p>
+<h5 id="問題二"><a href="#問題二" class="headerlink" title="問題二"></a>問題二</h5><p>[mybatis-generator]插件不顯示的問題。 mybatis-generator插件已配置在配置文件中，但右側maven的視窗plugin中沒顯示，如下圖：<br><img src="/img/blog/05-02.png" alt="img">)</p>
+<p>解決方案：<br>mybatis-generator需要放在與pluginManagement同級別處，如下圖：</p>
+<p><img src="/img/05-02.png" alt="img"></p>
+<p><img src="05-01.png"></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>
