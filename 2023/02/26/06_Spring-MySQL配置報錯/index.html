@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Mybatis-插件mybatis-generator不顯示 | Myblog</title>
-  <meta name="keywords" content=" mybatis , 踩坑 ">
-  <meta name="description" content="Mybatis-插件mybatis-generator不顯示 | Myblog">
+  <title>Spring-MySQL配置報錯 | Myblog</title>
+  <meta name="keywords" content=" 踩坑 , Spring ">
+  <meta name="description" content="Spring-MySQL配置報錯 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="踩坑紀錄配置Spring中數據源後，啟動tomcat伺服器報錯 問題將property name配置為”driver”以及”user”報錯，原因是driver及user是內建的一個類，不能使用 123456&lt;bean id&#x3D;&quot;dataSource&quot; class&#x3D;&quot;com.alibaba.druid.pool.DruidDataSource&quot;&gt;">
 <meta property="og:type" content="article">
@@ -388,9 +388,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-05_Mybatis-插件mybatis-generator不顯示" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-06_Spring-MySQL配置報錯" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Mybatis-插件mybatis-generator不顯示</h1>
+        <h1 class="article-title">Spring-MySQL配置報錯</h1>
     
     <div class="article-meta">
         
@@ -410,21 +410,21 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">mybatis</a>
-            
             <a class="color3">踩坑</a>
+            
+            <a class="color2">Spring</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-02-25 01:08:37'>2023-02-25 00:28</time>
+            Created At : <time class="date" title='Updated At: 2023-02-26 23:57:19'>2023-02-26 23:49</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:122</span>
+        <span>Count:239</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -443,7 +443,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E4%B8%80"><span class="toc-text">問題一</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E4%BA%8C"><span class="toc-text">問題二</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C"><span class="toc-text">問題</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -459,12 +459,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>練習mybatis逆向工程時，遇到兩個小問題</p>
-<h5 id="問題一"><a href="#問題一" class="headerlink" title="問題一"></a>問題一</h5><p>plugin中的依賴”mybatis-generator-core”報紅，maven無法自動下載</p>
-<p>解決方案：<br>須將依賴先配置到<dependencies>中，由maven下載完後，再配置到plugin內</p>
-<h5 id="問題二"><a href="#問題二" class="headerlink" title="問題二"></a>問題二</h5><p>[mybatis-generator]插件不顯示的問題。 mybatis-generator插件已配置在配置文件中，但右側maven的視窗plugin中沒顯示，如下圖：<br><img src="/image/05-01.png">)</p>
-<p>解決方案：<br>mybatis-generator需要放在與pluginManagement同級別處，如下圖：</p>
-<p><img src="/image/05-02.png"></p>
+        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>配置Spring中數據源後，啟動tomcat伺服器報錯</p>
+<h5 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h5><p>將property name配置為”driver”以及”user”報錯，原因是driver及user是內建的一個類，不能使用</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driver&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.driver&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.url&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;user&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.username&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.password&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>解決方案：<br>將property name改為”driverClassName”以及”username”即可</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClassName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.driver&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.url&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.username&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.password&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
 
       
        <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>
