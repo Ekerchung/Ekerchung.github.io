@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Spring-Vue實現使用超連結發送delete請求 | Myblog</title>
+  <meta name="keywords" content=" 踩坑 , Spring , Vue ">
+  <meta name="description" content="Spring-Vue實現使用超連結發送delete請求 | Myblog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="實現代碼如下： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485&lt;!DOCTYPE html&gt;&lt;html l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring-Vue實現使用超連結發送delete請求">
+<meta property="og:url" content="https://ekerchung.github.io/2023/03/07/08_Spring-Vue%E5%AF%A6%E7%8F%BE%E4%BD%BF%E7%94%A8%E8%B6%85%E9%80%A3%E7%B5%90%E7%99%BC%E9%80%81delete%E8%AB%8B%E6%B1%82/index.html">
+<meta property="og:site_name" content="Myblog">
+<meta property="og:description" content="實現代碼如下： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485&lt;!DOCTYPE html&gt;&lt;html l">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-07T06:39:23.606Z">
+<meta property="article:modified_time" content="2023-03-07T06:52:37.062Z">
+<meta property="article:author" content="Eker的編程筆記">
+<meta property="article:tag" content="踩坑">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Eker的編程筆記</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+            <a title="github"
+               href="https://github.com/Ekerchung"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="linkedin"
+               href="https://www.linkedin.com/in/yhc-b6a641155/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-linkedin"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:b8954008@gmail.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(9)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="自學筆記">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        自學筆記
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="自學筆記<--->Spring">
+                                        
+                                        Spring
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="後端">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        後端
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="後端<--->前端">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        前端
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="後端<--->前端Spring">
+                                                        
+                                                        Spring
+                                                        
+                                                            <small>(2)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="後端<--->Spring">
+                                        
+                                        Spring
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url"
+               
+               href="https://ekerchung.github.io/">About</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="9">
+<input type="hidden" id="yelog_site_word_count" value="46.4k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>踩坑</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>axios</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mybatis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>spring</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Spring</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>springMVC</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Vue</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All 後端 前端 Spring "
+           href="/2023/03/07/08_Spring-Vue%E5%AF%A6%E7%8F%BE%E4%BD%BF%E7%94%A8%E8%B6%85%E9%80%A3%E7%B5%90%E7%99%BC%E9%80%81delete%E8%AB%8B%E6%B1%82/"
+           data-tag="踩坑,Spring,Vue"
+           data-author="" >
+            <span class="post-title" title="Spring-Vue實現使用超連結發送delete請求">Spring-Vue實現使用超連結發送delete請求</span>
+            <span class="post-date" title="2023-03-07 14:39:23">2023/03/07</span>
+        </a>
+        
+        
+        <a  class="All 後端 前端 Spring "
+           href="/2023/03/05/07_Spring-Vue+axios%E5%AF%A6%E7%8F%BE%E7%95%B0%E6%AD%A5%E8%AB%8B%E6%B1%82%E9%A9%97%E8%AD%89%E8%A8%BB%E5%86%8A%E8%A1%A8%E5%96%AE/"
+           data-tag="踩坑,Spring,Vue,axios"
+           data-author="" >
+            <span class="post-title" title="Spring-Vue+axios實現異步請求驗證註冊表單">Spring-Vue+axios實現異步請求驗證註冊表單</span>
+            <span class="post-date" title="2023-03-05 23:05:46">2023/03/05</span>
+        </a>
+        
+        
+        <a  class="All 後端 Spring "
+           href="/2023/02/26/06_Spring-MySQL%E9%85%8D%E7%BD%AE%E5%A0%B1%E9%8C%AF/"
+           data-tag="踩坑,Spring"
+           data-author="" >
+            <span class="post-title" title="Spring-MySQL配置報錯">Spring-MySQL配置報錯</span>
+            <span class="post-date" title="2023-02-26 23:49:18">2023/02/26</span>
+        </a>
+        
+        
+        <a  class="All 後端 Spring "
+           href="/2023/02/25/05_Mybatis-%E6%8F%92%E4%BB%B6mybatis-generator%E4%B8%8D%E9%A1%AF%E7%A4%BA/"
+           data-tag="mybatis,踩坑"
+           data-author="" >
+            <span class="post-title" title="Mybatis-插件mybatis-generator不顯示">Mybatis-插件mybatis-generator不顯示</span>
+            <span class="post-date" title="2023-02-25 00:28:36">2023/02/25</span>
+        </a>
+        
+        
+        <a  class="All 後端 Spring "
+           href="/2023/02/23/04_SSM-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%95%B4%E5%90%88/"
+           data-tag="mybatis,spring,springMVC"
+           data-author="" >
+            <span class="post-title" title="SSM-配置文件整合">SSM-配置文件整合</span>
+            <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>
+        </a>
+        
+        
+        <a  class="All 自學筆記 Spring "
+           href="/2023/02/23/03_Spring%E7%AD%86%E8%A8%98/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="Spring筆記">Spring筆記</span>
+            <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>
+        </a>
+        
+        
+        <a  class="All 自學筆記 Spring "
+           href="/2023/02/23/02_SpringMVC%E7%AD%86%E8%A8%98/"
+           data-tag="springMVC"
+           data-author="" >
+            <span class="post-title" title="SpringMVC筆記">SpringMVC筆記</span>
+            <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>
+        </a>
+        
+        
+        <a  class="All 自學筆記 Spring "
+           href="/2023/02/23/01_Mybatis%E7%AD%86%E8%A8%98/"
+           data-tag="mybatis"
+           data-author="" >
+            <span class="post-title" title="Mybatis筆記">Mybatis筆記</span>
+            <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2023/02/23/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2023-02-23 16:37:11">2023/02/23</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-08_Spring-Vue實現使用超連結發送delete請求" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Spring-Vue實現使用超連結發送delete請求</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="後端">後端</a> > 
+            
+            <a  data-rel="後端&lt;---&gt;前端">前端</a> > 
+            
+            <a  data-rel="後端&lt;---&gt;前端&lt;---&gt;Spring">Spring</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">踩坑</a>
+            
+            <a class="color2">Spring</a>
+            
+            <a class="color4">Vue</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2023-03-07 14:52:37'>2023-03-07 14:39</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:832</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%EF%BC%9A"><span class="toc-text">問題：</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>實現代碼如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span> <span class="attr">xmlns:th</span>=<span class="string">&quot;http://www.thymeleaf.org&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>天天來網路書店-圖書管理<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--    引用公共資源css、js--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:insert</span>=<span class="string">&quot;pages/common/common_resource :: common_resource&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">th:src</span>=<span class="string">&quot;@&#123;/static/script/axios.min.js&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">th:src</span>=<span class="string">&quot;@&#123;/static/script/vue.js&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;manager_header&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/&#125;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;book_logo_img&quot;</span> <span class="attr">th:src</span>=<span class="string">&quot;@&#123;/static/img/Books_logo.jpg&#125;&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--        靜態包含後台管理頭部頁面--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:insert</span>=<span class="string">&quot;pages/common/manager_bar :: manager_bar&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>ID<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>書名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>作者<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>價格<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>銷量<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>庫存<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>操作<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">Tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">th:each</span>=<span class="string">&quot;book : $&#123;page.list&#125;&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;book.bId&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;book.bName&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;book.bAuthor&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;book.bPrice&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;book.bSales&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;book.bStoke&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/book/update&#125;&quot;</span>&gt;</span>修改<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> @<span class="attr">click</span>=<span class="string">&quot;deletebook()&quot;</span> <span class="attr">class</span>=<span class="string">&quot;deleteClass&quot;</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;&#x27;/book/&#x27; + $&#123;book.bId&#125;&#125;&quot;</span>&gt;</span>刪除<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/&#125;&quot;</span>&gt;</span>添加圖書<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--發送delete請求的隱藏表單--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;delete_form&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;_method&quot;</span> <span class="attr">value</span>=<span class="string">&quot;delete&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;pageNum&quot;</span> <span class="attr">th:value</span>=<span class="string">&quot;$&#123;page.pageNum&#125;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        靜態包含後台管理頭部頁面--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:insert</span>=<span class="string">&quot;pages/common/page_nav :: page_nav&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> vue = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">el</span>:<span class="string">&#x27;#main&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">methods</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//event表示當前事件</span></span></span><br><span class="line"><span class="language-javascript">            <span class="attr">deletebook</span>: <span class="keyword">function</span> (<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span>(<span class="title function_">confirm</span>(<span class="string">&quot;確定要刪除?&quot;</span>)) &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">//通過document.getElementById()獲取表單標籤</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="keyword">var</span> form = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;delete_form&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">//將觸發事件的href屬性賦給form的action屬性</span></span></span><br><span class="line"><span class="language-javascript">                    form.<span class="property">action</span> = event.<span class="property">target</span>.<span class="property">href</span>;</span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">//提交表單</span></span></span><br><span class="line"><span class="language-javascript">                    form.<span class="title function_">submit</span>();</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//阻止默認的超連結功能</span></span></span><br><span class="line"><span class="language-javascript">                event.<span class="title function_">preventDefault</span>();</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>代碼完成後，vue的綁定功能沒作用，點擊超連結時，還是發送get請求</p>
+<h3 id="問題："><a href="#問題：" class="headerlink" title="問題："></a>問題：</h3><ol>
+<li>script的vue代碼，抓不到element</li>
+<li>抓到element後，執行function報錯</li>
+</ol>
+<p>解決方案：</p>
+<ol>
+<li>因為在 Vue 實例創建之前，該元素還未加載完成，那麼 Vue 實例就無法正確掛載到該元素上，所以將script代碼移到綁定的元素後面即可。</li>
+<li>function()的參數欄中不要填入event，若填入會顯示抓不到，然後報錯，把event移除即可。</li>
+</ol>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2023-2030 Eker
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
