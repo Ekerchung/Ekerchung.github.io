@@ -6,17 +6,17 @@
   <meta name="keywords" content=" spring ">
   <meta name="description" content="Spring筆記 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="在方法內使用if(confirm(“確定要刪除?”)){…..}，即可跳出確認視窗。 實現代碼如下： 1234567891011121314151617181920212223&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;    var vue &#x3D; new Vue(&amp;#123;        el:&amp;#x27;#main&amp;#x27;,">
+<meta name="description" content="踩坑紀錄使用Thymeleaf渲染MySql數據庫內保存的日期時，會顯示如下格式。Thu Apr 19 08:37:23 CST 2023 問題在Java中，日期和時間通常以java.util.Date或java.util.Calendar對象表示。如果使用這些對象在Thymeleaf中進行日期渲染，Thymeleaf會調用對象的toString()方法，該方法的預設格式是“EEE MMM dd">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue使用原生的confirm dialog">
-<meta property="og:url" content="https://ekerchung.github.io/2023/03/07/09_Vue%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%94%9F%E7%9A%84confirm%20dialog/index.html">
+<meta property="og:title" content="Thymeleaf-渲染數據庫內保存的時間">
+<meta property="og:url" content="https://ekerchung.github.io/2023/03/10/11_Thymeleaf%E6%B8%B2%E6%9F%93%E6%95%B8%E6%93%9A%E5%BA%AB%E5%85%A7%E4%BF%9D%E5%AD%98%E7%9A%84%E6%99%82%E9%96%93/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="在方法內使用if(confirm(“確定要刪除?”)){…..}，即可跳出確認視窗。 實現代碼如下： 1234567891011121314151617181920212223&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;    var vue &#x3D; new Vue(&amp;#123;        el:&amp;#x27;#main&amp;#x27;,">
+<meta property="og:description" content="踩坑紀錄使用Thymeleaf渲染MySql數據庫內保存的日期時，會顯示如下格式。Thu Apr 19 08:37:23 CST 2023 問題在Java中，日期和時間通常以java.util.Date或java.util.Calendar對象表示。如果使用這些對象在Thymeleaf中進行日期渲染，Thymeleaf會調用對象的toString()方法，該方法的預設格式是“EEE MMM dd">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-03-07T07:37:59.531Z">
-<meta property="article:modified_time" content="2023-03-08T03:56:40.288Z">
+<meta property="article:published_time" content="2023-03-10T14:42:14.080Z">
+<meta property="article:modified_time" content="2023-03-10T14:52:45.603Z">
 <meta property="article:author" content="Eker的編程筆記">
-<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="Thymeleaf">
 <meta name="twitter:card" content="summary">
 
 
@@ -143,7 +143,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(10)</small>
+                <small>(12)</small>
             
         </div>
     </li>
@@ -204,7 +204,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         後端
-                        <small>(5)</small>
+                        <small>(6)</small>
                         
                     </div>
                     
@@ -257,6 +257,20 @@
     
         
             
+                <li>
+                    <div data-rel="數據庫">
+                        
+                        數據庫
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
         
     
         
@@ -284,8 +298,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="10">
-<input type="hidden" id="yelog_site_word_count" value="46.5k">
+<input type="hidden" id="yelog_site_posts_number" value="12">
+<input type="hidden" id="yelog_site_word_count" value="46.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -341,6 +355,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySql</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>spring</a>
             </li>
         
@@ -353,6 +371,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Thymeleaf</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Vue</a>
             </li>
         
@@ -362,6 +384,24 @@
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="All 後端 "
+           href="/2023/03/10/11_Thymeleaf%E6%B8%B2%E6%9F%93%E6%95%B8%E6%93%9A%E5%BA%AB%E5%85%A7%E4%BF%9D%E5%AD%98%E7%9A%84%E6%99%82%E9%96%93/"
+           data-tag="Thymeleaf"
+           data-author="" >
+            <span class="post-title" title="Thymeleaf-渲染數據庫內保存的時間">Thymeleaf-渲染數據庫內保存的時間</span>
+            <span class="post-date" title="2023-03-10 22:42:14">2023/03/10</span>
+        </a>
+        
+        
+        <a  class="All 數據庫 "
+           href="/2023/03/10/10_MySql%E4%BF%9D%E5%AD%98%E6%99%82%E9%96%93%E6%99%82%E5%8D%80%E5%95%8F%E9%A1%8C/"
+           data-tag="MySql"
+           data-author="" >
+            <span class="post-title" title="MySql-保存時間時區問題">MySql-保存時間時區問題</span>
+            <span class="post-date" title="2023-03-10 22:20:25">2023/03/10</span>
+        </a>
         
         
         <a  class="All 前端 "
@@ -411,7 +451,7 @@
         
         <a  class="All 後端 Spring "
            href="/2023/02/23/04_SSM-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%95%B4%E5%90%88/"
-           data-tag="spring,springMVC,mybatis"
+           data-tag="mybatis,springMVC,spring"
            data-author="" >
             <span class="post-title" title="SSM-配置文件整合">SSM-配置文件整合</span>
             <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>
