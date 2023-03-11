@@ -6,17 +6,18 @@
   <meta name="keywords" content=" 踩坑 , Spring , Vue , axios ">
   <meta name="description" content="Vue+axios實現異步請求驗證註冊表單 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="踩坑紀錄使用Thymeleaf渲染MySql數據庫內保存的日期時，會顯示如下格式。Thu Apr 19 08:37:23 CST 2023 問題在Java中，日期和時間通常以java.util.Date或java.util.Calendar對象表示。如果使用這些對象在Thymeleaf中進行日期渲染，Thymeleaf會調用對象的toString()方法，該方法的預設格式是“EEE MMM dd">
+<meta name="description" content="踩坑紀錄使用逆向工程自動創建pojo、Mapper.xml時，創建的欄位名與實際欄位名不符 問題使用逆向工程自動創建pojo、Mapper.xml時，抓取到其他資料庫內相同表名的column名進行創建 解決方案：  避免使用相同表名 將其他資料庫的表名先暫時修改，逆向工程創建確認無誤後，再將其他資料庫的表名改回去">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Thymeleaf-渲染數據庫內保存的時間">
-<meta property="og:url" content="https://ekerchung.github.io/2023/03/10/11_Thymeleaf%E6%B8%B2%E6%9F%93%E6%95%B8%E6%93%9A%E5%BA%AB%E5%85%A7%E4%BF%9D%E5%AD%98%E7%9A%84%E6%99%82%E9%96%93/index.html">
+<meta property="og:title" content="Mybatis-逆向工程產生Mapper.xml有誤">
+<meta property="og:url" content="https://ekerchung.github.io/2023/03/12/12_Mybatis-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E7%94%A2%E7%94%9FMapper.xml%E6%9C%89%E8%AA%A4/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="踩坑紀錄使用Thymeleaf渲染MySql數據庫內保存的日期時，會顯示如下格式。Thu Apr 19 08:37:23 CST 2023 問題在Java中，日期和時間通常以java.util.Date或java.util.Calendar對象表示。如果使用這些對象在Thymeleaf中進行日期渲染，Thymeleaf會調用對象的toString()方法，該方法的預設格式是“EEE MMM dd">
+<meta property="og:description" content="踩坑紀錄使用逆向工程自動創建pojo、Mapper.xml時，創建的欄位名與實際欄位名不符 問題使用逆向工程自動創建pojo、Mapper.xml時，抓取到其他資料庫內相同表名的column名進行創建 解決方案：  避免使用相同表名 將其他資料庫的表名先暫時修改，逆向工程創建確認無誤後，再將其他資料庫的表名改回去">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-03-10T14:42:14.080Z">
-<meta property="article:modified_time" content="2023-03-10T14:52:45.603Z">
+<meta property="article:published_time" content="2023-03-11T16:55:45.475Z">
+<meta property="article:modified_time" content="2023-03-11T17:01:18.293Z">
 <meta property="article:author" content="Eker的編程筆記">
-<meta property="article:tag" content="Thymeleaf">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="Mybatis">
 <meta name="twitter:card" content="summary">
 
 
@@ -143,7 +144,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(12)</small>
+                <small>(13)</small>
             
         </div>
     </li>
@@ -217,7 +218,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         後端
-                        <small>(4)</small>
+                        <small>(5)</small>
                         
                     </div>
                     
@@ -284,8 +285,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="12">
-<input type="hidden" id="yelog_site_word_count" value="46.8k">
+<input type="hidden" id="yelog_site_posts_number" value="13">
+<input type="hidden" id="yelog_site_word_count" value="46.9k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -341,6 +342,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Mybatis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>MySql</a>
             </li>
         
@@ -370,6 +375,15 @@
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="All 後端 "
+           href="/2023/03/12/12_Mybatis-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E7%94%A2%E7%94%9FMapper.xml%E6%9C%89%E8%AA%A4/"
+           data-tag="Spring,Mybatis"
+           data-author="" >
+            <span class="post-title" title="Mybatis-逆向工程產生Mapper.xml有誤">Mybatis-逆向工程產生Mapper.xml有誤</span>
+            <span class="post-date" title="2023-03-12 00:55:45">2023/03/12</span>
+        </a>
         
         
         <a  class="All 後端 "
@@ -437,7 +451,7 @@
         
         <a  class="All 後端 Spring "
            href="/2023/02/23/04_SSM-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%95%B4%E5%90%88/"
-           data-tag="mybatis,spring,springMVC"
+           data-tag="spring,springMVC,mybatis"
            data-author="" >
             <span class="post-title" title="SSM-配置文件整合">SSM-配置文件整合</span>
             <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>

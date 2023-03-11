@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Myblog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Myblog">
+  <title>Mybatis-逆向工程產生Mapper.xml有誤 | Myblog</title>
+  <meta name="keywords" content=" Spring , Mybatis ">
+  <meta name="description" content="Mybatis-逆向工程產生Mapper.xml有誤 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="踩坑紀錄使用逆向工程自動創建pojo、Mapper.xml時，創建的欄位名與實際欄位名不符 問題使用逆向工程自動創建pojo、Mapper.xml時，抓取到其他資料庫內相同表名的column名進行創建 解決方案：  避免使用相同表名 將其他資料庫的表名先暫時修改，逆向工程創建確認無誤後，再將其他資料庫的表名改回去">
 <meta property="og:type" content="article">
@@ -58,7 +58,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -509,12 +509,62 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-12_Mybatis-逆向工程產生Mapper.xml有誤" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%9C%E6%96%BC%E6%9C%AC%E7%AB%99"><span class="toc-text">關於本站</span></a></li></ol>
+        <h1 class="article-title">Mybatis-逆向工程產生Mapper.xml有誤</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="後端">後端</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">Spring</a>
+            
+            <a class="color3">Mybatis</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2023-03-12 01:01:18'>2023-03-12 00:55</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:118</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C"><span class="toc-text">問題</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -527,53 +577,33 @@
     }
 </style>
 </div>
-            <p>Hi，我是Eker，正在自學轉職中，目前努力朝Java後端工程師邁進，<br>建立Blog紀錄學習的點點滴滴。</p>
-<ul>
-<li><p>前端</p>
-<ul>
-<li>html、css、JavaScript</li>
-<li>jsp、jQuery、Ajax、Vue.js</li>
-</ul>
-</li>
-<li><p>後端</p>
-<ul>
-<li>JavaEE、JDBC、JavaWeb</li>
-<li>Spring、SpringMVC、Mybatis</li>
-</ul>
-</li>
-<li><p>資料庫</p>
-<ul>
-<li>MySQL</li>
-</ul>
-</li>
-<li><p>其他</p>
-<ul>
-<li>Git、Github</li>
-<li>Maven</li>
-<li>MVC設計模式</li>
-<li>RESTful API</li>
-</ul>
-</li>
-<li><p>Side Projet</p>
-<ul>
-<li>書城<ul>
-<li>書城是個純JavaWeb項目，使用html、css、JavaScript、jsp、jQuery、Ajax編寫前端代碼；使用MySQL數據庫進行資料存儲；由tomcat進行佈署</li>
-<li>由於是Jsp動態頁面，目前暫無公開訪問的網站，僅提供readme文件介紹，項目源碼分享於<a target="_blank" rel="noopener" href="https://github.com/Ekerchung/Books">https://github.com/Ekerchung/Books</a></li>
-</ul>
-</li>
-<li>書城(由SSM框架重構)<ul>
-<li>(進行中)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="關於本站"><a href="#關於本站" class="headerlink" title="關於本站"></a>關於本站</h2><p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>使用逆向工程自動創建pojo、Mapper.xml時，創建的欄位名與實際欄位名不符</p>
+<h5 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h5><p>使用逆向工程自動創建pojo、Mapper.xml時，抓取到其他資料庫內相同表名的column名進行創建</p>
+<p>解決方案：</p>
+<ol>
+<li>避免使用相同表名</li>
+<li>將其他資料庫的表名先暫時修改，逆向工程創建確認無誤後，再將其他資料庫的表名改回去</li>
+</ol>
 
-        </article>
-        
-        
+      
+       <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -582,11 +612,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 </body>
