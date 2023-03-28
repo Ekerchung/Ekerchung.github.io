@@ -85,7 +85,7 @@
 <meta property="og:image" content="https://ekerchung.github.io/2023/03/28/13_SpringBoot%E7%AD%86%E8%A8%98/20230327_145329.jpg">
 <meta property="og:image" content="https://ekerchung.github.io/2023/03/28/13_SpringBoot%E7%AD%86%E8%A8%98/20230327_151545.jpg">
 <meta property="article:published_time" content="2023-03-28T03:00:16.000Z">
-<meta property="article:modified_time" content="2023-03-28T03:08:16.775Z">
+<meta property="article:modified_time" content="2023-03-28T03:22:50.231Z">
 <meta property="article:author" content="Eker的編程筆記">
 <meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
@@ -594,7 +594,7 @@
         
         <a  class="All 後端 Spring "
            href="/2023/02/23/04_SSM-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%95%B4%E5%90%88/"
-           data-tag="spring,springMVC,mybatis"
+           data-tag="mybatis,springMVC,spring"
            data-author="" >
             <span class="post-title" title="SSM-配置文件整合">SSM-配置文件整合</span>
             <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>
@@ -683,7 +683,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-03-28 11:08:16'>2023-03-28 11:00</time>
+            Created At : <time class="date" title='Updated At: 2023-03-28 11:22:50'>2023-03-28 11:00</time>
         
     </div>
     <div class="article-meta">
@@ -4018,195 +4018,84 @@
 <p><span style="background-color:#99FFFF;">藍底：調用方法</span></p>
 <ul>
 <li><p>创建 <strong>SpringApplication</strong></p>
-</li>
-<li><ul>
+<ul>
 <li>先保存一些信息。</li>
-</ul>
-</li>
-<li><p>判定当前应用的类型。使用ClassUtils來判定 –&gt; 目前是Servlet</p>
-</li>
-<li><p>**<font color=red>bootstrappers</font>**：初始启动引导器（List<Bootstrapper>）：去spring.factories文件中找 <strong>org.springframework.boot.Bootstrapper</strong></p>
-</li>
-<li><p>找 **<font color=red>ApplicationContextInitializer</font>**；去spring.factories找 <span style="background-color:yellow;"><strong>ApplicationContextInitializer</strong></span></p>
-</li>
-<li><ul>
-<li><ul>
+<li>判定当前应用的类型。使用ClassUtils來判定 –&gt; 目前是Servlet</li>
+<li>**<font color=red>bootstrappers</font>**：初始启动引导器（List<Bootstrapper>）：去spring.factories文件中找 <strong>org.springframework.boot.Bootstrapper</strong></li>
+<li>找 **<font color=red>ApplicationContextInitializer</font>**；去spring.factories找 <span style="background-color:yellow;"><strong>ApplicationContextInitializer</strong></span><ul>
 <li>List&lt;ApplicationContextInitializer&lt;?&gt;&gt; <strong>initializers</strong></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><ul>
-<li><strong>找</strong> <strong><font color=red>ApplicationListener</font>  ；应用监听器。</strong>去spring.factories找<span style="background-color:yellow;"> <strong>ApplicationListener</strong></span></li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
+<li>找 <strong><font color=red>ApplicationListener</font>  ；应用监听器。</strong>去spring.factories找<span style="background-color:yellow;"> <strong>ApplicationListener</strong></span><ul>
 <li>List&lt;ApplicationListener&lt;?&gt;&gt; <strong>listeners</strong></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>运行 <strong>SpringApplication</strong></p>
-</li>
-<li><ul>
+<ul>
 <li>新增一個<strong>StopWatch</strong></li>
-</ul>
-</li>
-<li><p>记录应用的启动时间</p>
-</li>
-<li><p>创建啟動引导器上下文（Context环境）：<strong>createBootstrapContext()</strong></p>
-</li>
-<li><ul>
-<li><ul>
+<li>记录应用的启动时间</li>
+<li>创建啟動引导器上下文（Context环境）：<strong>createBootstrapContext()</strong><ul>
 <li><span style="background-color:#99FFFF;">获取到所有之前配置的 <strong><font color=red>bootstrappers 挨个执行</font></strong> intitialize() 来完成对引导启动器上下文环境设置</span></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><ul>
 <li>让当前应用进入<strong>headless</strong>模式。<strong>java.awt.headless</strong></li>
-</ul>
-</li>
-<li><p><strong>获取所有</strong> **<font color=red>RunListener</font>**（运行监听器）【为了方便所有Listener进行事件感知】</p>
-<ul>
+<li>获取所有 **<font color=red>RunListener</font>**（运行监听器）【为了方便所有Listener进行事件感知】<ul>
 <li>getSpringFactoriesInstances 去<strong>spring.factories</strong>找<span style="background-color:yellow;"><strong><font color=red>SpringApplicationRunListener</font></strong>. </span></li>
 </ul>
 </li>
-<li><p>遍历 <strong><font color=red>SpringApplicationRunListener 调用 starting 方法；</font></strong></p>
-<ul>
+<li>遍历 <strong><font color=red>SpringApplicationRunListener 调用 starting 方法；</font></strong><ul>
 <li><strong><font color=red>相当于通知所有感兴趣系统正在启动过程的人，项目正在 starting。</font></strong></li>
 </ul>
 </li>
-<li><ul>
 <li>保存命令行参数；ApplicationArguments</li>
-</ul>
-</li>
-<li><p>准备环境 prepareEnvironment（）;</p>
-</li>
-<li><ul>
-<li><ul>
+<li>准备环境 prepareEnvironment（）;<ul>
 <li>返回或者创建基础环境信息对象。<strong>StandardServletEnvironment</strong></li>
+<li>配置环境信息对象。<ul>
+<li>读取所有的配置源的配置属性值。</li>
 </ul>
 </li>
-</ul>
-</li>
-<li><p><strong>配置环境信息对象。</strong></p>
-</li>
-<li><ul>
-<li><ul>
-<li><ul>
-<li><strong>读取所有的配置源的配置属性值。</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
 <li>绑定环境信息</li>
+<li><span style="background-color:#99FFFF;">监听器调用 listener.environmentPrepared()；通知所有的监听器当前环境准备完成</span></li>
 </ul>
 </li>
+<li>创建IOC容器（**<font color=red>createApplicationContext（）</font>**）<ul>
+<li>根据项目类型（當前為Servlet）创建容器</li>
+<li>当前会创建 <strong>AnnotationConfigServletWebServerApplicationContext</strong>這個容器</li>
 </ul>
 </li>
-<li><p><span style="background-color:#99FFFF;">监听器调用 listener.environmentPrepared()；通知所有的监听器当前环境准备完成</span></p>
-</li>
-<li><ul>
-<li>创建IOC容器（**<font color=red>createApplicationContext（）</font>**）</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li>根据项目类型（當前為Servlet）创建容器，</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>当前会创建 <strong>AnnotationConfigServletWebServerApplicationContext</strong>這個容器</p>
-</li>
-<li><ul>
-<li><strong>准备ApplicationContext IOC容器的基本信息</strong>  –&gt; 使用<strong>prepareContext()</strong></li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
+<li><strong>准备ApplicationContext IOC容器的基本信息</strong>  –&gt; 使用<strong>prepareContext()</strong><ul>
 <li>保存环境信息</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>IOC容器的后置处理流程。</p>
-</li>
-<li><p>应用初始化器；applyInitializers；</p>
-</li>
-<li><ul>
-<li><ul>
-<li><ul>
+<li>IOC容器的后置处理流程。</li>
+<li>应用初始化器；applyInitializers；<ul>
 <li><span style="background-color:#99FFFF;">遍历所有的 <strong><font color=red>ApplicationContextInitializer</font> 。调用</strong> <strong><font color=red>initialize</font></strong> 来对ioc容器<strong>进行初始化扩展功能</strong></span></li>
+<li><span style="background-color:#99FFFF;">遍历所有的 listener 调用 <strong>contextPrepared。EventPublishRunListener；通知所有的监听器</strong>contextPrepared</span></li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><span style="background-color:#99FFFF;">遍历所有的 listener 调用 <strong>contextPrepared。EventPublishRunListener；通知所有的监听器</strong>contextPrepared</span></p>
-</li>
-<li><ul>
-<li><ul>
 <li><span style="background-color:#99FFFF;">所有的监听器 调用 <strong>contextLoaded</strong>方法。通知所有的监听器 <strong>contextLoaded</strong></span></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><ul>
-<li><strong>刷新IOC容器。</strong>refreshContext</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
+<li><strong>刷新IOC容器。</strong>refreshContext<ul>
 <li>创建容器中的所有组件（詳細內容參考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1gW411W7wy?p=1">Spring注解</a>）</li>
 </ul>
 </li>
-</ul>
-</li>
-<li><ul>
 <li>容器刷新完成后工作；afterRefresh</li>
-</ul>
-</li>
-<li><p><span style="background-color:#99FFFF;">所有监听器调用 listeners.<strong>started</strong>(context); <strong>通知所有的监听器</strong> <strong>started</strong></span></p>
-</li>
-<li><p>调用所有<strong>runners</strong>；callRunners()</p>
-</li>
-<li><ul>
-<li><ul>
+<li><span style="background-color:#99FFFF;">所有监听器调用 listeners.<strong>started</strong>(context); <strong>通知所有的监听器</strong> <strong>started</strong></span></li>
+<li>调用所有<strong>runners</strong>；callRunners()<ul>
 <li>获取容器中的 <span style="background-color:yellow;"><strong>ApplicationRunner</strong> </span></li>
+<li>获取容器中的 <span style="background-color:yellow;"> <strong>CommandLineRunner</strong></span></li>
+<li>合并所有runner并且按照**@Order**进行排序</li>
+<li><span style="background-color:#99FFFF;">遍历所有的runner。並调用 <strong>run 方法</strong></span></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><p>获取容器中的 <span style="background-color:yellow;"> <strong>CommandLineRunner</strong></span></p>
-</li>
-<li><p>合并所有runner并且按照**@Order**进行排序</p>
-</li>
-<li><p><span style="background-color:#99FFFF;">遍历所有的runner。並调用 <strong>run 方法</strong></span></p>
-</li>
-<li><ul>
-<li>如果以上有异常，</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
+<li>如果以上有异常<ul>
 <li><span style="background-color:#99FFFF;">调用Listener 的 <strong>failed</strong>方法</span></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><ul>
 <li><span style="background-color:#99FFFF;">调用所有监听器的 <strong>running 方法</strong>  listeners.running(context) ； 通知所有的监听器 <strong>running</strong> </span></li>
+<li><span style="background-color:#99FFFF;">running如果有问题。继续通知 failed 。调用所有 Listener 的<strong>failed</strong>；通知所有的监听器 <strong>failed</strong></span></li>
 </ul>
-</li>
-<li><p><span style="background-color:#99FFFF;">running如果有问题。继续通知 failed 。调用所有 Listener 的<strong>failed</strong>；通知所有的监听器 <strong>failed</strong></span></p>
 </li>
 </ul>
 <ul>
