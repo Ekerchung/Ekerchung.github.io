@@ -13,118 +13,118 @@
 <meta property="og:site_name" content="Myblog">
 <meta property="og:description" content="[toc]  # 1、Redis概述  Redis 是典型的 NoSQL 数据库。 redis官网：https:&#x2F;&#x2F;redis.io&#x2F;download  Redis 是一个开源的 key-value 存储系统。 和 Memcached 类似，它支持存储的 value 类型相对更多，包括 string、list、set、zset、sorted set、hash。 这些数据类型都支持 push&#x2F;pop">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143224012.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143241387.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143300959.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143314385.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143325255.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143514854.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143520951.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143527236.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143608162.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143613906.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143619446.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143625289.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143633223.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143639945.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143652233.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143657741.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143710179.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143718428.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143724347.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143739351.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143757340.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143820057.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143840607.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143851068.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143857441.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143906282.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330114917788.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/b954d034b3204dd38f2201893a7097cf.jpeg">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143920558.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143933459.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211113155415463-1656409103.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143945601.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144000723.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144008039.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144016472.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20210619094058710.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20210619094201203.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20230330201343058.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20230330201410223.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20210619095633057.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20210619100129431.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20210619100138313.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20210619100303067.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20210619100339429.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20210619100941862.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20210619101004992.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20210619101322601.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20210619101853376.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144025395.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144033896.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144040106.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144044481.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144051552.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144059410.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144108058.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144115897.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144126527.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144131810.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144139216.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20230331173945855.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144152165.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144157642.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144206596.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144216201.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144222545.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211113202916287-690809342.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211113204559803-571328236.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144237383.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144243066.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/image-20230331224840464.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144250098.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144303739.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144312096.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144316838.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144322927.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144333996.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144340548.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144350941.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144357240.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144402562.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144409718.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/d1177c5a865346679b7765e4a94a63e8.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/b674b31bbd174d3da8263be5c6f803a7.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144426310.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330144432552.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115202159505-416815662.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115203517302-1808528880.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115203525053-2121343349.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115204002008-129055379.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115204151804-40913090.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115204238330-1867087825.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115204448925-208828802.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115204601149-111808505.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115205050966-1370863749.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115205641281-2003977796.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115205727138-572310483.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115210054429-955343300.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115210230818-1938412945.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115210251500-824714787.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115210322007-661283480.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115210444143-948891383.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115210527028-398268273.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115210615102-960159373.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115210635596-1358120892.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115210826479-1336942960.png">
-<meta property="og:image" content="https://ekerchung.github.io/image/1211355-20211115210920400-1156383469.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143224012.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143241387.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143300959.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143314385.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143325255.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143514854.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143520951.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143527236.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143608162.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143613906.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143619446.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143625289.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143633223.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143639945.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143652233.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143657741.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143710179.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143718428.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143724347.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143739351.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143757340.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143820057.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143840607.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143851068.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143857441.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143906282.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330114917788.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/b954d034b3204dd38f2201893a7097cf.jpeg">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143920558.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143933459.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211113155415463-1656409103.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143945601.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144000723.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144008039.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144016472.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619094058710.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619094201203.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330201343058.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330201410223.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619095633057.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100129431.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100138313.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100303067.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100339429.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100941862.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619101004992.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619101322601.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619101853376.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144025395.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144033896.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144040106.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144044481.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144051552.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144059410.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144108058.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144115897.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144126527.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144131810.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144139216.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230331173945855.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144152165.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144157642.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144206596.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144216201.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144222545.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211113202916287-690809342.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211113204559803-571328236.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144237383.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144243066.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230331224840464.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144250098.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144303739.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144312096.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144316838.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144322927.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144333996.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144340548.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144350941.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144357240.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144402562.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144409718.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/d1177c5a865346679b7765e4a94a63e8.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/b674b31bbd174d3da8263be5c6f803a7.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144426310.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144432552.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115202159505-416815662.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115203517302-1808528880.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115203525053-2121343349.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204002008-129055379.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204151804-40913090.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204238330-1867087825.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204448925-208828802.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204601149-111808505.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115205050966-1370863749.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115205641281-2003977796.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115205727138-572310483.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210054429-955343300.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210230818-1938412945.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210251500-824714787.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210322007-661283480.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210444143-948891383.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210527028-398268273.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210615102-960159373.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210635596-1358120892.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210826479-1336942960.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210920400-1156383469.png">
 <meta property="article:published_time" content="2023-04-10T03:00:16.000Z">
-<meta property="article:modified_time" content="2023-04-10T07:08:21.300Z">
+<meta property="article:modified_time" content="2023-04-10T07:30:36.669Z">
 <meta property="article:author" content="Eker的編程筆記">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image/image-20230330143224012.png">
+<meta name="twitter:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143224012.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -622,7 +622,7 @@
         
         <a  class="All 前端 Spring 踩坑 "
            href="/2023/03/07/08_Vue%E5%AF%A6%E7%8F%BE%E4%BD%BF%E7%94%A8%E8%B6%85%E9%80%A3%E7%B5%90%E7%99%BC%E9%80%81delete%E8%AB%8B%E6%B1%82/"
-           data-tag="Spring,Vue,踩坑"
+           data-tag="Spring,踩坑,Vue"
            data-author="" >
             <span class="post-title" title="Vue實現使用超連結發送delete請求">Vue實現使用超連結發送delete請求</span>
             <span class="post-date" title="2023-03-07 14:39:23">2023/03/07</span>
@@ -631,7 +631,7 @@
         
         <a  class="All 前端 Spring 踩坑 "
            href="/2023/03/05/07_Vue+axios%E5%AF%A6%E7%8F%BE%E7%95%B0%E6%AD%A5%E8%AB%8B%E6%B1%82%E9%A9%97%E8%AD%89%E8%A8%BB%E5%86%8A%E8%A1%A8%E5%96%AE/"
-           data-tag="Spring,Vue,axios,踩坑"
+           data-tag="Spring,踩坑,Vue,axios"
            data-author="" >
             <span class="post-title" title="Vue+axios實現異步請求驗證註冊表單">Vue+axios實現異步請求驗證註冊表單</span>
             <span class="post-date" title="2023-03-05 23:05:46">2023/03/05</span>
@@ -658,7 +658,7 @@
         
         <a  class="All 後端 Spring "
            href="/2023/02/23/04_SSM-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%95%B4%E5%90%88/"
-           data-tag="spring,mybatis,springMVC"
+           data-tag="mybatis,spring,springMVC"
            data-author="" >
             <span class="post-title" title="SSM-配置文件整合">SSM-配置文件整合</span>
             <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>
@@ -747,7 +747,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-04-10 15:08:21'>2023-04-10 11:00</time>
+            Created At : <time class="date" title='Updated At: 2023-04-10 15:30:36'>2023-04-10 11:00</time>
         
     </div>
     <div class="article-meta">
@@ -828,7 +828,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 
 <p>默认安装在 <code>/usr/local/bin</code></p>
-<img src="image/image-20230330143224012.png" alt="image-20230330143224012" style="zoom:67%;" />
+<img src="  image-20230330143224012.png" alt="image-20230330143224012" style="zoom:67%;" />
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">redis-benchmark：性能测试工具，可以在自己本子运行，看看自己本子性能如何</span><br><span class="line">redis-check-aof：修复有问题的AOF文件，rdb和aof后面讲</span><br><span class="line">redis-check-dump：修复有问题的dump.rdb文件</span><br><span class="line">redis-sentinel：Redis集群使用</span><br><span class="line">redis-server：Redis服务器启动命令</span><br><span class="line">redis-cli：客户端，操作入口</span><br></pre></td></tr></table></figure>
 
@@ -847,7 +847,7 @@
 <li><p>修改 <em><strong>/etc/redis.conf</strong></em> 配置文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim redis.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">#redis.conf配置文件，改完后确保生效，记得重启，记得重启</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#- 默认daemonize no 改为 daemonize yes</span></span><br><span class="line"><span class="comment">#- 默认protected-mode yes 改为 protected-mode no (其他人可以連接)</span></span><br><span class="line"><span class="comment">#- 默认bind 127.0.0.1 改为 直接注释掉(默认bind 127.0.0.1只能本机访问)或改成本机IP地址，否则影响远程IP连接</span></span><br><span class="line"><span class="comment">#- 添加redis密码 改为 requirepass 你自己设置的密码 (可不用)</span></span><br></pre></td></tr></table></figure>
 
-<img src="image/image-20230330143241387.png" alt="image-20230330143241387" style="zoom:67%;" /></li>
+<img src="  image-20230330143241387.png" alt="image-20230330143241387" style="zoom:67%;" /></li>
 <li><p><em><strong>/usr/local/bin</strong></em> 目录下启动 <em><strong>redis</strong></em></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server /etc/redis.conf</span><br></pre></td></tr></table></figure></li>
 </ul>
@@ -863,9 +863,9 @@
 <p><u><strong>默认端口号：6379</strong></u></p>
 <h1 id="3、NoSQL数据库簡介"><a href="#3、NoSQL数据库簡介" class="headerlink" title="3、NoSQL数据库簡介"></a>3、NoSQL数据库簡介</h1><ul>
 <li><p>解决 <em><strong>CPU</strong></em> 及内存压力</p>
-<img src="image/image-20230330143300959.png" alt="image-20230330143300959" style="zoom: 50%;" /></li>
+<img src="  image-20230330143300959.png" alt="image-20230330143300959" style="zoom: 50%;" /></li>
 <li><p>解决 <em><strong>IO</strong></em> 压力</p>
-<img src="image/image-20230330143314385.png" alt="image-20230330143314385" style="zoom:50%;" /></li>
+<img src="  image-20230330143314385.png" alt="image-20230330143314385" style="zoom:50%;" /></li>
 </ul>
 <p><em><strong>NoSQL（ NoSQL = Not Only SQL ）</strong></em>，意即不仅仅是 <em><strong>SQL</strong></em>，泛指非关系型的数据库。</p>
 <p><em><strong>NoSQL</strong></em> 不依赖业务逻辑方式存储，而以简单的 <em><strong>key-value</strong></em> 模式存储。因此大大的增加了数据库的扩展能力。</p>
@@ -893,23 +893,23 @@
 <p>大数据时代常用的数据库类型</p>
 <ul>
 <li><p>行式数据库</p>
-<img src="image/image-20230330143325255.png" alt="image-20230330143325255" style="zoom:50%;" /></li>
+<img src="  image-20230330143325255.png" alt="image-20230330143325255" style="zoom:50%;" /></li>
 <li><p>列式数据库</p>
-<img src="image/image-20230330143514854.png" alt="image-20230330143514854" style="zoom:50%;" /></li>
+<img src="  image-20230330143514854.png" alt="image-20230330143514854" style="zoom:50%;" /></li>
 </ul>
 <h1 id="4、Redis配置文件介紹"><a href="#4、Redis配置文件介紹" class="headerlink" title="4、Redis配置文件介紹"></a>4、Redis配置文件介紹</h1><p><em><strong>redis.conf</strong></em></p>
 <h2 id="4-1-Units"><a href="#4-1-Units" class="headerlink" title="4.1 Units"></a>4.1 <em><strong>Units</strong></em></h2><blockquote>
 <p>单位，配置大小单位，开头定义了一些基本的度量单位，只支持 <em><strong>bytes</strong></em>，不支持 <em><strong>bit</strong></em>。</p>
 <p>大小写不敏感。</p>
 </blockquote>
-<img src="image/image-20230330143520951.png" alt="image-20230330143520951" style="zoom:50%;" />
+<img src="  image-20230330143520951.png" alt="image-20230330143520951" style="zoom:50%;" />
 
 
 
 <h2 id="4-2-INCLUDES"><a href="#4-2-INCLUDES" class="headerlink" title="4.2 INCLUDES"></a>4.2 <em><strong>INCLUDES</strong></em></h2><blockquote>
 <p>包含，多实例的情况可以把公用的配置文件提取出来。</p>
 </blockquote>
-<img src="image/image-20230330143527236.png" alt="image-20230330143527236" style="zoom:50%;" />
+<img src="  image-20230330143527236.png" alt="image-20230330143527236" style="zoom:50%;" />
 
 
 
@@ -920,70 +920,70 @@
 <p>不写的情况下，无限制接受任何 <em><strong>ip</strong></em> 地址的访问。</p>
 <p>生产环境肯定要写你应用服务器的地址，服务器是需要远程访问的，*<u>所以需要将其注释掉</u>*。</p>
 <p>如果开启了<em><strong>protected-mode</strong></em>，那么在没有设定 <em><strong>bind ip</strong></em> 且没有设密码的情况下，<em><strong>Redis</strong></em> 只允许接受本机的响应。</p>
-<img src="image/image-20230330143608162.png" alt="image-20230330143608162" style="zoom:50%;" />
+<img src="  image-20230330143608162.png" alt="image-20230330143608162" style="zoom:50%;" />
 
 
 
 <p><em><strong>protected-mode</strong></em></p>
 <p>将本机访问保护模式设置 <em><strong>no</strong></em>。</p>
-<img src="image/image-20230330143613906.png" alt="image-20230330143613906" style="zoom:50%;" />
+<img src="  image-20230330143613906.png" alt="image-20230330143613906" style="zoom:50%;" />
 
 
 
 <p><em><strong>port</strong></em></p>
 <p>端口号，默认 <em><strong>6379</strong></em>。</p>
-<img src="image/image-20230330143619446.png" alt="image-20230330143619446" style="zoom:50%;" />
+<img src="  image-20230330143619446.png" alt="image-20230330143619446" style="zoom:50%;" />
 
 
 
 <p><em><strong>tcp-backlog</strong></em></p>
 <p>设置 <em><strong>tcp</strong></em> 的 <em><strong>backlog</strong></em>，<em><strong>backlog</strong></em> 其实是一个连接队列，<em><strong>backlog</strong></em> 队列总和 $=$ 未完成三次握手队列 $+$ 已经完成三次握手队列。</p>
 <p>在高并发环境下你需要一个高 <em><strong>backlog</strong></em> 值来避免慢客户端连接问题。</p>
-<img src="image/image-20230330143625289.png" alt="image-20230330143625289" style="zoom:50%;" />
+<img src="  image-20230330143625289.png" alt="image-20230330143625289" style="zoom:50%;" />
 
 
 
 <p><em><strong>timeout</strong></em></p>
 <p>一个空闲的客户端维持多少秒会关闭，0 表示关闭该功能。即永不关闭。</p>
-<img src="image/image-20230330143633223.png" alt="image-20230330143633223" style="zoom:50%;" />
+<img src="  image-20230330143633223.png" alt="image-20230330143633223" style="zoom:50%;" />
 
 
 
 <p><em><strong>tcp-keepalive</strong></em></p>
 <p>对访问客户端的一种心跳检测，每个 <em><strong>n</strong></em> 秒检测一次。</p>
 <p>单位为秒，如果设置为 0，则不会进行 <em><strong>Keepalive</strong></em> 检测，建议设置成 60。</p>
-<img src="image/image-20230330143639945.png" alt="image-20230330143639945" style="zoom:50%;" />
+<img src="  image-20230330143639945.png" alt="image-20230330143639945" style="zoom:50%;" />
 </blockquote>
 <h2 id="4-4-GENERAL"><a href="#4-4-GENERAL" class="headerlink" title="4.4 GENERAL"></a>4.4 <em><strong>GENERAL</strong></em></h2><blockquote>
 <p>通用。</p>
 <p><em><strong>daemonize</strong></em></p>
 <p>是否为后台进程，设置为 <em><strong>yes</strong></em>。</p>
 <p>守护进程，后台启动。</p>
-<img src="image/image-20230330143652233.png" alt="image-20230330143652233" style="zoom:50%;" />
+<img src="  image-20230330143652233.png" alt="image-20230330143652233" style="zoom:50%;" />
 
 
 
 <p><em><strong>pidfile</strong></em></p>
 <p>存放 <em><strong>pid</strong></em> 文件的位置，每个实例会产生一个不同的 <em><strong>pid</strong></em> 文件。</p>
-<img src="image/image-20230330143657741.png" alt="image-20230330143657741" style="zoom:50%;" />
+<img src="  image-20230330143657741.png" alt="image-20230330143657741" style="zoom:50%;" />
 
 
 
 <p><em><strong>loglevel</strong></em></p>
 <p>指定日志记录级别，<em><strong>Redis</strong></em> 总共支持四个级别：<em><strong>debug、verbose、notice、warning</strong></em>，默认为 <em><strong>notice</strong></em>。</p>
-<img src="image/image-20230330143710179.png" alt="image-20230330143710179" style="zoom:50%;" />
+<img src="  image-20230330143710179.png" alt="image-20230330143710179" style="zoom:50%;" />
 
 
 
 <p><em><strong>logfile</strong></em></p>
 <p>日志文件名称。</p>
-<img src="image/image-20230330143718428.png" alt="image-20230330143718428" style="zoom:50%;" />
+<img src="  image-20230330143718428.png" alt="image-20230330143718428" style="zoom:50%;" />
 
 
 
 <p><em><strong>database</strong></em></p>
 <p>设定库的数量 默认16，默认数据库为 0，可以使用 <code>SELECT &lt;dbid&gt;</code> 命令在连接上指定数据库 <em><strong>id</strong></em>。</p>
-<img src="image/image-20230330143724347.png" alt="image-20230330143724347" style="zoom:50%;" />
+<img src="  image-20230330143724347.png" alt="image-20230330143724347" style="zoom:50%;" />
 </blockquote>
 <h2 id="4-5-SECURITY"><a href="#4-5-SECURITY" class="headerlink" title="4.5 SECURITY"></a>4.5 <em><strong>SECURITY</strong></em></h2><blockquote>
 <p>安全。</p>
@@ -997,14 +997,14 @@
 <p>设置 <em><strong>redis</strong></em> 同时可以与多少个客户端进行连接。</p>
 <p>默认情况下为 <em><strong>10000</strong></em> 个客户端。</p>
 <p>如果达到了此限制，<em><strong>redis</strong></em> 则会拒绝新的连接请求，并且向这些连接请求方发出 <em><strong>max number of clients reached</strong></em> 以作回应。</p>
-<img src="image/image-20230330143739351.png" alt="image-20230330143739351" style="zoom:50%;" />
+<img src="  image-20230330143739351.png" alt="image-20230330143739351" style="zoom:50%;" />
 
 <p><em><strong>maxmemory</strong></em></p>
 <p>建议<strong>必须设置</strong>，否则，将内存占满，造成服务器宕机。</p>
 <p>设置 <em><strong>redis</strong></em> 可以使用的内存量。一旦到达内存使用上限，<em><strong>redis</strong></em> 将会试图移除内部数据，移除规则可以通过 <em><strong>maxmemory-policy</strong></em> 来指定。</p>
 <p>如果 <em><strong>redis</strong></em> 无法根据移除规则来移除内存中的数据，或者设置了不允许移除，那么 <em><strong>redis</strong></em> 则会针对那些需要申请内存的指令返回错误信息，比如 <em><strong>SET、LPUSH</strong></em> 等。</p>
 <p>但是对于无内存申请的指令，仍然会正常响应，比如 <em><strong>GET</strong></em> 等。如果你的 <em><strong>redis</strong></em> 是主 <em><strong>redis</strong></em>（ 说明你的 <em><strong>redis</strong></em> 有从 <em><strong>redis</strong></em> ），那么在设置内存使用上限时，需要在系统中留出一些内存空间给同步队列缓存，只有在你设置的是“不移除”的情况下，才不用考虑这个因素。</p>
-<img src="image/image-20230330143757340.png" alt="image-20230330143757340" style="zoom:50%;" />
+<img src="  image-20230330143757340.png" alt="image-20230330143757340" style="zoom:50%;" />
 
 
 
@@ -1015,14 +1015,14 @@
 <p><em><strong>allkeys-random</strong></em>：在所有集合 <em><strong>key</strong></em> 中，移除随机的 <em><strong>key</strong></em>。</p>
 <p><em><strong>volatile-ttl</strong></em>：移除那些 <em><strong>TTL</strong></em> 值最小的 <em><strong>key</strong></em>，即那些最近要过期的 <em><strong>key</strong></em>。</p>
 <p><em><strong>noeviction</strong></em>：不进行移除。针对写操作，只是返回错误信息。</p>
-<img src="image/image-20230330143820057.png" alt="image-20230330143820057" style="zoom:50%;" />
+<img src="  image-20230330143820057.png" alt="image-20230330143820057" style="zoom:50%;" />
 
 
 
 <p><em><strong>maxmemory-samples</strong></em></p>
 <p>设置样本数量，<em><strong>LRU</strong></em> 算法和最小 <em><strong>TTL</strong></em> 算法都并非是精确的算法，而是估算值，所以你可以设置样本的大小，<em><strong>redis</strong></em> 默认会检查这么多个 <em><strong>key</strong></em> 并选择其中 <em><strong>LRU</strong></em> 的那个。</p>
 <p>一般设置 3 到 7 的数字，数值越小样本越不准确，但性能消耗越小。</p>
-<img src="image/image-20230330143840607.png" alt="image-20230330143840607" style="zoom:50%;" />
+<img src="  image-20230330143840607.png" alt="image-20230330143840607" style="zoom:50%;" />
 </blockquote>
 <h1 id="5、Redis常用五大數據類型"><a href="#5、Redis常用五大數據類型" class="headerlink" title="5、Redis常用五大數據類型"></a>5、Redis常用五大數據類型</h1><h2 id="5-1-key操作"><a href="#5-1-key操作" class="headerlink" title="5.1 key操作"></a>5.1 key操作</h2><blockquote>
 <p><code>keys *</code>：查看当前库所有 <em><strong>key</strong></em></p>
@@ -1069,13 +1069,13 @@
 <p><em><strong>Redis</strong></em> 单命令的原子性主要得益于 <em><strong>Redis</strong></em> 的单线程。</p>
 <p><strong>数据结构</strong></p>
 <p>内部结构实现上类似于 <em><strong>Java</strong></em> 的 <em><strong>ArrayList</strong></em>，采用预分配冗余空间的方式来减少内存的频繁分配.</p>
-<img src="image/image-20230330143851068.png" alt="image-20230330143851068" style="zoom:50%;" />
+<img src="  image-20230330143851068.png" alt="image-20230330143851068" style="zoom:50%;" />
 
 
 
 <h2 id="5-3-列表（List）"><a href="#5-3-列表（List）" class="headerlink" title="5.3 列表（List）"></a>5.3 列表（List）</h2><p><em><strong>Redis</strong></em> 列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）。</p>
 <p>它的底层实际是个双向链表，对两端的操作性能很高，通过索引下标的操作中间的节点性能会较差。</p>
-<img src="image/image-20230330143857441.png" alt="image-20230330143857441" style="zoom:50%;" />
+<img src="  image-20230330143857441.png" alt="image-20230330143857441" style="zoom:50%;" />
 
 
 
@@ -1100,7 +1100,7 @@
 <p>当数据量比较多的时候才会改成 <em><strong>quicklist</strong></em>。</p>
 <p>因为普通的链表需要的附加指针空间太大，会比较浪费空间。比如这个列表里存的只是 <em><strong>int</strong></em> 类型的数据，结构上还需要两个额外的指针 <em><strong>prev</strong></em> 和 <em><strong>next</strong></em>。</p>
 <p><em><strong>Redis</strong></em> 将链表和 <em><strong>ziplist</strong></em> 结合起来组成了 <em><strong>quicklist</strong></em>。也就是将多个 <em><strong>ziplist</strong></em> 使用双向指针串起来使用。这样既满足了快速的插入删除性能，又不会出现太大的空间冗余。</p>
-<img src="image/image-20230330143906282.png" alt="image-20230330143906282" style="zoom:50%;" />
+<img src="  image-20230330143906282.png" alt="image-20230330143906282" style="zoom:50%;" />
 
 
 
@@ -1120,7 +1120,7 @@
 <p><code>sunion &lt;key1&gt;&lt;key2&gt;</code>：返回两个集合的聯集元素</p>
 <p><code>sdiff &lt;key1&gt;&lt;key2&gt;</code>：返回两个集合的差集元素（<em><strong>key1</strong></em> 中的，不包含 <em><strong>key2</strong></em> 中的）</p>
 </blockquote>
- <img src="image/image-20230330114917788.png" alt="image-20230330114917788" style="zoom:67%;" />
+ <img src="  image-20230330114917788.png" alt="image-20230330114917788" style="zoom:67%;" />
 
 
 
@@ -1170,7 +1170,7 @@
 <li><p>Bitmaps 本身不是一种数据类型， 实际上它就是字符串（key-value） ， 但是它可以对字符串的位进行操作。</p>
 </li>
 <li><p>Bitmaps 单独提供了一套命令， 所以在 Redis 中使用 Bitmaps 和使用字符串的方法不太相同。 可以把 Bitmaps 想象成一个以位为单位的数组， 数组的每个单元只能存储 0 和 1， 数组的下标在 Bitmaps 中叫做偏移量。</p>
-<p><img src="/image/b954d034b3204dd38f2201893a7097cf.jpeg" alt="在这里插入图片描述"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/b954d034b3204dd38f2201893a7097cf.jpeg" alt="在这里插入图片描述"></p>
 </li>
 </ul>
 <h4 id="6-1-1-Bitmaps-与-set-对比"><a href="#6-1-1-Bitmaps-与-set-对比" class="headerlink" title="6.1.1 Bitmaps 与 set 对比"></a>6.1.1 <strong>Bitmaps</strong> 与 set 对比</h4><p>假设网站有 1 亿用户， 每天独立访问的用户有 5 千万， 如果每天用集合类型和 Bitmaps 分别存储活跃用户可以得到表：</p>
@@ -1280,14 +1280,14 @@
 <ol>
 <li>客户端可以订阅频道</li>
 </ol>
-<img src="image/image-20230330143920558.png" alt="image-20230330143920558" style="zoom:50%;" />
+<img src="  image-20230330143920558.png" alt="image-20230330143920558" style="zoom:50%;" />
 
 
 
 <ol start="2">
 <li>当给这个频道发布消息后，消息就会发送给订阅的客户端</li>
 </ol>
-<img src="image/image-20230330143933459.png" alt="image-20230330143933459" style="zoom:50%;" />
+<img src="  image-20230330143933459.png" alt="image-20230330143933459" style="zoom:50%;" />
 
 
 
@@ -1296,7 +1296,7 @@
 </blockquote>
 <h1 id="8、事务和锁机制"><a href="#8、事务和锁机制" class="headerlink" title="8、事务和锁机制"></a>8、事务和锁机制</h1><p><em><strong>Redis</strong></em> 事务是一个单独的隔离操作：事务中的所有命令都会序列化、按顺序地执行。事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。</p>
 <p><em><strong>Redis</strong></em> 事务的主要作用就是串联多个命令防止别的命令插队。</p>
-<h2 id="8-1-Multi、Exec、Discard"><a href="#8-1-Multi、Exec、Discard" class="headerlink" title="8.1 Multi、Exec、Discard"></a>8.1 <em>Multi</em>、<em>Exec</em>、<em>Discard</em></h2><p><img src="/image/1211355-20211113155415463-1656409103.png" alt="img"></p>
+<h2 id="8-1-Multi、Exec、Discard"><a href="#8-1-Multi、Exec、Discard" class="headerlink" title="8.1 Multi、Exec、Discard"></a>8.1 <em>Multi</em>、<em>Exec</em>、<em>Discard</em></h2><p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211113155415463-1656409103.png" alt="img"></p>
 <blockquote>
 <p><em><strong>Multi</strong></em></p>
 <p><em><strong>Exec</strong></em></p>
@@ -1306,22 +1306,22 @@
 </blockquote>
 <ul>
 <li><p>组队成功，提交成功</p>
-<img src="image/image-20230330143945601.png" alt="image-20230330143945601" style="zoom:50%;" /></li>
+<img src="  image-20230330143945601.png" alt="image-20230330143945601" style="zoom:50%;" /></li>
 <li><p>放弃组队</p>
-<img src="image/image-20230330144000723.png" alt="image-20230330144000723" style="zoom:50%;" /></li>
+<img src="  image-20230330144000723.png" alt="image-20230330144000723" style="zoom:50%;" /></li>
 <li><p>组队中有命令错误，不会执行</p>
-<img src="image/image-20230330144008039.png" alt="image-20230330144008039" style="zoom:50%;" /></li>
+<img src="  image-20230330144008039.png" alt="image-20230330144008039" style="zoom:50%;" /></li>
 <li><p>组队中不报错，执行时报错</p>
-<img src="image/image-20230330144016472.png" alt="image-20230330144016472" style="zoom:50%;" /></li>
+<img src="  image-20230330144016472.png" alt="image-20230330144016472" style="zoom:50%;" /></li>
 </ul>
 <h2 id="8-2-事务的错误处理"><a href="#8-2-事务的错误处理" class="headerlink" title="8.2 事务的错误处理"></a>8.2 事务的错误处理</h2><ul>
 <li>【錯誤狀況一】组队中某个命令出现了报告错误，执行时整个的所有队列都会被取消。</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619094058710.png"><img src="/image/image-20210619094058710.png" alt="image-20210619094058710"></a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619094058710.png"><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619094058710.png" alt="image-20210619094058710"></a></p>
 <ul>
 <li>【錯誤狀況二】如果执行阶段某个命令报出了错误，则只有报错的命令不会被执行，而其他的命令都会执行，不会回滚。</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619094201203.png"><img src="/image/image-20210619094201203.png" alt="image-20210619094201203"></a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619094201203.png"><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619094201203.png" alt="image-20210619094201203"></a></p>
 <h2 id="8-3-事务冲突的问题"><a href="#8-3-事务冲突的问题" class="headerlink" title="8.3 事务冲突的问题"></a>8.3 <strong>事务冲突的问题</strong></h2><h3 id="8-3-1-为什么要做成事务"><a href="#8-3-1-为什么要做成事务" class="headerlink" title="8.3.1 为什么要做成事务"></a>8.3.1 <strong>为什么要做成事务</strong></h3><p>想想一个场景：有很多人有你的账户，同时去参加双十一抢购。</p>
 <p><strong>例子</strong></p>
 <ul>
@@ -1337,11 +1337,11 @@
 <p>我們有下面兩種方式可以處理這個問題</p>
 </blockquote>
 <h4 id="1-悲观锁"><a href="#1-悲观锁" class="headerlink" title="1. 悲观锁"></a>1. 悲观锁</h4><p>悲观锁（<em><strong>Pessimistic Lock</strong></em>），即每次去拿数据的时候都认为有其他线程会修改，所以每次在拿数据的时候都会上锁，这样其他线程想要拿到这个数据就会被 <em><strong>block</strong></em> 直到成功拿到锁。（效率低）</p>
-<p><img src="/image/image-20230330201343058.png" alt="image-20230330201343058"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330201343058.png" alt="image-20230330201343058"></p>
 <h4 id="2-乐观锁"><a href="#2-乐观锁" class="headerlink" title="2. 乐观锁"></a>2. 乐观锁</h4><p>乐观锁（<em><strong>Optimistic Lock</strong></em>），即每次去拿数据的时候都认为其他线程不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间有没有其他线程去更新这个数据，可以使用版本号等机制。</p>
 <p><strong>乐观锁适用于多读的应用类型，这样可以提高吞吐量</strong>。</p>
 <p><em><strong>Redis</strong></em> 就是利用这种 <em><strong>check-and-set</strong></em> 机制实现事务的。</p>
-<p><img src="/image/image-20230330201410223.png" alt="image-20230330201410223"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330201410223.png" alt="image-20230330201410223"></p>
 <h4 id="3-Watch、unwatch-實現樂觀鎖"><a href="#3-Watch、unwatch-實現樂觀鎖" class="headerlink" title="3. Watch、unwatch 實現樂觀鎖"></a>3. <em>Watch、unwatch</em> 實現樂觀鎖</h4><p>在执行 <em><strong>multi</strong></em> 之前，先执行 <em><strong>watch key1 [key2]<em><strong>，可以监视一个（或多个 ）</strong></em>key</strong></em> 。如果在事务执行之前这个 <em><strong>key</strong></em> 被其他命令所改动，那么事务将被打断。</p>
 <p>取消 <em><strong>WATCH</strong></em> 命令对所有 <em><strong>key</strong></em> 的监视。如果在执行 <em><strong>WATCH</strong></em> 命令之后，<em><strong>EXEC</strong></em> 命令或 <em><strong>DISCARD</strong></em> 命令先被执行，那么就不需要再执行 <em><strong>UNWATCH</strong></em> 。</p>
 <h3 id="8-3-2-事务三特性"><a href="#8-3-2-事务三特性" class="headerlink" title="8.3.2 事务三特性"></a>8.3.2 事务三特性</h3><ul>
@@ -1355,7 +1355,7 @@
 <p>事务中如果有一条命令执行失败，其后的命令仍然会被执行，没有回滚 。</p>
 </li>
 </ul>
-<h2 id="8-4-Redis-事务秒杀案例"><a href="#8-4-Redis-事务秒杀案例" class="headerlink" title="8.4 Redis_事务秒杀案例"></a>8.4 Redis_事务秒杀案例</h2><h3 id="8-4-1-解决计数器和人员记录的事务操作"><a href="#8-4-1-解决计数器和人员记录的事务操作" class="headerlink" title="8.4.1 解决计数器和人员记录的事务操作"></a>8.4.1 <strong>解决计数器和人员记录的事务操作</strong></h3><p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619095633057.png"><img src="/image/image-20210619095633057.png" alt="image-20210619095633057"></a></p>
+<h2 id="8-4-Redis-事务秒杀案例"><a href="#8-4-Redis-事务秒杀案例" class="headerlink" title="8.4 Redis_事务秒杀案例"></a>8.4 Redis_事务秒杀案例</h2><h3 id="8-4-1-解决计数器和人员记录的事务操作"><a href="#8-4-1-解决计数器和人员记录的事务操作" class="headerlink" title="8.4.1 解决计数器和人员记录的事务操作"></a>8.4.1 <strong>解决计数器和人员记录的事务操作</strong></h3><p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619095633057.png"><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619095633057.png" alt="image-20210619095633057"></a></p>
 <h3 id="8-4-2-Redis-事务-—-秒杀并发模拟"><a href="#8-4-2-Redis-事务-—-秒杀并发模拟" class="headerlink" title="8.4.2 Redis 事务 — 秒杀并发模拟"></a>8.4.2 Redis 事务 — 秒杀并发模拟</h3><blockquote>
 <p><strong>使用工具 ab 模拟测试：</strong></p>
 <ul>
@@ -1374,16 +1374,16 @@
 <ul>
 <li><strong>發現超卖問題</strong></li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619100129431.png"><img src="/image/image-20210619100129431.png" alt="image-20210619100129431"></a></p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619100138313.png"><img src="/image/image-20210619100138313.png" alt="image-20210619100138313"></a></p>
-<h3 id="8-4-3-超卖问题"><a href="#8-4-3-超卖问题" class="headerlink" title="8.4.3 超卖问题"></a>8.4.3 超卖问题</h3><p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619100303067.png"><img src="/image/image-20210619100303067.png" alt="image-20210619100303067"></a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619100129431.png"><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100129431.png" alt="image-20210619100129431"></a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619100138313.png"><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100138313.png" alt="image-20210619100138313"></a></p>
+<h3 id="8-4-3-超卖问题"><a href="#8-4-3-超卖问题" class="headerlink" title="8.4.3 超卖问题"></a>8.4.3 超卖问题</h3><p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619100303067.png"><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100303067.png" alt="image-20210619100303067"></a></p>
 <p><strong>利用乐观锁淘汰用户，解决超卖问题。</strong></p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619100339429.png"><img src="/image/image-20210619100339429.png" alt="image-20210619100339429"></a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619100339429.png"><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100339429.png" alt="image-20210619100339429"></a></p>
 <p><strong>主要代码：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">java</span><br><span class="line">public class SecKill_redis &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Jedis jedis =new Jedis(&quot;192.168.44.168&quot;,6379);</span><br><span class="line">		System.out.println(jedis.ping());</span><br><span class="line">		jedis.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//秒杀过程</span><br><span class="line">	public static boolean doSecKill(String uid,String prodid) throws IOException &#123;</span><br><span class="line">		//1 uid和prodid非空判断</span><br><span class="line">		if(uid == null || prodid == null) &#123;</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		//2 连接redis</span><br><span class="line">		//Jedis jedis = new Jedis(&quot;192.168.44.168&quot;,6379);</span><br><span class="line">		//通过连接池得到jedis对象</span><br><span class="line">		JedisPool jedisPoolInstance = JedisPoolUtil.getJedisPoolInstance();</span><br><span class="line">		Jedis jedis = jedisPoolInstance.getResource();</span><br><span class="line"></span><br><span class="line">		//3 拼接key</span><br><span class="line">		// 3.1 库存key</span><br><span class="line">		String kcKey = &quot;sk:&quot;+prodid+&quot;:qt&quot;;</span><br><span class="line">		// 3.2 秒杀成功用户key</span><br><span class="line">		String userKey = &quot;sk:&quot;+prodid+&quot;:user&quot;;</span><br><span class="line"></span><br><span class="line">		//监视库存</span><br><span class="line">		jedis.watch(kcKey);</span><br><span class="line"></span><br><span class="line">		//4 获取库存，如果库存null，秒杀还没有开始</span><br><span class="line">		String kc = jedis.get(kcKey);</span><br><span class="line">		if(kc == null) &#123;</span><br><span class="line">			System.out.println(&quot;秒杀还没有开始，请等待&quot;);</span><br><span class="line">			jedis.close();</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		// 5 判断用户是否重复秒杀操作</span><br><span class="line">		if(jedis.sismember(userKey, uid)) &#123;</span><br><span class="line">			System.out.println(&quot;已经秒杀成功了，不能重复秒杀&quot;);</span><br><span class="line">			jedis.close();</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		//6 判断如果商品数量，库存数量小于1，秒杀结束</span><br><span class="line">		if(Integer.parseInt(kc)&lt;=0) &#123;</span><br><span class="line">			System.out.println(&quot;秒杀已经结束了&quot;);</span><br><span class="line">			jedis.close();</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		//7 秒杀过程</span><br><span class="line">		//使用事务</span><br><span class="line">		Transaction multi = jedis.multi();</span><br><span class="line"></span><br><span class="line">		//组队操作</span><br><span class="line">		multi.decr(kcKey);</span><br><span class="line">		multi.sadd(userKey,uid);</span><br><span class="line"></span><br><span class="line">		//执行</span><br><span class="line">		List&lt;Object&gt; results = multi.exec();</span><br><span class="line"></span><br><span class="line">		if(results == null || results.size()==0) &#123;</span><br><span class="line">			System.out.println(&quot;秒杀失败了....&quot;);</span><br><span class="line">			jedis.close();</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		//7.1 库存-1</span><br><span class="line">		//jedis.decr(kcKey);</span><br><span class="line">		//7.2 把秒杀成功用户添加清单里面</span><br><span class="line">		//jedis.sadd(userKey,uid);</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;秒杀成功了..&quot;);</span><br><span class="line">		jedis.close();</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619100941862.png"><img src="/image/image-20210619100941862.png" alt="image-20210619100941862"></a></p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619101004992.png"><img src="/image/image-20210619101004992.png" alt="image-20210619101004992"></a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619100941862.png"><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100941862.png" alt="image-20210619100941862"></a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619101004992.png"><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619101004992.png" alt="image-20210619101004992"></a></p>
 <h3 id="8-4-4-继续增加并发测试"><a href="#8-4-4-继续增加并发测试" class="headerlink" title="8.4.4 继续增加并发测试"></a>8.4.4 继续增加并发测试</h3><ul>
 <li><strong>连接有限制</strong></li>
 </ul>
@@ -1392,7 +1392,7 @@
 <li><strong>已经秒光，可是还有库存</strong></li>
 </ul>
 <p>已经秒光，可是还有库存。原因：乐观锁导致很多请求都失败。先点的没秒到，后点的可能秒到了。</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619101322601.png"><img src="/image/image-20210619101322601.png" alt="image-20210619101322601"></a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619101322601.png"><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619101322601.png" alt="image-20210619101322601"></a></p>
 <ul>
 <li><strong>连接超时，通过连接池解决</strong></li>
 </ul>
@@ -1411,9 +1411,9 @@
 <li>但是注意 redis 的 lua 脚本功能，只有在 Redis 2.6 以上的版本才可以使用。</li>
 <li>利用 lua 脚本淘汰用户，解决超卖问题，redis 2.6 版本以后，通过 lua 脚本解决<strong>争抢问题</strong>，实际上是 <strong>redis</strong> <strong>利用其单线程的特性，用任务队列的方式解决多任务并发问题</strong>。</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619101853376.png"><img src="/image/image-20210619101853376.png" alt="image-20210619101853376"></a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhangc233/pic@master/img/image-20210619101853376.png"><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619101853376.png" alt="image-20210619101853376"></a></p>
 <h1 id="9、持久化"><a href="#9、持久化" class="headerlink" title="9、持久化"></a>9、持久化</h1><h2 id="9-1-RDB"><a href="#9-1-RDB" class="headerlink" title="9.1 RDB"></a>9.1 RDB</h2><p>在指定的时间间隔内将内存中的数据集快照写入磁盘， 即 <em><strong>Snapshot</strong></em> 快照，恢复时是将快照文件直接读到内存里。</p>
-<img src="image/image-20230330144025395.png" alt="image-20230330144025395" style="zoom:50%;" />
+<img src="  image-20230330144025395.png" alt="image-20230330144025395" style="zoom:50%;" />
 
 <p><em><strong>Redis</strong></em> 会单独创建一个子进程（<em><strong>fork</strong></em>）来进行持久化。</p>
 <p>先将数据写入到一个临时文件中，待持久化过程完成后，再将这个临时文件内容覆盖到 <em><strong>dump.rdb</strong></em>。</p>
@@ -1430,31 +1430,31 @@
 <h3 id="9-1-2-配置"><a href="#9-1-2-配置" class="headerlink" title="9.1.2 配置"></a>9.1.2 配置</h3><blockquote>
 <p><strong><em>dump</em> 文件名字</strong></p>
 <p>在 <em><strong>redis.conf</strong></em> 中配置文件名称，默认为 <em><strong>dump.rdb</strong></em>。</p>
-<img src="image/image-20230330144033896.png" alt="image-20230330144033896" style="zoom:50%;" />
+<img src="  image-20230330144033896.png" alt="image-20230330144033896" style="zoom:50%;" />
 
 
 
 <p><strong><em>dump</em> 保存位置</strong></p>
 <p><em><strong>rdb</strong></em> 文件的保存路径可以修改。默认为 <em><strong>Redis</strong></em> 启动时命令行所在的目录下。</p>
-<img src="image/image-20230330144040106.png" alt="image-20230330144040106" style="zoom:50%;" />
+<img src="  image-20230330144040106.png" alt="image-20230330144040106" style="zoom:50%;" />
 
 
 
 <p><em><strong>stop-writes-on-bgsave-error</strong></em></p>
 <p>即当 <em><strong>redis</strong></em> 无法写入磁盘，关闭 <em><strong>redis</strong></em> 的写入操作。</p>
-<img src="image/image-20230330144044481.png" alt="image-20230330144044481" style="zoom:50%;" />
+<img src="  image-20230330144044481.png" alt="image-20230330144044481" style="zoom:50%;" />
 
 
 
 <p><em><strong>rdbcompression</strong></em></p>
 <p>持久化的文件是否进行压缩存储。</p>
-<img src="image/image-20230330144051552.png" alt="image-20230330144051552" style="zoom:50%;" />
+<img src="  image-20230330144051552.png" alt="image-20230330144051552" style="zoom:50%;" />
 
 
 
 <p><em><strong>rdbchecksum</strong></em></p>
 <p>完整性的检查，即数据是否完整性、准确性。</p>
-<img src="image/image-20230330144059410.png" alt="image-20230330144059410" style="zoom:50%;" />
+<img src="  image-20230330144059410.png" alt="image-20230330144059410" style="zoom:50%;" />
 
 
 
@@ -1462,7 +1462,7 @@
 <p>表示写操作的次数。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：save 秒 写操作次数</span><br></pre></td></tr></table></figure>
 
-<img src="image/image-20230330144108058.png" alt="image-20230330144108058" style="zoom:50%;" />
+<img src="  image-20230330144108058.png" alt="image-20230330144108058" style="zoom:50%;" />
 </blockquote>
 <h3 id="9-1-3-优点"><a href="#9-1-3-优点" class="headerlink" title="9.1.3 优点"></a>9.1.3 优点</h3><ul>
 <li>适合大规模的数据恢复；</li>
@@ -1490,17 +1490,17 @@
 <p><em><strong>AOF</strong></em> 和 <em><strong>RDB</strong></em> 同时开启时，系统默认读取 <em><strong>AOF</strong></em> 的数据（数据不会存在丢失）</p>
 <h3 id="9-2-1-配置"><a href="#9-2-1-配置" class="headerlink" title="9.2.1 配置"></a>9.2.1 配置</h3><blockquote>
 <p><strong><em>AOF</em> 默认不开启</strong></p>
-<img src="image/image-20230330144115897.png" alt="image-20230330144115897" style="zoom:50%;" />
+<img src="  image-20230330144115897.png" alt="image-20230330144115897" style="zoom:50%;" />
 
 
 
 <p><strong>文件名字</strong></p>
-<img src="image/image-20230330144126527.png" alt="image-20230330144126527" style="zoom:50%;" />
+<img src="  image-20230330144126527.png" alt="image-20230330144126527" style="zoom:50%;" />
 
 
 
 <p><strong><em>AOF</em> 同步频率设置</strong></p>
-<img src="image/image-20230330144131810.png" alt="image-20230330144131810" style="zoom:50%;" />
+<img src="  image-20230330144131810.png" alt="image-20230330144131810" style="zoom:50%;" />
 
 <p><em><strong>appendfsync always</strong></em></p>
 <p>​    始终同步，每次 <em><strong>Redis</strong></em> 的写入都会立刻记入日志；</p>
@@ -1511,7 +1511,7 @@
 <p>​    <em><strong>Redis</strong></em> 不主动进行同步，把同步时机交给操作系统。</p>
 <p><strong><em>Rewrite</em> 压缩</strong></p>
 <p>当 <em><strong>AOF</strong></em> 文件的大小超过所设定的阈值时，<em><strong>Redis</strong></em> 就会启动 <em><strong>AOF</strong></em> 文件的内容压缩，只保留可以恢复数据的最小指令集。可以使用命令 <em><strong>bgrewriteaof</strong></em>。</p>
-<img src="image/image-20230330144139216.png" alt="image-20230330144139216" style="zoom:50%;" />
+<img src="  image-20230330144139216.png" alt="image-20230330144139216" style="zoom:50%;" />
 </blockquote>
 <h3 id="9-2-2优点"><a href="#9-2-2优点" class="headerlink" title="9.2.2优点"></a>9.2.2优点</h3><ul>
 <li>备份机制更稳健，丢失数据概率更低；</li>
@@ -1535,7 +1535,7 @@
 <li>读写分离，性能扩展</li>
 <li>容灾快速恢复</li>
 </ol>
-<p><img src="/image/image-20230331173945855.png" alt="image-20230331173945855"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230331173945855.png" alt="image-20230331173945855"></p>
 <h2 id="10-1-搭建一主两从"><a href="#10-1-搭建一主两从" class="headerlink" title="10.1 搭建一主两从"></a>10.1 搭建一主两从</h2><ol>
 <li>创建文件目录</li>
 </ol>
@@ -1556,28 +1556,28 @@
 <ol start="4">
 <li>启动 3 台 <em><strong>redis</strong></em> 服务器</li>
 </ol>
-<img src="image/image-20230330144152165.png" alt="image-20230330144152165" style="zoom:50%;" />
+<img src="  image-20230330144152165.png" alt="image-20230330144152165" style="zoom:50%;" />
 
 <ol start="5">
 <li>查看主机运行情况</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">info replication</span><br></pre></td></tr></table></figure>
 
-<img src="image/image-20230330144157642.png" alt="image-20230330144157642" style="zoom:50%;" />
+<img src="  image-20230330144157642.png" alt="image-20230330144157642" style="zoom:50%;" />
 
 <ol start="6">
 <li>配从不配主</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">slaveof  &lt;ip&gt;&lt;port&gt;</span><br><span class="line"><span class="comment"># 成为某个实例的从服务器</span></span><br></pre></td></tr></table></figure>
 
-<img src="image/image-20230330144206596.png" alt="image-20230330144206596" style="zoom:50%;" />
+<img src="  image-20230330144206596.png" alt="image-20230330144206596" style="zoom:50%;" />
 
-<img src="image/image-20230330144216201.png" alt="image-20230330144216201" style="zoom:50%;" />
+<img src="  image-20230330144216201.png" alt="image-20230330144216201" style="zoom:50%;" />
 
 <ol start="7">
 <li>再次查看主机运行情况</li>
 </ol>
-<img src="image/image-20230330144222545.png" alt="image-20230330144222545" style="zoom:50%;" />
+<img src="  image-20230330144222545.png" alt="image-20230330144222545" style="zoom:50%;" />
 
 <p>成功搭建。</p>
 <h2 id="10-2-一主二从"><a href="#10-2-一主二从" class="headerlink" title="10.2 一主二从"></a>10.2 一主二从</h2><p>一主二從的特點演示如下：</p>
@@ -1593,7 +1593,7 @@
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6380和6381仍然是6379的从机，不会做任何事；</span><br><span class="line">当6379重启后，既然是主服务器。</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="10-3-薪火相传"><a href="#10-3-薪火相传" class="headerlink" title="10.3 薪火相传"></a>10.3 薪火相传</h2><p><img src="/image/1211355-20211113202916287-690809342.png" alt="img"></p>
+<h2 id="10-3-薪火相传"><a href="#10-3-薪火相传" class="headerlink" title="10.3 薪火相传"></a>10.3 薪火相传</h2><p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211113202916287-690809342.png" alt="img"></p>
 <p>上一个 <em><strong>slave</strong></em> 可以是下一个 <em><strong>slave</strong></em> 的 <em><strong>master</strong></em>，<em><strong>slave</strong></em> 同样可以接收其他 <em><strong>slave</strong></em>的连接和同步请求，那么该 <em><strong>slave</strong></em> 作为了链条中下一个的 <em><strong>master</strong></em>，可以有效减轻 <em><strong>master</strong></em> 的写压力，去中心化降低风险。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slaveof &lt;ip&gt;&lt;port&gt;</span><br></pre></td></tr></table></figure>
 
@@ -1610,7 +1610,7 @@
 <p>:bulb:SpringBoot整合Redis哨兵模式的配置詳見這兩篇</p>
 <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904134181666824">1. SpringBoot结合Redis哨兵模式的实现</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ankeway/article/details/86544475">2. SpringBoot2.0默认使用Redis连接池的配置注意事项</a></p>
-<p><img src="/image/1211355-20211113204559803-571328236.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211113204559803-571328236.png" alt="img"></p>
 <ol>
 <li>创建 <em><strong>sentinel.conf</strong></em> 文件</li>
 </ol>
@@ -1626,7 +1626,7 @@
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-sentinel  /opt/etc/sentinel.conf </span><br></pre></td></tr></table></figure>
 
-<img src="image/image-20230330144237383.png" alt="image-20230330144237383" style="zoom:50%;" />
+<img src="  image-20230330144237383.png" alt="image-20230330144237383" style="zoom:50%;" />
 
 
 
@@ -1640,7 +1640,7 @@
 <ol>
 <li>根据<em><strong>优先级别</strong></em>：***slave-priority(舊版) / replica-priority(新版)***，优先选择优先级靠前的。</li>
 </ol>
-<img src="image/image-20230330144243066.png" alt="image-20230330144243066" style="zoom:50%;" />
+<img src="  image-20230330144243066.png" alt="image-20230330144243066" style="zoom:50%;" />
 
 <ol start="2">
 <li><p>根据<em><strong>偏移量</strong></em>：指获得原主机数据最全的比例，优先选择偏移量大的。</p>
@@ -1663,18 +1663,18 @@
 <li><p>只要是重新连接 <em><strong>master</strong></em>，一次完全同步（全量复制）将被自动执行。</p>
 </li>
 </ul>
-<p><img src="/image/image-20230331224840464.png" alt="image-20230331224840464"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230331224840464.png" alt="image-20230331224840464"></p>
 <h1 id="11、集群"><a href="#11、集群" class="headerlink" title="11、集群"></a>11、集群</h1><p>容量不够，<em><strong>redis</strong></em> 如何进行扩容？</p>
 <p>并发写操作， <em><strong>redis</strong></em> 如何分摊？</p>
 <p>主从模式，薪火相传模式，主机宕机，导致 <em><strong>ip</strong></em> 地址发生变化，应用程序中配置需要修改对应的主机地址、端口等信息。</p>
 <p>解决方法：</p>
 <ul>
 <li><p>代理主机（ <em><strong>之前</strong></em> ）</p>
-<img src="image/image-20230330144250098.png" style="zoom:50%;" /></li>
+<img src="  image-20230330144250098.png" style="zoom:50%;" /></li>
 <li><p>无中心化集群配置（ <em><strong>redis3.0</strong></em> ）</p>
 </li>
 </ul>
-<img src="image/image-20230330144303739.png" alt="image-20230330144303739" style="zoom:50%;" />
+<img src="  image-20230330144303739.png" alt="image-20230330144303739" style="zoom:50%;" />
 
 
 
@@ -1685,30 +1685,30 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以redis6379.conf为例</span></span><br><span class="line">include /opt/etc/redis.conf</span><br><span class="line">pidfile /var/run/redis_6379.pid <span class="comment"># 更改</span></span><br><span class="line">port 6379 <span class="comment"># 更改</span></span><br><span class="line">dbfilename dump6379.rdb <span class="comment"># 更改</span></span><br><span class="line">cluster-enabled <span class="built_in">yes</span> <span class="comment"># 打开集群模式</span></span><br><span class="line">cluster-config-file nodes-6379.conf <span class="comment"># 设置节点配置文件名称，需要更改</span></span><br><span class="line">cluster-node-timeout 15000 <span class="comment"># 设置节点失联事件，超过该时间（ms），集群自动进行主从切换</span></span><br></pre></td></tr></table></figure>
 
-<img src="image/image-20230330144312096.png" alt="image-20230330144312096" style="zoom:50%;" />
+<img src="  image-20230330144312096.png" alt="image-20230330144312096" style="zoom:50%;" />
 
 <ol start="2">
 <li>启动</li>
 </ol>
-<img src="image/image-20230330144316838.png" alt="image-20230330144316838" style="zoom:50%;" />
+<img src="  image-20230330144316838.png" alt="image-20230330144316838" style="zoom:50%;" />
 
 <ol start="3">
 <li>将 6 个节点合成一个集群</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 组合之前请确保所有redis实例启动后，nodes-xxxx.conf文件都生成正常。</span></span><br></pre></td></tr></table></figure>
 
-<img src="image/image-20230330144322927.png" alt="image-20230330144322927" style="zoom:50%;" />
+<img src="  image-20230330144322927.png" alt="image-20230330144322927" style="zoom:50%;" />
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入redis安装目录，必須在此目錄下才可執行節點合成操作</span></span><br><span class="line">/opt/redis-6.2.6/src</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行</span></span><br><span class="line">redis-cli --cluster create --cluster-replicas 1 172.16.88.168:6379 172.16.88.168:6380 172.16.88.168:6381 172.16.88.168:6389 172.16.88.168:6390 172.16.88.168:6391</span><br></pre></td></tr></table></figure>
 
-<img src="image/image-20230330144333996.png" alt="image-20230330144333996" style="zoom:50%;" />
+<img src="  image-20230330144333996.png" alt="image-20230330144333996" style="zoom:50%;" />
 
 <ol start="4">
 <li>使用集群策略连接</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -c -p PORT <span class="comment">#連接方式要添加 -c 才是以集群方式連接</span></span><br><span class="line">cluster nodes <span class="comment"># 命令查看集群信息</span></span><br></pre></td></tr></table></figure>
 
-<img src="image/image-20230330144340548.png" alt="image-20230330144340548" style="zoom:50%;" />
+<img src="  image-20230330144340548.png" alt="image-20230330144340548" style="zoom:50%;" />
 
 
 
@@ -1716,11 +1716,11 @@
 <p>一个集群至少要有三个主节点。</p>
 <p>选项 <code>--cluster-replicas 1</code>，表示希望为集群中的每个主节点创建一个从节点。</p>
 <p>分配原则尽量保证每个主数据库运行在不同的 <em><strong>IP</strong></em> 地址，每个从库和主库不在一个 <em><strong>IP</strong></em> 地址上。</p>
-<img src="image/image-20230330144350941.png" alt="image-20230330144350941" style="zoom:50%;" />
+<img src="  image-20230330144350941.png" alt="image-20230330144350941" style="zoom:50%;" />
 </blockquote>
-<h3 id="11-2-2-什么是-slots？"><a href="#11-2-2-什么是-slots？" class="headerlink" title="11.2.2 什么是 slots？"></a>11.2.2 什么是 <em>slots</em>？</h3><img src="image/image-20230330144357240.png" alt="image-20230330144357240" style="zoom:50%;" />
+<h3 id="11-2-2-什么是-slots？"><a href="#11-2-2-什么是-slots？" class="headerlink" title="11.2.2 什么是 slots？"></a>11.2.2 什么是 <em>slots</em>？</h3><img src="  image-20230330144357240.png" alt="image-20230330144357240" style="zoom:50%;" />
 
-<img src="image/image-20230330144402562.png" alt="image-20230330144402562" style="zoom:50%;" />
+<img src="  image-20230330144402562.png" alt="image-20230330144402562" style="zoom:50%;" />
 
 <blockquote>
 <p>一个 <em><strong>Redis</strong></em> 集群包含 <em><strong>16384</strong></em> 个插槽（<em><strong>hash slot</strong></em>）， 数据库中的每个键都属于这 <em><strong>16384</strong></em> 个插槽的其中一个。</p>
@@ -1747,7 +1747,7 @@
 </blockquote>
 <h3 id="11-2-5-故障恢复？"><a href="#11-2-5-故障恢复？" class="headerlink" title="11.2.5 故障恢复？"></a>11.2.5 故障恢复？</h3><blockquote>
 <p>如果主节点下线？从节点能否自动升为主节点？注意：<em><strong>15</strong></em> 秒超时。</p>
-<img src="image/image-20230330144409718.png" alt="image-20230330144409718" style="zoom:50%;" />
+<img src="  image-20230330144409718.png" alt="image-20230330144409718" style="zoom:50%;" />
 
 <ul>
 <li>当 <em><strong>6379</strong></em> 挂掉后，<em><strong>6389</strong></em> 成为新的主机。</li>
@@ -1797,9 +1797,9 @@
 <ul>
 <li>redis.conf中注释掉bind 127.0.0.1 ,然后 protected-mode no</li>
 </ul>
- <img src="image/d1177c5a865346679b7765e4a94a63e8.png" alt="在这里插入图片描述" style="zoom:67%;" />
+ <img src="  d1177c5a865346679b7765e4a94a63e8.png" alt="在这里插入图片描述" style="zoom:67%;" />
 
- <img src="image/b674b31bbd174d3da8263be5c6f803a7.png" alt="在这里插入图片描述" style="zoom:67%;" />
+ <img src="  b674b31bbd174d3da8263be5c6f803a7.png" alt="在这里插入图片描述" style="zoom:67%;" />
 
 
 
@@ -1843,7 +1843,7 @@
 <li>应用服务器压力变大。</li>
 <li><em><strong>redis</strong></em> 命中率下降 $\longrightarrow$ 查询数据库 。</li>
 </ol>
-<img src="image/image-20230330144426310.png" alt="image-20230330144426310" style="zoom:50%;" />
+<img src="  image-20230330144426310.png" alt="image-20230330144426310" style="zoom:50%;" />
 
 
 
@@ -1869,7 +1869,7 @@
 <li><em><strong>redis</strong></em> 中没有出现大量 <em><strong>key</strong></em> 过期，<em><strong>redis</strong></em> 正常运行。</li>
 <li>（即某个经常访问的 <em><strong>key</strong></em> 过期，突然有大量访问这个数据）</li>
 </ol>
-<img src="image/image-20230330144432552.png" alt="image-20230330144432552" style="zoom:50%;" />
+<img src="  image-20230330144432552.png" alt="image-20230330144432552" style="zoom:50%;" />
 
 
 
@@ -1929,7 +1929,7 @@
 <p>PX millis：设置键的过期时间为 millis 毫秒。 set key value PX millis 效果等同于 PSETEX key millis value</p>
 <p>NX：只在键不存在时，才对键进行设置操作。 set key value NX 效果等同于 setnx key value</p>
 <p>XX：只在键已经存在时，才对键进行设置操作</p>
-<p><img src="/image/1211355-20211115202159505-416815662.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115202159505-416815662.png" alt="img"></p>
 <ol>
 <li><p>多个客户端同时获取锁（setnx）</p>
 </li>
@@ -1948,18 +1948,18 @@
 
 <p>重启，服务集群，通过网关压力测试：</p>
 <p>ab -n 5000 -c 100 <a target="_blank" rel="noopener" href="http://192.168.184.204:8080/redisTest/testLock">http://192.168.184.204:8080/redisTest/testLock</a></p>
-<p><img src="/image/1211355-20211115203517302-1808528880.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115203517302-1808528880.png" alt="img"></p>
 <p>查看redis中num的值，基本实现</p>
-<p><img src="/image/1211355-20211115203525053-2121343349.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115203525053-2121343349.png" alt="img"></p>
 <p>问题：setnx刚好获取到锁，业务逻辑出现异常，导致锁无法释放</p>
 <p>解决：设置过期时间，自动释放锁。</p>
 <h4 id="14-4-2-2-优化之设置锁的过期时间"><a href="#14-4-2-2-优化之设置锁的过期时间" class="headerlink" title="14.4.2.2 优化之设置锁的过期时间"></a>14.4.2.2 优化之设置锁的过期时间</h4><p>设置过期时间有两种方式：</p>
 <p>（1）首先想到通过expire设置过期时间（缺乏原子性：如果在setnx和expire之间出现异常，锁也无法释放）</p>
 <p>（2）在set时指定过期时间（推荐）</p>
-<p><img src="/image/1211355-20211115204002008-129055379.png" alt="img"></p>
-<p><img src="/image/1211355-20211115204151804-40913090.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204002008-129055379.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204151804-40913090.png" alt="img"></p>
 <p>设置过期时间</p>
-<p><img src="/image/1211355-20211115204238330-1867087825.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204238330-1867087825.png" alt="img"></p>
 <p>压力测试肯定也没有问题</p>
 <p><strong>问题</strong>：可能会<strong>释放其他服务器的锁</strong></p>
 <ol>
@@ -1971,8 +1971,8 @@
 <li>B抢到执行，1上锁，2具体操作，3途中A服务器恢复过来，进行删除锁操作，B的锁会被释放</li>
 </ol>
 <p>解决：setnx获取锁时，设置一个指定的唯一值（例如：uuid）；释放前获取这个值，判断是否自己的锁</p>
-<p><img src="/image/1211355-20211115204448925-208828802.png" alt="img"></p>
-<h4 id="14-4-2-3-优化之-UUID-防误删"><a href="#14-4-2-3-优化之-UUID-防误删" class="headerlink" title="14.4.2.3 优化之 UUID 防误删"></a>14.4.2.3 优化之 UUID 防误删</h4><p><img src="/image/1211355-20211115204601149-111808505.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204448925-208828802.png" alt="img"></p>
+<h4 id="14-4-2-3-优化之-UUID-防误删"><a href="#14-4-2-3-优化之-UUID-防误删" class="headerlink" title="14.4.2.3 优化之 UUID 防误删"></a>14.4.2.3 优化之 UUID 防误删</h4><p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204601149-111808505.png" alt="img"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping(&quot;testLock&quot;)</span><br><span class="line">public void testLock() &#123;</span><br><span class="line">    //  1 获取锁，setne</span><br><span class="line">    String uuid = UUID.randomUUID().toString();</span><br><span class="line">    Boolean lock = redisTemplate.opsForValue().setIfAbsent(&quot;lock&quot;,uuid,3,TimeUnit.SECONDS);</span><br><span class="line"></span><br><span class="line">    //  2 获取锁成功、查询num的值</span><br><span class="line">    if (lock) &#123;</span><br><span class="line">        Object value = redisTemplate.opsForValue().get(&quot;num&quot;);</span><br><span class="line">        // 2.1 判断num为空return</span><br><span class="line">        if (StringUtils.isEmpty(value)) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        // 2.2 有值就转成成int</span><br><span class="line">        int num = Integer.parseInt(value + &quot;&quot;);</span><br><span class="line">        // 2.3 把redis的num加1</span><br><span class="line">        redisTemplate.opsForValue().set(&quot;num&quot;, ++num);</span><br><span class="line">        // 2.4 释放锁，del</span><br><span class="line">        String lockuuid = (String) redisTemplate.opsForValue().get(&quot;lock&quot;);</span><br><span class="line">        if (uuid.equals(lockuuid)) &#123;</span><br><span class="line">            redisTemplate.delete(&quot;lock&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        // 3 获取锁失败、每隔0.1秒再获取</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(100);</span><br><span class="line">            testLock();</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -1986,15 +1986,15 @@
 <li>A执行，1上锁，2具体操作，3超时判断uuid一致，正要释放锁的时候，锁已经过期自动删除</li>
 <li>B抢到执行，1上锁，2具体操作，3途中A服务器执行删除操作，B的锁会被释放</li>
 </ol>
-<p><img src="/image/1211355-20211115205050966-1370863749.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115205050966-1370863749.png" alt="img"></p>
 <h4 id="14-4-2-4-优化之LUA脚本保证删除的原子性"><a href="#14-4-2-4-优化之LUA脚本保证删除的原子性" class="headerlink" title="14.4.2.4 优化之LUA脚本保证删除的原子性"></a>14.4.2.4 优化之LUA脚本保证删除的原子性</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping(&quot;testLockLua&quot;)</span><br><span class="line">public void testLockLua() &#123;</span><br><span class="line">    // 1 声明一个uuid ,将做为一个value 放入我们的key所对应的值中</span><br><span class="line">    String uuid = UUID.randomUUID().toString();</span><br><span class="line">    // 2 定义一个锁：lua 脚本可以使用同一把锁，来实现删除！</span><br><span class="line">    String skuId = &quot;25&quot;; // 访问skuId 为25号的商品 100008348542</span><br><span class="line">    String locKey = &quot;lock:&quot; + skuId; // 锁住的是每个商品的数据</span><br><span class="line"></span><br><span class="line">    // 3 获取锁</span><br><span class="line">    Boolean lock = redisTemplate.opsForValue().setIfAbsent(locKey,uuid,3,TimeUnit.SECONDS);</span><br><span class="line"></span><br><span class="line">    // 如果true</span><br><span class="line">    if (lock) &#123;</span><br><span class="line">        // 执行的业务逻辑开始</span><br><span class="line">        // 获取缓存中的num 数据</span><br><span class="line">        Object value = redisTemplate.opsForValue().get(&quot;num&quot;);</span><br><span class="line">        </span><br><span class="line">        // 如果是空直接返回</span><br><span class="line">        if (StringUtils.isEmpty(value)) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int num = Integer.parseInt(value + &quot;&quot;);</span><br><span class="line">        // 使num 每次+1 放入缓存</span><br><span class="line">        redisTemplate.opsForValue().set(&quot;num&quot;, String.valueOf(++num));</span><br><span class="line">        </span><br><span class="line">        /*使用lua脚本来锁*/</span><br><span class="line">        // 定义lua 脚本</span><br><span class="line">        String script = &quot;if redis.call(&#x27;get&#x27;, KEYS[1]) == ARGV[1] then return &quot; +</span><br><span class="line">            &quot;redis.call(&#x27;del&#x27;, KEYS[1]) else return 0 end&quot;;</span><br><span class="line">        </span><br><span class="line">        // 使用redis执行lua执行</span><br><span class="line">        DefaultRedisScript&lt;Long&gt; redisScript = new DefaultRedisScript&lt;&gt;();</span><br><span class="line">        redisScript.setScriptText(script);</span><br><span class="line">        </span><br><span class="line">        // 设置一下返回值类型 为Long</span><br><span class="line">        // 因为删除判断的时候，返回的0,给其封装为数据类型。如果不封装那么默认返回String 类型，</span><br><span class="line">        // 那么返回字符串与0 会有发生错误。</span><br><span class="line">        redisScript.setResultType(Long.class);</span><br><span class="line">        </span><br><span class="line">        // 第一个要是script 脚本 ，第二个需要判断的key，第三个就是key所对应的值。</span><br><span class="line">        redisTemplate.execute(redisScript, Arrays.asList(locKey), uuid);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        // 其他线程等待</span><br><span class="line">        try &#123;</span><br><span class="line">            // 睡眠</span><br><span class="line">            Thread.sleep(1000);</span><br><span class="line">            // 睡醒了之后，调用方法。</span><br><span class="line">            testLockLua();</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 <p>Lua 脚本详解：</p>
-<p><img src="/image/1211355-20211115205641281-2003977796.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115205641281-2003977796.png" alt="img"></p>
 <p>项目中正确使用</p>
-<p><img src="/image/1211355-20211115205727138-572310483.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115205727138-572310483.png" alt="img"></p>
 <h4 id="14-4-2-5-总结"><a href="#14-4-2-5-总结" class="headerlink" title="14.4.2.5 总结"></a>14.4.2.5 总结</h4><p>（1）加锁</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 1. 从redis中获取锁,set k1 v1 px 20000 nxString uuid = UUID.randomUUID().toString();</span><br><span class="line">Boolean lock = this.redisTemplate.opsForValue().setIfAbsent(&quot;lock&quot;, uuid, 2, TimeUnit.SECONDS);</span><br></pre></td></tr></table></figure>
 
@@ -2024,38 +2024,38 @@
 <p>（3）可以操作的 KEY</p>
 <p>参考官网：<a target="_blank" rel="noopener" href="https://redis.io/topics/acl">https://redis.io/topics/acl</a></p>
 <h4 id="15-1-2-命令"><a href="#15-1-2-命令" class="headerlink" title="15.1.2 命令"></a>15.1.2 命令</h4><p>（1）使用 acl list 命令展示用户权限列表</p>
-<p><img src="/image/1211355-20211115210054429-955343300.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210054429-955343300.png" alt="img"></p>
 <p>（2）使用acl cat命令</p>
 <p>（a）查看添加权限指令类别</p>
-<p><img src="/image/1211355-20211115210230818-1938412945.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210230818-1938412945.png" alt="img"></p>
 <p>（b） 加参数类型名可以查看类型下具体命令</p>
-<p><img src="/image/1211355-20211115210251500-824714787.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210251500-824714787.png" alt="img"></p>
 <p>（3）使用acl whoami命令查看当前用户</p>
-<p><img src="/image/1211355-20211115210322007-661283480.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210322007-661283480.png" alt="img"></p>
 <p>（4）使用aclsetuser命令创建和编辑用户ACL</p>
 <p>（a）ACL规则</p>
 <p>下面是有效ACL规则的列表。某些规则只是用于激活或删除标志，或对用户ACL执行给定更改的单个单词。其他规则是字符前缀，它们与命令或类别名称、键模式等连接在一起。</p>
-<p><img src="/image/1211355-20211115210444143-948891383.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210444143-948891383.png" alt="img"></p>
 <p>（b）通过命令创建新用户默认权限</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acl setuser user1</span><br></pre></td></tr></table></figure>
 
-<p><img src="/image/1211355-20211115210527028-398268273.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210527028-398268273.png" alt="img"></p>
 <p>在上面的示例中，我根本没有指定任何规则。如果用户不存在，这将使用just created的默认属性来创建用户。如果用户已经存在，则上面的命令将不执行任何操作。</p>
 <p>（c）设置有用户名、密码、ACL权限、并启用的用户</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acl setuser user2 on &gt;password ~cached:* +get</span><br></pre></td></tr></table></figure>
 
-<p><img src="/image/1211355-20211115210615102-960159373.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210615102-960159373.png" alt="img"></p>
 <p>（d） 切换用户，验证权限</p>
-<p><img src="/image/1211355-20211115210635596-1358120892.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210635596-1358120892.png" alt="img"></p>
 <h3 id="15-2-IO-多线程"><a href="#15-2-IO-多线程" class="headerlink" title="15.2 IO 多线程"></a>15.2 IO 多线程</h3><h4 id="15-2-1-简介"><a href="#15-2-1-简介" class="headerlink" title="15.2.1 简介"></a>15.2.1 简介</h4><p>Redis6终于支撑多线程了，告别单线程了吗？</p>
 <p>IO多线程其实指<strong>客户端交互部分</strong>的<strong>网络IO</strong>交互处理模块<strong>多线程</strong>，而非<strong>执行命令多线程</strong>。Redis6执行命令依然是单线程。</p>
 <h4 id="15-2-2-原理架构"><a href="#15-2-2-原理架构" class="headerlink" title="15.2.2 原理架构"></a>15.2.2 原理架构</h4><p>Redis 6 加入多线程,但跟 Memcached 这种从 IO处理到数据访问多线程的实现模式有些差异。Redis 的多线程部分只是用来处理网络数据的读写和协议解析，执行命令仍然是单线程。之所以这么设计是不想因为多线程而变得复杂，需要去控制 key、lua、事务，LPUSH/LPOP 等等的并发问题。整体的设计大体如下</p>
-<p><img src="/image/1211355-20211115210826479-1336942960.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210826479-1336942960.png" alt="img"></p>
 <p>另外，多线程IO默认也是不开启的，需要再配置文件中配置</p>
 <p>io-threads-do-reads  yes</p>
 <p>io-threads 4</p>
 <h3 id="15-3-工具支持-Cluster"><a href="#15-3-工具支持-Cluster" class="headerlink" title="15.3 工具支持 Cluster"></a>15.3 工具支持 <strong>Cluster</strong></h3><p>之前老版Redis想要搭集群需要单独安装ruby环境，Redis 5 将 redis-trib.rb 的功能集成到 redis-cli 。另外官方 redis-benchmark 工具开始支持 cluster 模式了，通过多线程的方式对多个分片进行压测</p>
-<p><img src="/image/1211355-20211115210920400-1156383469.png" alt="img"></p>
+<p><img src="/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210920400-1156383469.png" alt="img"></p>
 <h3 id="15-4-Redis-新功能持续关注"><a href="#15-4-Redis-新功能持续关注" class="headerlink" title="15.4 Redis 新功能持续关注"></a>15.4 Redis 新功能持续关注</h3><p>Redis6新功能还有：</p>
 <p>1、RESP3新的 Redis 通信协议：优化服务端与客户端之间通信</p>
 <p>2、Client side caching客户端缓存：基于 RESP3 协议实现的客户端缓存功能。为了进一步提升缓存的性能，将客户端经常访问的数据cache到客户端。减少TCP网络交互。</p>
