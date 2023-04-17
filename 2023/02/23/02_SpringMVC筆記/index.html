@@ -6,125 +6,104 @@
   <meta name="keywords" content=" springMVC ">
   <meta name="description" content="SpringMVC筆記 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="[toc]  # 1、Redis概述  Redis 是典型的 NoSQL 数据库。 redis官网：https:&#x2F;&#x2F;redis.io&#x2F;download  Redis 是一个开源的 key-value 存储系统。 和 Memcached 类似，它支持存储的 value 类型相对更多，包括 string、list、set、zset、sorted set、hash。 这些数据类型都支持 push&#x2F;pop">
+<meta name="description" content="[toc]  # :triangular_flag_on_post: Vue2 基础用法&amp;基础原理整理  1. vue基础知识和原理1.1 初识Vue 想让Vue工作，就必须创建一个Vue实例，且要传入一个配置对象 demo容器里的代码依然符合html规范，只不过混入了一些特殊的Vue语法 demo容器里的代码被称为【Vue模板】 Vue实例和容器是一一对应的 (一對一) 真实开发中只有一个Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis筆記">
-<meta property="og:url" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/index.html">
+<meta property="og:title" content="Vue筆記">
+<meta property="og:url" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="[toc]  # 1、Redis概述  Redis 是典型的 NoSQL 数据库。 redis官网：https:&#x2F;&#x2F;redis.io&#x2F;download  Redis 是一个开源的 key-value 存储系统。 和 Memcached 类似，它支持存储的 value 类型相对更多，包括 string、list、set、zset、sorted set、hash。 这些数据类型都支持 push&#x2F;pop">
+<meta property="og:description" content="[toc]  # :triangular_flag_on_post: Vue2 基础用法&amp;基础原理整理  1. vue基础知识和原理1.1 初识Vue 想让Vue工作，就必须创建一个Vue实例，且要传入一个配置对象 demo容器里的代码依然符合html规范，只不过混入了一些特殊的Vue语法 demo容器里的代码被称为【Vue模板】 Vue实例和容器是一一对应的 (一對一) 真实开发中只有一个Vue">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143224012.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143241387.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143300959.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143314385.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143325255.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143514854.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143520951.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143527236.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143608162.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143613906.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143619446.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143625289.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143633223.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143639945.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143652233.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143657741.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143710179.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143718428.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143724347.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143739351.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143757340.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143820057.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143840607.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143851068.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143857441.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143906282.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330114917788.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/b954d034b3204dd38f2201893a7097cf.jpeg">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143920558.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143933459.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211113155415463-1656409103.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143945601.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144000723.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144008039.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144016472.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619094058710.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619094201203.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330201343058.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330201410223.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619095633057.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100129431.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100138313.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100303067.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100339429.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619100941862.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619101004992.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619101322601.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20210619101853376.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144025395.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144033896.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144040106.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144044481.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144051552.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144059410.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144108058.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144115897.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144126527.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144131810.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144139216.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230331173945855.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144152165.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144157642.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144206596.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144216201.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144222545.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211113202916287-690809342.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211113204559803-571328236.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144237383.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144243066.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230331224840464.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144250098.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144303739.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144312096.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144316838.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144322927.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144333996.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144340548.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144350941.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144357240.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144402562.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144409718.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/d1177c5a865346679b7765e4a94a63e8.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/b674b31bbd174d3da8263be5c6f803a7.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144426310.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330144432552.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115202159505-416815662.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115203517302-1808528880.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115203525053-2121343349.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204002008-129055379.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204151804-40913090.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204238330-1867087825.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204448925-208828802.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115204601149-111808505.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115205050966-1370863749.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115205641281-2003977796.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115205727138-572310483.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210054429-955343300.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210230818-1938412945.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210251500-824714787.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210322007-661283480.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210444143-948891383.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210527028-398268273.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210615102-960159373.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210635596-1358120892.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210826479-1336942960.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/1211355-20211115210920400-1156383469.png">
-<meta property="article:published_time" content="2023-04-10T03:00:16.000Z">
-<meta property="article:modified_time" content="2023-04-10T07:30:36.669Z">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406021433800.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406100449407.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406100457984.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406100502994.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406100510745.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406100518965.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406100523934.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406143257752.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406150617885.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174522418.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174528046.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174540863.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174554265.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174604757.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174612346.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174617528.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174622375.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174625934.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174631491.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230407001845676.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230407002120246.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230407002313091.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174638041.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174642987.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174651004.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174705811.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230407094611814.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174718099.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174725994.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174730443.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174738357.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230407170311153.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230407170432347.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174750773.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174801619.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174805333.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174818899.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174823548.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174826605.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230408085507192.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174839783.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174844341.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192336061.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192346078.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192356666.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192435392.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192445359.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192453125.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230410160646819.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192546040.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192554427.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230411105928919.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230411110153850.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192602962.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230411145815136.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412121515418.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412133744204.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412153158733.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412163447075.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412162027725.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412163331723.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412174210677.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412174401366.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412174600447.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412174512398.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412174832928.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230413155504419.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230413155440176.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230413155639608.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230413155245773.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230414002538901.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230414110943728.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230414144412156.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230414152551764.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230414152957919.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192625977.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/af5f8d4493f3423087d6b9e6c5e60fa1tplv-k3u1fbpfcp-zoom-in-crop-mark3024000.webp">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/c57d4d695fe64014b78610ff2a5cd2b6tplv-k3u1fbpfcp-zoom-in-crop-mark3024000.webp">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230416103501730.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/115c5318692445e78577f8ef0eb22333.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230416115549018.png">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/f84e4e2c02424d9a99862ade0a2e4114tplv-k3u1fbpfcp-watermark.gif">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/e5ac7e20d1784887a826f6360768a368~tplv-k3u1fbpfcp-watermark.gif">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/bc0be8211fc54b6c941c036791ba4efetplv-k3u1fbpfcp-watermark.gif">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/6cc55165c0e34069a75fe36f8712eb80tplv-k3u1fbpfcp-watermark.gif">
+<meta property="article:published_time" content="2023-04-17T02:05:06.000Z">
+<meta property="article:modified_time" content="2023-04-17T02:38:25.330Z">
 <meta property="article:author" content="Eker的編程筆記">
-<meta property="article:tag" content="Redis">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ekerchung.github.io/2023/04/10/14_Redis%E7%AD%86%E8%A8%98/image-20230330143224012.png">
+<meta name="twitter:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406021433800.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -250,7 +229,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(15)</small>
+                <small>(16)</small>
             
         </div>
     </li>
@@ -262,11 +241,23 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         自學筆記
-                        <small>(5)</small>
+                        <small>(6)</small>
                         
                     </div>
                     
                         <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="自學筆記<--->前端">
+                                        
+                                        前端
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
                             
                                 <li>
                                     <div data-rel="自學筆記<--->數據庫">
@@ -341,6 +332,10 @@
                         </ul>
                     
                 </li>
+            
+        
+    
+        
             
         
     
@@ -466,8 +461,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="15">
-<input type="hidden" id="yelog_site_word_count" value="96.7k">
+<input type="hidden" id="yelog_site_posts_number" value="16">
+<input type="hidden" id="yelog_site_word_count" value="138.4k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -564,6 +559,15 @@
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="All 自學筆記 前端 "
+           href="/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="Vue筆記">Vue筆記</span>
+            <span class="post-date" title="2023-04-17 10:05:06">2023/04/17</span>
+        </a>
         
         
         <a  class="All 自學筆記 數據庫 "
