@@ -3,107 +3,22 @@
 <head>
   <meta charset="utf-8">
   <title>Vue實現使用超連結發送delete請求 | Myblog</title>
-  <meta name="keywords" content=" Spring , 踩坑 , Vue ">
+  <meta name="keywords" content=" Spring , Vue , 踩坑 ">
   <meta name="description" content="Vue實現使用超連結發送delete請求 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="[toc]  # :triangular_flag_on_post: Vue2 基础用法&amp;基础原理整理  1. vue基础知识和原理1.1 初识Vue 想让Vue工作，就必须创建一个Vue实例，且要传入一个配置对象 demo容器里的代码依然符合html规范，只不过混入了一些特殊的Vue语法 demo容器里的代码被称为【Vue模板】 Vue实例和容器是一一对应的 (一對一) 真实开发中只有一个Vue">
+<meta name="description" content="踩坑紀錄創建Vue專案後，執行npm run serve 報錯”error:03000086:digital envelope routines::initialization error” 解決方案：經過一番探索，終於找到了癥結所在：主要是nodeJs V17版本發布了OpenSSL3.0對算法和秘鑰大小增加了更為嚴格的限制，nodeJs v17之前版本沒影響，但V17和之後版本會出現這個錯誤。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue筆記">
-<meta property="og:url" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/index.html">
+<meta property="og:title" content="執行Vue項目報錯error_0308010C">
+<meta property="og:url" content="https://ekerchung.github.io/2023/04/18/16_%E5%9F%B7%E8%A1%8CVue%E9%A0%85%E7%9B%AE%E5%A0%B1%E9%8C%AFerror_0308010C/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="[toc]  # :triangular_flag_on_post: Vue2 基础用法&amp;基础原理整理  1. vue基础知识和原理1.1 初识Vue 想让Vue工作，就必须创建一个Vue实例，且要传入一个配置对象 demo容器里的代码依然符合html规范，只不过混入了一些特殊的Vue语法 demo容器里的代码被称为【Vue模板】 Vue实例和容器是一一对应的 (一對一) 真实开发中只有一个Vue">
+<meta property="og:description" content="踩坑紀錄創建Vue專案後，執行npm run serve 報錯”error:03000086:digital envelope routines::initialization error” 解決方案：經過一番探索，終於找到了癥結所在：主要是nodeJs V17版本發布了OpenSSL3.0對算法和秘鑰大小增加了更為嚴格的限制，nodeJs v17之前版本沒影響，但V17和之後版本會出現這個錯誤。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406021433800.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406100449407.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406100457984.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406100502994.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406100510745.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406100518965.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406100523934.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406143257752.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406150617885.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174522418.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174528046.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174540863.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174554265.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174604757.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174612346.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174617528.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174622375.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174625934.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174631491.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230407001845676.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230407002120246.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230407002313091.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174638041.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174642987.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174651004.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174705811.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230407094611814.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174718099.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174725994.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174730443.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174738357.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230407170311153.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230407170432347.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174750773.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174801619.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174805333.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174818899.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174823548.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174826605.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230408085507192.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174839783.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406174844341.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192336061.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192346078.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192356666.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192435392.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192445359.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192453125.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230410160646819.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192546040.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192554427.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230411105928919.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230411110153850.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192602962.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230411145815136.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412121515418.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412133744204.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412153158733.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412163447075.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412162027725.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412163331723.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412174210677.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412174401366.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412174600447.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412174512398.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230412174832928.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230413155504419.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230413155440176.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230413155639608.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230413155245773.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230414002538901.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230414110943728.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230414144412156.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230414152551764.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230414152957919.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406192625977.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/af5f8d4493f3423087d6b9e6c5e60fa1tplv-k3u1fbpfcp-zoom-in-crop-mark3024000.webp">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/c57d4d695fe64014b78610ff2a5cd2b6tplv-k3u1fbpfcp-zoom-in-crop-mark3024000.webp">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230416103501730.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/115c5318692445e78577f8ef0eb22333.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230416115549018.png">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/f84e4e2c02424d9a99862ade0a2e4114tplv-k3u1fbpfcp-watermark.gif">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/e5ac7e20d1784887a826f6360768a368~tplv-k3u1fbpfcp-watermark.gif">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/bc0be8211fc54b6c941c036791ba4efetplv-k3u1fbpfcp-watermark.gif">
-<meta property="og:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/6cc55165c0e34069a75fe36f8712eb80tplv-k3u1fbpfcp-watermark.gif">
-<meta property="article:published_time" content="2023-04-17T02:05:06.000Z">
-<meta property="article:modified_time" content="2023-04-17T02:38:25.330Z">
+<meta property="article:published_time" content="2023-04-17T16:37:45.957Z">
+<meta property="article:modified_time" content="2023-04-17T16:59:31.588Z">
 <meta property="article:author" content="Eker的編程筆記">
 <meta property="article:tag" content="Vue">
+<meta property="article:tag" content="踩坑">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ekerchung.github.io/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/image-20230406021433800.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -229,7 +144,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(16)</small>
+                <small>(17)</small>
             
         </div>
     </li>
@@ -296,7 +211,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         前端
-                        <small>(3)</small>
+                        <small>(4)</small>
                         
                     </div>
                     
@@ -321,6 +236,33 @@
                                                         踩坑
                                                         
                                                             <small>(2)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="前端<--->Vue">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        Vue
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="前端<--->Vue踩坑">
+                                                        
+                                                        踩坑
+                                                        
+                                                            <small>(1)</small>
                                                         
                                                     </div>
                                                 </li>
@@ -444,6 +386,14 @@
             
         
     
+        
+            
+        
+    
+        
+            
+        
+    
 </ul>
 <div class="left-bottom">
     <div class="menus">
@@ -461,8 +411,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="16">
-<input type="hidden" id="yelog_site_word_count" value="138.4k">
+<input type="hidden" id="yelog_site_posts_number" value="17">
+<input type="hidden" id="yelog_site_word_count" value="138.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -561,6 +511,15 @@
     <nav id="title-list-nav">
         
         
+        <a  class="All 前端 Vue 踩坑 "
+           href="/2023/04/18/16_%E5%9F%B7%E8%A1%8CVue%E9%A0%85%E7%9B%AE%E5%A0%B1%E9%8C%AFerror_0308010C/"
+           data-tag="Vue,踩坑"
+           data-author="" >
+            <span class="post-title" title="執行Vue項目報錯error_0308010C">執行Vue項目報錯error_0308010C</span>
+            <span class="post-date" title="2023-04-18 00:37:45">2023/04/18</span>
+        </a>
+        
+        
         <a  class="All 自學筆記 前端 "
            href="/2023/04/17/15_Vue%E7%AD%86%E8%A8%98/"
            data-tag="Vue"
@@ -626,7 +585,7 @@
         
         <a  class="All 前端 Spring 踩坑 "
            href="/2023/03/07/08_Vue%E5%AF%A6%E7%8F%BE%E4%BD%BF%E7%94%A8%E8%B6%85%E9%80%A3%E7%B5%90%E7%99%BC%E9%80%81delete%E8%AB%8B%E6%B1%82/"
-           data-tag="Spring,踩坑,Vue"
+           data-tag="Spring,Vue,踩坑"
            data-author="" >
             <span class="post-title" title="Vue實現使用超連結發送delete請求">Vue實現使用超連結發送delete請求</span>
             <span class="post-date" title="2023-03-07 14:39:23">2023/03/07</span>
@@ -635,7 +594,7 @@
         
         <a  class="All 前端 Spring 踩坑 "
            href="/2023/03/05/07_Vue+axios%E5%AF%A6%E7%8F%BE%E7%95%B0%E6%AD%A5%E8%AB%8B%E6%B1%82%E9%A9%97%E8%AD%89%E8%A8%BB%E5%86%8A%E8%A1%A8%E5%96%AE/"
-           data-tag="Spring,踩坑,Vue,axios"
+           data-tag="Spring,Vue,axios,踩坑"
            data-author="" >
             <span class="post-title" title="Vue+axios實現異步請求驗證註冊表單">Vue+axios實現異步請求驗證註冊表單</span>
             <span class="post-date" title="2023-03-05 23:05:46">2023/03/05</span>
@@ -748,9 +707,9 @@
             
             <a class="color2">Spring</a>
             
-            <a class="color3">踩坑</a>
-            
             <a class="color4">Vue</a>
+            
+            <a class="color3">踩坑</a>
             
         </span>
         

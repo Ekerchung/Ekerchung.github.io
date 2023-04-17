@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Myblog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Myblog">
+  <title>執行Vue項目報錯error_0308010C | Myblog</title>
+  <meta name="keywords" content=" Vue , 踩坑 ">
+  <meta name="description" content="執行Vue項目報錯error_0308010C | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="踩坑紀錄創建Vue專案後，執行npm run serve 報錯”error:03000086:digital envelope routines::initialization error” 解決方案：經過一番探索，終於找到了癥結所在：主要是nodeJs V17版本發布了OpenSSL3.0對算法和秘鑰大小增加了更為嚴格的限制，nodeJs v17之前版本沒影響，但V17和之後版本會出現這個錯誤。">
 <meta property="og:type" content="article">
@@ -58,7 +58,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -679,12 +679,66 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-16_執行Vue項目報錯error_0308010C" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%9C%E6%96%BC%E6%9C%AC%E7%AB%99"><span class="toc-text">關於本站</span></a></li></ol>
+        <h1 class="article-title">執行Vue項目報錯error_0308010C</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="前端">前端</a> > 
+            
+            <a  data-rel="前端&lt;---&gt;Vue">Vue</a> > 
+            
+            <a  data-rel="前端&lt;---&gt;Vue&lt;---&gt;踩坑">踩坑</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">Vue</a>
+            
+            <a class="color3">踩坑</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2023-04-18 00:59:31'>2023-04-18 00:37</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:354</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -697,54 +751,50 @@
     }
 </style>
 </div>
-            <p>Hi，我是Eker，目前正在自學轉職的路上，目標是成為一位優秀的Java後端工程師。為了更好地記錄學習過程和分享經驗，我建立了這個Blog，未來將持續更新並分享自己的學習心得與成果。</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>創建Vue專案後，執行<code>npm run serve</code> 報錯”error:03000086:digital envelope routines::initialization error”</p>
+<p>解決方案：<br>經過一番探索，終於找到了癥結所在：主要是nodeJs V17版本發布了OpenSSL3.0對算法和秘鑰大小增加了更為嚴格的限制，nodeJs v17之前版本沒影響，但V17和之後版本會出現這個錯誤。<br>一句話總結，說白了就是npm升級導致與 openssl 不兼容導致的初始化失敗，也就是node.js版本過高的原因造成的運行失敗。</p>
 <ul>
-<li><p>前端</p>
-<ul>
-<li>html、css、JavaScript</li>
-<li>jsp、jQuery、Ajax、Vue.js</li>
+<li>方式一：</li>
 </ul>
-</li>
-<li><p>後端</p>
-<ul>
-<li>JavaEE、JDBC、JavaWeb</li>
-<li>Spring、SpringMVC、Mybatis</li>
-<li>Spring Boot</li>
-</ul>
-</li>
-<li><p>資料庫</p>
-<ul>
-<li>MySQL</li>
-</ul>
-</li>
-<li><p>其他</p>
-<ul>
-<li>Git、Github</li>
-<li>Maven</li>
-<li>MVC設計模式</li>
-<li>RESTful API</li>
-</ul>
-</li>
-<li><p>Side Projet</p>
-<ul>
-<li>天天來書城<ul>
-<li>書城是個純JavaWeb項目，使用html、css、JavaScript、jsp、jQuery、Ajax編寫前端代碼；使用MySQL數據庫進行資料存儲；由tomcat進行佈署</li>
-<li>由於是Jsp動態頁面，目前暫無公開訪問的網站，僅提供readme文件介紹，項目源碼分享於<a target="_blank" rel="noopener" href="https://github.com/Ekerchung/Books">https://github.com/Ekerchung/Books</a></li>
-</ul>
-</li>
-<li>天天來書城(由SSM框架重構)<ul>
-<li>TTBookStore使用SSM框架、Thymeleaf、maven….等技術，重構原JSP組成的天天來書城項目，項目源碼分享於<a target="_blank" rel="noopener" href="https://github.com/Ekerchung/TTBookStore">https://github.com/Ekerchung/TTBookStore</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="關於本站"><a href="#關於本站" class="headerlink" title="關於本站"></a>關於本站</h2><p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
+<ol>
+<li>在package.json的scripts中新增<code>SET NODE_OPTIONS=--openssl-legacy-provider</code></li>
+</ol>
+<p>添加前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line"><span class="string">&quot;serve&quot;</span>: <span class="string">&quot;vue-cli-service serve&quot;</span>,</span><br><span class="line"><span class="string">&quot;build&quot;</span>: <span class="string">&quot;vue-cli-service build&quot;</span>,</span><br><span class="line"><span class="string">&quot;lint&quot;</span>: <span class="string">&quot;vue-cli-service lint&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>添加後：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">  <span class="string">&quot;serve&quot;</span>: <span class="string">&quot;SET NODE_OPTIONS=--openssl-legacy-provider &amp;&amp; vue-cli-service serve&quot;</span>,</span><br><span class="line">  <span class="string">&quot;build&quot;</span>: <span class="string">&quot;vue-cli-service build&quot;</span>,</span><br><span class="line">  <span class="string">&quot;lint&quot;</span>: <span class="string">&quot;vue-cli-service lint&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：如果團隊中node版本不一致，不要將該package.json提交。</p>
+</blockquote>
+<ol start="2">
+<li>與第一種方法類似，在編輯器集成終端里，直接設置環境變量，進行控制（只能臨時解決）</li>
+</ol>
+<p>找到package.json文件右鍵，在集成終端中打開後，直接輸入set NODE_OPTIONS=–openssl-legacy-provider回車，然後npm run serve重新運行項目即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// windows下</span></span><br><span class="line">set <span class="variable constant_">NODE_OPTIONS</span>=--openssl-legacy-provider</span><br><span class="line"><span class="comment">// linux下</span></span><br><span class="line"><span class="keyword">export</span> <span class="variable constant_">NODE_OPTIONS</span>=--openssl-legacy-provider</span><br></pre></td></tr></table></figure>
 
-        </article>
-        
-        
+<ul>
+<li>方式二：更換node.js版本</li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -753,11 +803,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 </body>
