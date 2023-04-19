@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MySql-保存時間時區問題 | Myblog</title>
-  <meta name="keywords" content=" 踩坑 , MySql ">
-  <meta name="description" content="MySql-保存時間時區問題 | Myblog">
+  <title>Vue Router菜單重複點擊-控制台報錯 | Myblog</title>
+  <meta name="keywords" content=" 踩坑 , Vue ">
+  <meta name="description" content="Vue Router菜單重複點擊-控制台報錯 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="踩坑紀錄vue-router在3.0版本以上時，重覆點菜單，控制台會報錯，雖然不影響使用，但是最好處理下這個問題，不然也可能會影響調試其他問題。 原因： vue-router在3.0版本以上時 ，回調形式改成了promise api，返回的是promise，如果沒有捕獲到錯誤，控制台始終會出現報錯 解決方案：  方式一：   在榜定點擊事件後使用.once方法，@click.once(clickm">
 <meta property="og:type" content="article">
@@ -690,9 +690,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-10_MySql保存時間時區問題" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-16_Vue Router菜單重複點擊-控制台報錯" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">MySql-保存時間時區問題</h1>
+        <h1 class="article-title">Vue Router菜單重複點擊-控制台報錯</h1>
     
     <div class="article-meta">
         
@@ -702,9 +702,11 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="數據庫">數據庫</a> > 
+            <a  data-rel="前端">前端</a> > 
             
-            <a  data-rel="數據庫&lt;---&gt;踩坑">踩坑</a>
+            <a  data-rel="前端&lt;---&gt;Vue">Vue</a> > 
+            
+            <a  data-rel="前端&lt;---&gt;Vue&lt;---&gt;踩坑">踩坑</a>
             
         </span>
         
@@ -714,19 +716,19 @@
             
             <a class="color3">踩坑</a>
             
-            <a class="color1">MySql</a>
+            <a class="color4">Vue</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-03-12 20:15:49'>2023-03-10 22:20</time>
+            Created At : <time class="date" title='Updated At: 2023-04-19 11:47:43'>2023-04-19 11:40</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:123</span>
+        <span>Count:156</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -745,7 +747,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C"><span class="toc-text">問題</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -761,12 +763,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>使用java.util.Date;中的new Date()保存數據到資料庫時，資料庫內的保存時間差了八小時。</p>
-<h5 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h5><p>因為我一開始指定連接MySql數據庫的時區為UTC，與台灣時間UTC +8:00相差了八小時<br><img src="/image/10-01.png">)</p>
+        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>vue-router在3.0版本以上時，重覆點菜單，控制台會報錯，雖然不影響使用，但是最好處理下這個問題，不然也可能會影響調試其他問題。</p>
+<p>原因：</p>
+<p>vue-router在3.0版本以上時 ，回調形式改成了promise api，返回的是promise，如果沒有捕獲到錯誤，控制台始終會出現報錯</p>
 <p>解決方案：</p>
+<ul>
+<li>方式一：</li>
+</ul>
 <ol>
-<li>修改連接的配置文件，改為UTC +8:00<br><img src="/image/10-01.png">)</li>
-<li>最好將MySql內的全局配置時區也改成UTC +8:00，在命令行直接輸入並執行<br><code>set global time_zone = &#39;+8:00&#39;;</code></li>
+<li><p>在榜定點擊事件後使用.once方法，<code>@click.once(clickmenu(item))</code></p>
+</li>
+<li><p>使用<code>.catch(err =&gt; err)</code>捕獲異常</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//點擊菜單跳轉頁面</span></span><br><span class="line"><span class="title function_">clickMenu</span>(<span class="params">item</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">push</span>(item.<span class="property">path</span>).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
