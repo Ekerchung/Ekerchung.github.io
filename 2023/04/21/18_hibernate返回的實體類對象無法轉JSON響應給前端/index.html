@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Spring-MySQL配置報錯 | Myblog</title>
-  <meta name="keywords" content=" Spring , 踩坑 ">
-  <meta name="description" content="Spring-MySQL配置報錯 | Myblog">
+  <title>hibernate返回的實體類對象無法轉JSON響應給前端 | Myblog</title>
+  <meta name="keywords" content=" 踩坑 , hibernate ">
+  <meta name="description" content="hibernate返回的實體類對象無法轉JSON響應給前端 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="踩坑紀錄使用SpringBoot data JPA查詢數據要響應給前端時報錯，報錯內容如下： No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer  解決方案： 經查詢後發現">
 <meta property="og:type" content="article">
@@ -738,9 +738,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-06_Spring-MySQL配置報錯" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-18_hibernate返回的實體類對象無法轉JSON響應給前端" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Spring-MySQL配置報錯</h1>
+        <h1 class="article-title">hibernate返回的實體類對象無法轉JSON響應給前端</h1>
     
     <div class="article-meta">
         
@@ -752,9 +752,9 @@
             
             <a  data-rel="後端">後端</a> > 
             
-            <a  data-rel="後端&lt;---&gt;Spring">Spring</a> > 
+            <a  data-rel="後端&lt;---&gt;SpringBoot">SpringBoot</a> > 
             
-            <a  data-rel="後端&lt;---&gt;Spring&lt;---&gt;踩坑">踩坑</a>
+            <a  data-rel="後端&lt;---&gt;SpringBoot&lt;---&gt;踩坑">踩坑</a>
             
         </span>
         
@@ -762,21 +762,21 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color2">Spring</a>
-            
             <a class="color3">踩坑</a>
+            
+            <a class="color5">hibernate</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-03-12 20:24:33'>2023-02-26 23:49</time>
+            Created At : <time class="date" title='Updated At: 2023-04-21 01:55:23'>2023-04-21 01:44</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:239</span>
+        <span>Count:185</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -795,7 +795,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C"><span class="toc-text">問題</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -811,15 +811,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>配置Spring中數據源後，啟動tomcat伺服器報錯</p>
-<h5 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h5><p>將property name配置為”driver”以及”user”報錯，原因是driver及user是內建的一個類，不能使用</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driver&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.driver&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.url&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;user&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.username&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.password&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>解決方案：<br>將property name改為”driverClassName”以及”username”即可</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClassName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.driver&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.url&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.username&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc.password&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
+        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>使用SpringBoot data JPA查詢數據要響應給前端時報錯，報錯內容如下：</p>
+<p><code>No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer </code></p>
+<p>解決方案：</p>
+<p>經查詢後發現若使用getById查詢，這個對象是個hibernate的代理對象，而不是實體，里面基本沒有值，所以無法轉換。</p>
+<p>要使用findById查詢，返回的對象為Optional包裝的對象，使用下面的代碼將查詢結果取出</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(value = &quot;/api/good/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Good <span class="title function_">queryGood</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> <span class="type">int</span> id, Model model)</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;調用了queryGood()&quot;</span>);</span><br><span class="line">    Optional&lt;Good&gt; good = goodService.queryGood(id);</span><br><span class="line">    <span class="keyword">return</span> good.orElse(<span class="literal">null</span>);   <span class="comment">//若good內不為空，將good取出，若為空則返回null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
        <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>
     </div>
