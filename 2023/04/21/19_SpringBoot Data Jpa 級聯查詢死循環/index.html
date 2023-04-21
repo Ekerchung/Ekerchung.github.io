@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Mybatis-逆向工程產生Mapper.xml有誤 | Myblog</title>
-  <meta name="keywords" content=" Spring , 踩坑 , Mybatis ">
-  <meta name="description" content="Mybatis-逆向工程產生Mapper.xml有誤 | Myblog">
+  <title>SpringBoot Data Jpa 級聯查詢死循環 | Myblog</title>
+  <meta name="keywords" content=" 踩坑 , hibernate ">
+  <meta name="description" content="SpringBoot Data Jpa 級聯查詢死循環 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="踩坑紀錄使用SpringBoot data JPA使用@OneToOne&#x2F;@OneToMnay查詢數據時死循環，報錯內容如下： java.lang.StackOverflowError at java.util.Date.getYear(Date.java:651) at java.sql.Timestamp.toString(Timestamp.java:279).... 解決方案： 使用deb">
 <meta property="og:type" content="article">
@@ -749,9 +749,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-12_Mybatis-逆向工程產生Mapper.xml有誤" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-19_SpringBoot Data Jpa 級聯查詢死循環" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Mybatis-逆向工程產生Mapper.xml有誤</h1>
+        <h1 class="article-title">SpringBoot Data Jpa 級聯查詢死循環</h1>
     
     <div class="article-meta">
         
@@ -763,9 +763,9 @@
             
             <a  data-rel="後端">後端</a> > 
             
-            <a  data-rel="後端&lt;---&gt;Spring">Spring</a> > 
+            <a  data-rel="後端&lt;---&gt;SpringBoot">SpringBoot</a> > 
             
-            <a  data-rel="後端&lt;---&gt;Spring&lt;---&gt;踩坑">踩坑</a>
+            <a  data-rel="後端&lt;---&gt;SpringBoot&lt;---&gt;踩坑">踩坑</a>
             
         </span>
         
@@ -773,23 +773,21 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color2">Spring</a>
-            
             <a class="color3">踩坑</a>
             
-            <a class="color3">Mybatis</a>
+            <a class="color5">hibernate</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-03-12 20:24:33'>2023-03-12 00:55</time>
+            Created At : <time class="date" title='Updated At: 2023-04-21 17:43:37'>2023-04-21 17:15</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:118</span>
+        <span>Count:513</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -808,7 +806,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C"><span class="toc-text">問題</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -824,13 +822,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>使用逆向工程自動創建pojo、Mapper.xml時，創建的欄位名與實際欄位名不符</p>
-<h5 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h5><p>使用逆向工程自動創建pojo、Mapper.xml時，抓取到其他資料庫內相同表名的column名進行創建</p>
+        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>使用SpringBoot data JPA使用@OneToOne/@OneToMnay查詢數據時死循環，報錯內容如下：</p>
+<p><code>java.lang.StackOverflowError at java.util.Date.getYear(Date.java:651) at java.sql.Timestamp.toString(Timestamp.java:279)....</code></p>
 <p>解決方案：</p>
-<ol>
-<li>避免使用相同表名</li>
-<li>將其他資料庫的表名先暫時修改，逆向工程創建確認無誤後，再將其他資料庫的表名改回去</li>
-</ol>
+<p>使用debug查詢後發現是查詢時發生死循環</p>
+<img src="image-20230421172122048.png" alt="image-20230421172122048" />
+
+<p>經過測試後，發現級聯時會在兩個地方產生死循環</p>
+<p>1.實體類的toString()方法中包含對級聯對象的輸出，代碼中調用了實體類的toString()方法。</p>
+<p>2.接口查詢或轉為Json返回前端時，對實體對象進行序列化。</p>
+<ul>
+<li><p>解決實體類的toString()方法中包含對級聯對象的輸出 (查詢SQL時報錯)</p>
+<ul>
+<li>方法一：在其中一個實體對象修改toString()，將級聯對象移除<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@Table(name = &quot;t_company&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Company</span> &#123;</span><br><span class="line"><span class="meta">@Id</span></span><br><span class="line"><span class="meta">@GeneratedValue</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">int</span> companyId;</span><br><span class="line"><span class="keyword">private</span> String companyName;</span><br><span class="line"><span class="keyword">private</span> String companyTel;</span><br><span class="line"><span class="keyword">private</span> String companyAddress;</span><br><span class="line"><span class="meta">@OneToOne(mappedBy = &quot;company&quot;)</span></span><br><span class="line"><span class="keyword">private</span> Good good;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Company&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;companyId=&quot;</span> + companyId +</span><br><span class="line">                <span class="string">&quot;, companyName=&#x27;&quot;</span> + companyName + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, companyTel=&#x27;&quot;</span> + companyTel + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, companyAddress=&#x27;&quot;</span> + companyAddress + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法二：使用lombok裡面提供的注釋<code>@ToString.Exclude</code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Table(name = &quot;t_company&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Company</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> companyId;</span><br><span class="line">    <span class="keyword">private</span> String companyName;</span><br><span class="line">    <span class="keyword">private</span> String companyTel;</span><br><span class="line">    <span class="keyword">private</span> String companyAddress;</span><br><span class="line">    <span class="meta">@OneToOne(mappedBy = &quot;company&quot;)</span></span><br><span class="line">    <span class="meta">@ToString</span>.Exclude</span><br><span class="line">    <span class="keyword">private</span> Good good;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>解決轉為Json返回前端時，對實體對象進行序列化死循環問題</p>
+<ul>
+<li>在其中一個級聯對象中使用<code>@JsonIgnore</code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Table(name = &quot;t_company&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Company</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> companyId;</span><br><span class="line">    <span class="keyword">private</span> String companyName;</span><br><span class="line">    <span class="keyword">private</span> String companyTel;</span><br><span class="line">    <span class="keyword">private</span> String companyAddress;</span><br><span class="line">    <span class="meta">@OneToOne(mappedBy = &quot;company&quot;)</span></span><br><span class="line">    <span class="meta">@JsonIgnore</span></span><br><span class="line">    <span class="meta">@ToString</span>.Exclude</span><br><span class="line">    <span class="keyword">private</span> Good good;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<p>不會產生死循環的代碼如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Table(name = &quot;t_good&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Good</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> gId;</span><br><span class="line">    <span class="keyword">private</span> String lineId;</span><br><span class="line">    <span class="keyword">private</span> Date pDate;</span><br><span class="line">    <span class="meta">@OneToOne(optional = false, cascade = CascadeType.ALL)</span></span><br><span class="line">    <span class="meta">@JoinColumn(name = &quot;companyId&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Company company;</span><br><span class="line">    <span class="keyword">private</span> String lineName;</span><br><span class="line">    <span class="keyword">private</span> String lineType;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> totalCount;</span><br><span class="line">    <span class="keyword">private</span> BigDecimal unitPrice;</span><br><span class="line">    <span class="keyword">private</span> BigDecimal totalPrice;</span><br><span class="line">    <span class="keyword">private</span> BigDecimal totalProfit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Table(name = &quot;t_company&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Company</span> &#123;</span><br><span class="line">  <span class="meta">@Id</span></span><br><span class="line">  <span class="meta">@GeneratedValue</span></span><br><span class="line">  <span class="keyword">private</span> <span class="type">int</span> companyId;</span><br><span class="line">  <span class="keyword">private</span> String companyName;</span><br><span class="line">  <span class="keyword">private</span> String companyTel;</span><br><span class="line">  <span class="keyword">private</span> String companyAddress;</span><br><span class="line">  <span class="meta">@OneToOne(mappedBy = &quot;company&quot;)</span></span><br><span class="line">  <span class="meta">@JsonIgnore</span> <span class="comment">//忽略good實體的查詢，避免死循環</span></span><br><span class="line">  <span class="meta">@ToString</span>.Exclude</span><br><span class="line">  <span class="keyword">private</span> Good good;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
        <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>

@@ -6,19 +6,21 @@
   <meta name="keywords" content=" spring ">
   <meta name="description" content="Spring筆記 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="踩坑紀錄使用SpringBoot data JPA查詢數據要響應給前端時報錯，報錯內容如下： No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer  解決方案： 經查詢後發現">
+<meta name="description" content="踩坑紀錄使用SpringBoot data JPA使用@OneToOne&#x2F;@OneToMnay查詢數據時死循環，報錯內容如下： java.lang.StackOverflowError at java.util.Date.getYear(Date.java:651) at java.sql.Timestamp.toString(Timestamp.java:279).... 解決方案： 使用deb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hibernate返回的實體類對象無法轉JSON響應給前端">
-<meta property="og:url" content="https://ekerchung.github.io/2023/04/21/18_hibernate%E8%BF%94%E5%9B%9E%E7%9A%84%E5%AF%A6%E9%AB%94%E9%A1%9E%E5%B0%8D%E8%B1%A1%E7%84%A1%E6%B3%95%E8%BD%89JSON%E9%9F%BF%E6%87%89%E7%B5%A6%E5%89%8D%E7%AB%AF/index.html">
+<meta property="og:title" content="SpringBoot Data Jpa 級聯查詢死循環">
+<meta property="og:url" content="https://ekerchung.github.io/2023/04/21/19_SpringBoot%20Data%20Jpa%20%E7%B4%9A%E8%81%AF%E6%9F%A5%E8%A9%A2%E6%AD%BB%E5%BE%AA%E7%92%B0/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="踩坑紀錄使用SpringBoot data JPA查詢數據要響應給前端時報錯，報錯內容如下： No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer  解決方案： 經查詢後發現">
+<meta property="og:description" content="踩坑紀錄使用SpringBoot data JPA使用@OneToOne&#x2F;@OneToMnay查詢數據時死循環，報錯內容如下： java.lang.StackOverflowError at java.util.Date.getYear(Date.java:651) at java.sql.Timestamp.toString(Timestamp.java:279).... 解決方案： 使用deb">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-20T17:44:46.813Z">
-<meta property="article:modified_time" content="2023-04-20T18:00:17.946Z">
+<meta property="og:image" content="https://ekerchung.github.io/2023/04/21/19_SpringBoot%20Data%20Jpa%20%E7%B4%9A%E8%81%AF%E6%9F%A5%E8%A9%A2%E6%AD%BB%E5%BE%AA%E7%92%B0/image-20230421172122048.png">
+<meta property="article:published_time" content="2023-04-21T09:15:51.556Z">
+<meta property="article:modified_time" content="2023-04-21T09:43:37.246Z">
 <meta property="article:author" content="Eker的編程筆記">
 <meta property="article:tag" content="踩坑">
 <meta property="article:tag" content="hibernate">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ekerchung.github.io/2023/04/21/19_SpringBoot%20Data%20Jpa%20%E7%B4%9A%E8%81%AF%E6%9F%A5%E8%A9%A2%E6%AD%BB%E5%BE%AA%E7%92%B0/image-20230421172122048.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -144,7 +146,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(19)</small>
+                <small>(20)</small>
             
         </div>
     </li>
@@ -288,7 +290,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         後端
-                        <small>(6)</small>
+                        <small>(7)</small>
                         
                     </div>
                     
@@ -327,7 +329,7 @@
                                         
                                         SpringBoot
                                         
-                                            <small>(1
+                                            <small>(2
                                                 )</small>
                                         
                                     </div>
@@ -339,7 +341,7 @@
                                                         
                                                         踩坑
                                                         
-                                                            <small>(1)</small>
+                                                            <small>(2)</small>
                                                         
                                                     </div>
                                                 </li>
@@ -446,8 +448,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="19">
-<input type="hidden" id="yelog_site_word_count" value="139.2k">
+<input type="hidden" id="yelog_site_posts_number" value="20">
+<input type="hidden" id="yelog_site_word_count" value="139.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -548,6 +550,15 @@
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="All 後端 SpringBoot 踩坑 "
+           href="/2023/04/21/19_SpringBoot%20Data%20Jpa%20%E7%B4%9A%E8%81%AF%E6%9F%A5%E8%A9%A2%E6%AD%BB%E5%BE%AA%E7%92%B0/"
+           data-tag="踩坑,hibernate"
+           data-author="" >
+            <span class="post-title" title="SpringBoot Data Jpa 級聯查詢死循環">SpringBoot Data Jpa 級聯查詢死循環</span>
+            <span class="post-date" title="2023-04-21 17:15:51">2023/04/21</span>
+        </a>
         
         
         <a  class="All 後端 SpringBoot 踩坑 "
@@ -678,7 +689,7 @@
         
         <a  class="All 後端 Spring "
            href="/2023/02/23/04_SSM-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%95%B4%E5%90%88/"
-           data-tag="mybatis,springMVC,spring"
+           data-tag="spring,springMVC,mybatis"
            data-author="" >
             <span class="post-title" title="SSM-配置文件整合">SSM-配置文件整合</span>
             <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>
