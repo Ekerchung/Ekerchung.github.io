@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Myblog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Myblog">
+  <title>SpringBoot Data Jpa中@OneToMany的Lazy加載問題 | Myblog</title>
+  <meta name="keywords" content=" 踩坑 , hibernate ">
+  <meta name="description" content="SpringBoot Data Jpa中@OneToMany的Lazy加載問題 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="踩坑紀錄使用SpringBoot data JPA經由Junit查詢@OneToMany數據時報錯，錯誤碼如下： org.hibernate.LazyInitializationException: could not initialize proxy [com.msystem.entity.Good#1] - no Session 解決方案： 經查詢發現，這個原因是不同的Mapping Anno">
 <meta property="og:type" content="article">
@@ -58,7 +58,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -763,12 +763,66 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-21_SpringBoot Data Jpa中@OneToMany的Lazy加載問題" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%9C%E6%96%BC%E6%9C%AC%E7%AB%99"><span class="toc-text">關於本站</span></a></li></ol>
+        <h1 class="article-title">SpringBoot Data Jpa中@OneToMany的Lazy加載問題</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="後端">後端</a> > 
+            
+            <a  data-rel="後端&lt;---&gt;SpringBoot">SpringBoot</a> > 
+            
+            <a  data-rel="後端&lt;---&gt;SpringBoot&lt;---&gt;踩坑">踩坑</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">踩坑</a>
+            
+            <a class="color5">hibernate</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2023-04-25 01:34:56'>2023-04-25 01:24</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:556</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -781,54 +835,43 @@
     }
 </style>
 </div>
-            <p>Hi，我是Eker，目前正在自學轉職的路上，目標是成為一位優秀的Java後端工程師。為了更好地記錄學習過程和分享經驗，我建立了這個Blog，未來將持續更新並分享自己的學習心得與成果。</p>
-<ul>
-<li><p>前端</p>
-<ul>
-<li>html、css、JavaScript</li>
-<li>jsp、jQuery、Ajax、Vue.js</li>
-</ul>
-</li>
-<li><p>後端</p>
-<ul>
-<li>JavaEE、JDBC、JavaWeb</li>
-<li>Spring、SpringMVC、Mybatis</li>
-<li>Spring Boot</li>
-</ul>
-</li>
-<li><p>資料庫</p>
-<ul>
-<li>MySQL</li>
-</ul>
-</li>
-<li><p>其他</p>
-<ul>
-<li>Git、Github</li>
-<li>Maven</li>
-<li>MVC設計模式</li>
-<li>RESTful API</li>
-</ul>
-</li>
-<li><p>Side Projet</p>
-<ul>
-<li>天天來書城<ul>
-<li>書城是個純JavaWeb項目，使用html、css、JavaScript、jsp、jQuery、Ajax編寫前端代碼；使用MySQL數據庫進行資料存儲；由tomcat進行佈署</li>
-<li>由於是Jsp動態頁面，目前暫無公開訪問的網站，僅提供readme文件介紹，項目源碼分享於<a target="_blank" rel="noopener" href="https://github.com/Ekerchung/Books">https://github.com/Ekerchung/Books</a></li>
-</ul>
-</li>
-<li>天天來書城(由SSM框架重構)<ul>
-<li>TTBookStore使用SSM框架、Thymeleaf、maven….等技術，重構原JSP組成的天天來書城項目，項目源碼分享於<a target="_blank" rel="noopener" href="https://github.com/Ekerchung/TTBookStore">https://github.com/Ekerchung/TTBookStore</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="關於本站"><a href="#關於本站" class="headerlink" title="關於本站"></a>關於本站</h2><p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>使用SpringBoot data JPA經由Junit查詢@OneToMany數據時報錯，錯誤碼如下：</p>
+<p><code>org.hibernate.LazyInitializationException: could not initialize proxy [com.msystem.entity.Good#1] - no Session</code></p>
+<p>解決方案：</p>
+<p>經查詢發現，這個原因是不同的Mapping Annotation在資料庫select資料的時機是不一樣的，有些是預設使用FetchType.EAGER，代表我們索取A資料表的時候Framework就立刻幫我們把對應的外來B資料表也一起select。而有些Annotation預設是使用FetchType.LAZY，只有當我們實際呼叫getXXX()方法的時候Framework才去資料庫讀取資料。而問題出在設定為LAZY時，我們的程式要去讀取資料時資料庫連線已經關閉（或是被收回去給其他地方使用），沒辦法延遲取得資料。</p>
+<p>方式一【推薦】：使用@Transactional標註在會遇到此問題的Method上。</p>
+<p>利用資料庫的交易（Transaction）機制，搭配Spring Framework的@Transactional註釋可以解決這個問題，Spring讓程式從進入Method到離開Method都確保其獨立完整性。</p>
+<p>方式二：在Entity Class中使用@OneToMany(fetch = FetchType.EAGER)，讓JPA立刻索取資料。</p>
+<p>這種方式可以解決要讀取資料時連線已經關閉的問題，但會帶來效能問題。如果對應的外來資料表的資料非常多的話，每次都必須大量的讀取不一定會用上的資料。但是開發者確定資料量不多、或是每次都會用上這些資料的話，將Fetch Type改為EAGER也是OK的。</p>
+<blockquote>
+<p>在解決問題的時候，發現在Junit測試方法的時候標註@Transactional可以正常查出數據，但若只在方法上面標註@Transactional時，使用Junit仍會報錯。研究後發現在Junit中，原本方法標註的@Transactional會失效，以下擴展一下@Transactional的知識<br>@Transactional 失效的場景：</p>
+<ol>
+<li>在Junit中，原本方法標註的@Transactional會失效</li>
+<li>Transactional 注解標注方法修飾符為非 public 時，@Transactional 注解將會不起作用</li>
+<li>在類內部調用調用類內部 @Transactional 標注的方法</li>
+<li>事務方法內部捕捉了異常，沒有拋出新的異常，導致事務操作不會進行回滾</li>
+</ol>
+</blockquote>
 
-        </article>
-        
-        
+      
+       <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -837,11 +880,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 </body>
