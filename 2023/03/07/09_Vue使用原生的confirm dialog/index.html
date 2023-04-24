@@ -6,12 +6,12 @@
   <meta name="keywords" content=" Vue ">
   <meta name="description" content="Vue使用原生的confirm dialog | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="踩坑紀錄使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr) 解決方案：  查詢MySQL數據返回不一致 使用全局配置將MySQL的時區與SpringBoot的時區調成一致123456spring:  datasource:    #配置MySql時區，配置">
+<meta name="description" content="踩坑紀錄使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr) 解決方案：  查詢MySQL數據返回不一致 使用全局配置將MySQL的時區與SpringBoot的時區調成一致spring: datasource:   #配置MySql時區，配置了SpringB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot + Vue前後分離項目回傳日期差一天(8hr)">
 <meta property="og:url" content="https://ekerchung.github.io/2023/04/24/20_SpringBoot%20+%20Vue%E5%89%8D%E5%BE%8C%E5%88%86%E9%9B%A2%E9%A0%85%E7%9B%AE%E5%9B%9E%E5%82%B3%E6%97%A5%E6%9C%9F%E5%B7%AE%E4%B8%80%E5%A4%A9(8hr)/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="踩坑紀錄使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr) 解決方案：  查詢MySQL數據返回不一致 使用全局配置將MySQL的時區與SpringBoot的時區調成一致123456spring:  datasource:    #配置MySql時區，配置">
+<meta property="og:description" content="踩坑紀錄使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr) 解決方案：  查詢MySQL數據返回不一致 使用全局配置將MySQL的時區與SpringBoot的時區調成一致spring: datasource:   #配置MySql時區，配置了SpringB">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-24T09:29:28.888Z">
 <meta property="article:modified_time" content="2023-04-24T09:46:10.528Z">
@@ -448,7 +448,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="21">
-<input type="hidden" id="yelog_site_word_count" value="140k">
+<input type="hidden" id="yelog_site_word_count" value="139.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -697,7 +697,7 @@
         
         <a  class="All 後端 Spring "
            href="/2023/02/23/04_SSM-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%95%B4%E5%90%88/"
-           data-tag="mybatis,spring,springMVC"
+           data-tag="springMVC,mybatis,spring"
            data-author="" >
             <span class="post-title" title="SSM-配置文件整合">SSM-配置文件整合</span>
             <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>
@@ -789,7 +789,7 @@
     </div>
     <div class="article-meta">
         
-        <span>Count:128</span>
+        <span>Count:127</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -826,10 +826,30 @@
       
         <p>在方法內使用if(confirm(“確定要刪除?”)){…..}，即可跳出確認視窗。</p>
 <p>實現代碼如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> vue = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">el</span>:<span class="string">&#x27;#main&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">methods</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//event表示當前事件</span></span></span><br><span class="line"><span class="language-javascript">            <span class="attr">deletebook</span>: <span class="keyword">function</span> (<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span>(<span class="title function_">confirm</span>(<span class="string">&quot;確定要刪除?&quot;</span>)) &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">//通過document.getElementById()獲取表單標籤</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="keyword">var</span> form = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;delete_form&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">//將觸發事件的href屬性賦給form的action屬性</span></span></span><br><span class="line"><span class="language-javascript">                    form.<span class="property">action</span> = event.<span class="property">target</span>.<span class="property">href</span>;</span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">//提交表單</span></span></span><br><span class="line"><span class="language-javascript">                    form.<span class="title function_">submit</span>();</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//阻止默認的超連結功能</span></span></span><br><span class="line"><span class="language-javascript">                event.<span class="title function_">preventDefault</span>();</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="html">&lt;script type=&quot;text/javascript&quot;&gt;
 
+    var vue = new Vue(&#123;
+        el:&#39;#main&#39;,
+        methods:&#123;
+            //event表示當前事件
+            deletebook: function ()&#123;
+                if(confirm(&quot;確定要刪除?&quot;)) &#123;
 
+                    //通過document.getElementById()獲取表單標籤
+                    var form = document.getElementById(&quot;delete_form&quot;);
+                    //將觸發事件的href屬性賦給form的action屬性
+                    form.action = event.target.href;
+                    //提交表單
+                    form.submit();
+                &#125;
+                //阻止默認的超連結功能
+                event.preventDefault();
+            &#125;
+        &#125;
+    &#125;);
 
+&lt;/script&gt;
+</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>

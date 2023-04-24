@@ -6,12 +6,12 @@
   <meta name="keywords" content=" 踩坑 , hibernate ">
   <meta name="description" content="SpringBoot Data Jpa 級聯查詢死循環 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="踩坑紀錄使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr) 解決方案：  查詢MySQL數據返回不一致 使用全局配置將MySQL的時區與SpringBoot的時區調成一致123456spring:  datasource:    #配置MySql時區，配置">
+<meta name="description" content="踩坑紀錄使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr) 解決方案：  查詢MySQL數據返回不一致 使用全局配置將MySQL的時區與SpringBoot的時區調成一致spring: datasource:   #配置MySql時區，配置了SpringB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot + Vue前後分離項目回傳日期差一天(8hr)">
 <meta property="og:url" content="https://ekerchung.github.io/2023/04/24/20_SpringBoot%20+%20Vue%E5%89%8D%E5%BE%8C%E5%88%86%E9%9B%A2%E9%A0%85%E7%9B%AE%E5%9B%9E%E5%82%B3%E6%97%A5%E6%9C%9F%E5%B7%AE%E4%B8%80%E5%A4%A9(8hr)/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="踩坑紀錄使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr) 解決方案：  查詢MySQL數據返回不一致 使用全局配置將MySQL的時區與SpringBoot的時區調成一致123456spring:  datasource:    #配置MySql時區，配置">
+<meta property="og:description" content="踩坑紀錄使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr) 解決方案：  查詢MySQL數據返回不一致 使用全局配置將MySQL的時區與SpringBoot的時區調成一致spring: datasource:   #配置MySql時區，配置了SpringB">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-24T09:29:28.888Z">
 <meta property="article:modified_time" content="2023-04-24T09:46:10.528Z">
@@ -448,7 +448,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="21">
-<input type="hidden" id="yelog_site_word_count" value="140k">
+<input type="hidden" id="yelog_site_word_count" value="139.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -697,7 +697,7 @@
         
         <a  class="All 後端 Spring "
            href="/2023/02/23/04_SSM-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%95%B4%E5%90%88/"
-           data-tag="mybatis,spring,springMVC"
+           data-tag="springMVC,mybatis,spring"
            data-author="" >
             <span class="post-title" title="SSM-配置文件整合">SSM-配置文件整合</span>
             <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>
@@ -795,7 +795,7 @@
     </div>
     <div class="article-meta">
         
-        <span>Count:526</span>
+        <span>Count:519</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -842,18 +842,99 @@
 <ul>
 <li><p>解決實體類的toString()方法中包含對級聯對象的輸出 (查詢SQL時報錯)</p>
 <ul>
-<li>方法一：在其中一個實體對象修改toString()，將級聯對象移除<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@Table(name = &quot;t_company&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Company</span> &#123;</span><br><span class="line"><span class="meta">@Id</span></span><br><span class="line"><span class="meta">@GeneratedValue</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">int</span> companyId;</span><br><span class="line"><span class="keyword">private</span> String companyName;</span><br><span class="line"><span class="keyword">private</span> String companyTel;</span><br><span class="line"><span class="keyword">private</span> String companyAddress;</span><br><span class="line"><span class="meta">@OneToOne(mappedBy = &quot;company&quot;)</span></span><br><span class="line"><span class="keyword">private</span> Good good;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Company&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;companyId=&quot;</span> + companyId +</span><br><span class="line">                <span class="string">&quot;, companyName=&#x27;&quot;</span> + companyName + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, companyTel=&#x27;&quot;</span> + companyTel + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, companyAddress=&#x27;&quot;</span> + companyAddress + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>方法二：使用lombok裡面提供的注釋<code>@ToString.Exclude</code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Table(name = &quot;t_company&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Company</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> companyId;</span><br><span class="line">    <span class="keyword">private</span> String companyName;</span><br><span class="line">    <span class="keyword">private</span> String companyTel;</span><br><span class="line">    <span class="keyword">private</span> String companyAddress;</span><br><span class="line">    <span class="meta">@OneToOne(mappedBy = &quot;company&quot;)</span></span><br><span class="line">    <span class="meta">@ToString</span>.Exclude</span><br><span class="line">    <span class="keyword">private</span> Good good;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>方法一：在其中一個實體對象修改toString()，將級聯對象移除</p>
+<pre><code class="java">@Entity
+@Getter
+@Setter
+@Table(name = &quot;t_company&quot;)
+public class Company &#123;
+@Id
+@GeneratedValue
+private int companyId;
+private String companyName;
+private String companyTel;
+private String companyAddress;
+@OneToOne(mappedBy = &quot;company&quot;)
+private Good good;
+
+@Override
+public String toString() &#123;
+    return &quot;Company&#123;&quot; +
+            &quot;companyId=&quot; + companyId +
+            &quot;, companyName=&#39;&quot; + companyName + &#39;\&#39;&#39; +
+            &quot;, companyTel=&#39;&quot; + companyTel + &#39;\&#39;&#39; +
+            &quot;, companyAddress=&#39;&quot; + companyAddress + &#39;\&#39;&#39; +
+            &#39;&#125;&#39;;
+&#125;
+&#125;
+</code></pre>
+</li>
+<li><p>方法二：使用lombok裡面提供的注釋<code>@ToString.Exclude</code><br>```java<br>@Entity<br>@Data<br>@Table(name = “t_company”)<br>public class Company {<br>@Id<br>@GeneratedValue<br>private int companyId;<br>private String companyName;<br>private String companyTel;<br>private String companyAddress;<br>@OneToOne(mappedBy = “company”)<br>@ToString.Exclude<br>private Good good;</p>
+</li>
 </ul>
 </li>
-<li><p>解決轉為Json返回前端時，對實體對象進行序列化死循環問題</p>
-<ul>
-<li>在其中一個級聯對象中使用<code>@JsonIgnore</code>或<code>@JsonIgnoreProperties</code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Table(name = &quot;t_company&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Company</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> companyId;</span><br><span class="line">    <span class="keyword">private</span> String companyName;</span><br><span class="line">    <span class="keyword">private</span> String companyTel;</span><br><span class="line">    <span class="keyword">private</span> String companyAddress;</span><br><span class="line">    <span class="meta">@OneToOne(mappedBy = &quot;company&quot;)</span></span><br><span class="line">    <span class="meta">@JsonIgnore</span></span><br><span class="line">    <span class="meta">@ToString</span>.Exclude</span><br><span class="line">    <span class="keyword">private</span> Good good;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-</li>
-</ul>
+<p>}</p>
+<pre><code>
+* 解決轉為Json返回前端時，對實體對象進行序列化死循環問題
+  * 在其中一個級聯對象中使用`@JsonIgnore`或`@JsonIgnoreProperties`
+```java
+@Entity
+@Data
+@Table(name = &quot;t_company&quot;)
+public class Company &#123;
+    @Id
+    @GeneratedValue
+    private int companyId;
+    private String companyName;
+    private String companyTel;
+    private String companyAddress;
+    @OneToOne(mappedBy = &quot;company&quot;)
+    @JsonIgnore
+    @ToString.Exclude
+    private Good good;
+
+&#125;
+</code></pre>
 <p>不會產生死循環的代碼如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Table(name = &quot;t_good&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Good</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> gId;</span><br><span class="line">    <span class="keyword">private</span> String lineId;</span><br><span class="line">    <span class="keyword">private</span> Date pDate;</span><br><span class="line">    <span class="meta">@OneToOne(optional = false, cascade = CascadeType.ALL)</span></span><br><span class="line">    <span class="meta">@JoinColumn(name = &quot;companyId&quot;)</span></span><br><span class="line">    <span class="comment">//@JsonIgnoreProperties(&quot;good&quot;) 忽略company中的good屬性</span></span><br><span class="line">    <span class="keyword">private</span> Company company;</span><br><span class="line">    <span class="keyword">private</span> String lineName;</span><br><span class="line">    <span class="keyword">private</span> String lineType;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> totalCount;</span><br><span class="line">    <span class="keyword">private</span> BigDecimal unitPrice;</span><br><span class="line">    <span class="keyword">private</span> BigDecimal totalPrice;</span><br><span class="line">    <span class="keyword">private</span> BigDecimal totalProfit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Table(name = &quot;t_company&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Company</span> &#123;</span><br><span class="line">  <span class="meta">@Id</span></span><br><span class="line">  <span class="meta">@GeneratedValue</span></span><br><span class="line">  <span class="keyword">private</span> <span class="type">int</span> companyId;</span><br><span class="line">  <span class="keyword">private</span> String companyName;</span><br><span class="line">  <span class="keyword">private</span> String companyTel;</span><br><span class="line">  <span class="keyword">private</span> String companyAddress;</span><br><span class="line">  <span class="meta">@OneToOne(mappedBy = &quot;company&quot;)</span></span><br><span class="line">  <span class="meta">@JsonIgnore</span> <span class="comment">//忽略good實體的查詢，避免死循環</span></span><br><span class="line">  <span class="meta">@ToString</span>.Exclude</span><br><span class="line">  <span class="keyword">private</span> Good good;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">@Entity
+@Data
+@Table(name = &quot;t_good&quot;)
+public class Good &#123;
+    @Id
+    @GeneratedValue
+    private int gId;
+    private String lineId;
+    private Date pDate;
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = &quot;companyId&quot;)
+    //@JsonIgnoreProperties(&quot;good&quot;) 忽略company中的good屬性
+    private Company company;
+    private String lineName;
+    private String lineType;
+    private int totalCount;
+    private BigDecimal unitPrice;
+    private BigDecimal totalPrice;
+    private BigDecimal totalProfit;
+&#125;
+
+@Entity
+@Data
+@Table(name = &quot;t_company&quot;)
+public class Company &#123;
+  @Id
+  @GeneratedValue
+  private int companyId;
+  private String companyName;
+  private String companyTel;
+  private String companyAddress;
+  @OneToOne(mappedBy = &quot;company&quot;)
+  @JsonIgnore //忽略good實體的查詢，避免死循環
+  @ToString.Exclude
+  private Good good;
+
+&#125;
+</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>

@@ -6,12 +6,12 @@
   <meta name="keywords" content=" 踩坑 , Vue , hibernate ">
   <meta name="description" content="SpringBoot + Vue前後分離項目回傳日期差一天(8hr) | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="踩坑紀錄使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr) 解決方案：  查詢MySQL數據返回不一致 使用全局配置將MySQL的時區與SpringBoot的時區調成一致123456spring:  datasource:    #配置MySql時區，配置">
+<meta name="description" content="踩坑紀錄使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr) 解決方案：  查詢MySQL數據返回不一致 使用全局配置將MySQL的時區與SpringBoot的時區調成一致spring: datasource:   #配置MySql時區，配置了SpringB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot + Vue前後分離項目回傳日期差一天(8hr)">
 <meta property="og:url" content="https://ekerchung.github.io/2023/04/24/20_SpringBoot%20+%20Vue%E5%89%8D%E5%BE%8C%E5%88%86%E9%9B%A2%E9%A0%85%E7%9B%AE%E5%9B%9E%E5%82%B3%E6%97%A5%E6%9C%9F%E5%B7%AE%E4%B8%80%E5%A4%A9(8hr)/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="踩坑紀錄使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr) 解決方案：  查詢MySQL數據返回不一致 使用全局配置將MySQL的時區與SpringBoot的時區調成一致123456spring:  datasource:    #配置MySql時區，配置">
+<meta property="og:description" content="踩坑紀錄使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr) 解決方案：  查詢MySQL數據返回不一致 使用全局配置將MySQL的時區與SpringBoot的時區調成一致spring: datasource:   #配置MySql時區，配置了SpringB">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-24T09:29:28.888Z">
 <meta property="article:modified_time" content="2023-04-24T09:46:10.528Z">
@@ -448,7 +448,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="21">
-<input type="hidden" id="yelog_site_word_count" value="140k">
+<input type="hidden" id="yelog_site_word_count" value="139.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -697,7 +697,7 @@
         
         <a  class="All 後端 Spring "
            href="/2023/02/23/04_SSM-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%95%B4%E5%90%88/"
-           data-tag="mybatis,spring,springMVC"
+           data-tag="springMVC,mybatis,spring"
            data-author="" >
             <span class="post-title" title="SSM-配置文件整合">SSM-配置文件整合</span>
             <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>
@@ -836,13 +836,28 @@
 <p>解決方案：</p>
 <ul>
 <li>查詢MySQL數據返回不一致<ul>
-<li>使用全局配置將MySQL的時區與SpringBoot的時區調成一致<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="comment">#配置MySql時區，配置了SpringBoot全局時區後，通常不用配</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/msystem?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Taipei</span></span><br><span class="line">  <span class="attr">jackson:</span></span><br><span class="line">    <span class="attr">time-zone:</span> <span class="string">Asia/Taipei</span> <span class="comment">#配置SpringBoot全局時區</span></span><br></pre></td></tr></table></figure></li>
+<li>使用全局配置將MySQL的時區與SpringBoot的時區調成一致<pre><code class="yaml">spring:
+datasource:
+  #配置MySql時區，配置了SpringBoot全局時區後，通常不用配
+  url: jdbc:mysql://localhost:3306/msystem?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Taipei
+jackson:
+  time-zone: Asia/Taipei #配置SpringBoot全局時區
+</code></pre>
+</li>
 </ul>
 </li>
 <li>後台響應數據到Vue中，日期不一致<ul>
 <li>使用Moment.js設置Vue的全局時區，具體使用方法如下：<ul>
-<li>首先，安裝 Moment.js 庫。使用 npm 進行安裝<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install moment-timezone</span><br></pre></td></tr></table></figure></li>
-<li>在 Vue.js 的入口文件中（一般為 main.js），將 Moment.js 庫設置為所需的時區，並設置為全局模塊<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import moment from &#x27;moment-timezone&#x27;;</span><br><span class="line">// 設置 Moment.js 库為台北時區</span><br><span class="line">moment.tz.setDefault(&#x27;Asia/Taipei&#x27;);</span><br><span class="line">// 設置全局 moment 對象</span><br><span class="line">Vue.prototype.$moment = moment;</span><br></pre></td></tr></table></figure></li>
+<li>首先，安裝 Moment.js 庫。使用 npm 進行安裝<pre><code class="vue">npm install moment-timezone
+</code></pre>
+</li>
+<li>在 Vue.js 的入口文件中（一般為 main.js），將 Moment.js 庫設置為所需的時區，並設置為全局模塊<pre><code class="vue">import moment from &#39;moment-timezone&#39;;
+// 設置 Moment.js 库為台北時區
+moment.tz.setDefault(&#39;Asia/Taipei&#39;);
+// 設置全局 moment 對象
+Vue.prototype.$moment = moment;
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
