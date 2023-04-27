@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Thymeleaf-渲染數據庫內保存的時間 | Myblog</title>
-  <meta name="keywords" content=" Spring , 踩坑 , Thymeleaf ">
-  <meta name="description" content="Thymeleaf-渲染數據庫內保存的時間 | Myblog">
+  <title>使用Vuex保存數據後，刷新頁面圖表渲染沒資料 | Myblog</title>
+  <meta name="keywords" content=" 踩坑 , Vue ">
+  <meta name="description" content="使用Vuex保存數據後，刷新頁面圖表渲染沒資料 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="踩坑紀錄使用Vuex保存數據後，刷新頁面圖表渲染沒資料 解決方案： 經查詢發現，經由created調用Actions裡面的異步請求的時間，會在mounted調用生成表格的配置前面，造成沒有數據 使用定時器來解決此問題 setTimeout(() &#x3D;&gt; &amp;#123;   var myChart1 &#x3D; echarts.init(this.$refs.echarts1);     &#x2F;&#x2F; 配製圖表1">
 <meta property="og:type" content="article">
@@ -774,9 +774,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-11_Thymeleaf渲染數據庫內保存的時間" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-22_使用Vuex保存數據後，刷新頁面圖表渲染沒資料" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Thymeleaf-渲染數據庫內保存的時間</h1>
+        <h1 class="article-title">使用Vuex保存數據後，刷新頁面圖表渲染沒資料</h1>
     
     <div class="article-meta">
         
@@ -786,11 +786,11 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="後端">後端</a> > 
+            <a  data-rel="前端">前端</a> > 
             
-            <a  data-rel="後端&lt;---&gt;Spring">Spring</a> > 
+            <a  data-rel="前端&lt;---&gt;Vue">Vue</a> > 
             
-            <a  data-rel="後端&lt;---&gt;Spring&lt;---&gt;踩坑">踩坑</a>
+            <a  data-rel="前端&lt;---&gt;Vue&lt;---&gt;踩坑">踩坑</a>
             
         </span>
         
@@ -798,23 +798,21 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color2">Spring</a>
-            
             <a class="color3">踩坑</a>
             
-            <a class="color5">Thymeleaf</a>
+            <a class="color4">Vue</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-03-12 20:24:33'>2023-03-10 22:42</time>
+            Created At : <time class="date" title='Updated At: 2023-04-27 16:58:23'>2023-04-27 15:01</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:143</span>
+        <span>Count:195</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -833,7 +831,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C"><span class="toc-text">問題</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -849,12 +847,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>使用Thymeleaf渲染MySql數據庫內保存的日期時，會顯示如下格式。<br><code>Thu Apr 19 08:37:23 CST 2023</code></p>
-<h5 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h5><p>在Java中，日期和時間通常以java.util.Date或java.util.Calendar對象表示。如果使用這些對象在Thymeleaf中進行日期渲染，Thymeleaf會調用對象的toString()方法，該方法的預設格式是“EEE MMM dd HH:mm:ss zzz yyyy”</p>
+        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>使用Vuex保存數據後，刷新頁面圖表渲染沒資料</p>
 <p>解決方案：</p>
-<p>使用Thymeleaf提供的日期格式化功能#dates.format。</p>
-<pre><code class="html">&lt;td th:text=&quot;$&#123;#dates.format(order.createtime, &#39;yyyy-MM-dd HH:mm:ss&#39;)&#125;&quot;&gt;&lt;/td&gt;
+<p>經查詢發現，經由created調用Actions裡面的異步請求的時間，會在mounted調用生成表格的配置前面，造成沒有數據</p>
+<p>使用定時器來解決此問題</p>
+<pre><code class="vue.js">setTimeout(() =&gt; &#123;
+  var myChart1 = echarts.init(this.$refs.echarts1);
+    // 配製圖表1
+    myChart1.setOption(&#123;
+      .....
+    &#125;);
+&#125;, 1000);
 </code></pre>
+<blockquote>
+<p>思考過下面方式，但都不可用</p>
+<ul>
+<li>使用this.$nextTick(() =&gt; {….});來解決，但需將調用數據、保存數據及渲染圖表都寫在$nextTick()內，不符合此問題使用</li>
+<li>使用watch監聽vuex的數據變化，因vuex中的state實際上並沒發生變化，問題是保存數據時間在渲染圖表之前造成，此方法物無效</li>
+</ul>
+</blockquote>
 
       
        <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>
