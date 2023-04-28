@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Spring-MySQL配置報錯 | Myblog</title>
-  <meta name="keywords" content=" Spring , 踩坑 ">
-  <meta name="description" content="Spring-MySQL配置報錯 | Myblog">
+  <title>Vue使用Element UI時，使用深拷貝避免修改彈窗資料與表格資料連動 | Myblog</title>
+  <meta name="keywords" content=" 踩坑 , Vue ">
+  <meta name="description" content="Vue使用Element UI時，使用深拷貝避免修改彈窗資料與表格資料連動 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="有個常遇到的使用情境，就是將 el-table 的資料回顯到彈窗 el-dialog 給使用者修改，且在不使用 VueX 去管理資料的情況下，直接將獲取的資料直接丟到 data() 去，然後在 el-dialog 直接將 data() 展示在欄位上即可 但因為是同一筆資料的引用，當你在 el-dialog 上修改資料時，連同 el-table 上展示的資料也會跟著變動，此時就可以使用深拷貝（Dee">
 <meta property="og:type" content="article">
@@ -792,9 +792,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-06_Spring-MySQL配置報錯" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-24_Vue使用Element UI時，使用深拷貝避免修改彈窗資料與表格資料連動" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Spring-MySQL配置報錯</h1>
+        <h1 class="article-title">Vue使用Element UI時，使用深拷貝避免修改彈窗資料與表格資料連動</h1>
     
     <div class="article-meta">
         
@@ -804,11 +804,11 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="後端">後端</a> > 
+            <a  data-rel="前端">前端</a> > 
             
-            <a  data-rel="後端&lt;---&gt;Spring">Spring</a> > 
+            <a  data-rel="前端&lt;---&gt;Vue">Vue</a> > 
             
-            <a  data-rel="後端&lt;---&gt;Spring&lt;---&gt;踩坑">踩坑</a>
+            <a  data-rel="前端&lt;---&gt;Vue&lt;---&gt;踩坑">踩坑</a>
             
         </span>
         
@@ -816,21 +816,21 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color2">Spring</a>
-            
             <a class="color3">踩坑</a>
+            
+            <a class="color4">Vue</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-03-12 20:24:33'>2023-02-26 23:49</time>
+            Created At : <time class="date" title='Updated At: 2023-04-29 00:33:53'>2023-04-29 00:28</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:237</span>
+        <span>Count:146</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -849,7 +849,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C"><span class="toc-text">問題</span></a></li></ol></li></ol></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -865,23 +865,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>配置Spring中數據源後，啟動tomcat伺服器報錯</p>
-<h5 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h5><p>將property name配置為”driver”以及”user”報錯，原因是driver及user是內建的一個類，不能使用</p>
-<pre><code class="xml">&lt;bean id=&quot;dataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;&gt;
-    &lt;property name=&quot;driver&quot; value=&quot;$&#123;jdbc.driver&#125;&quot;&gt;&lt;/property&gt;
-    &lt;property name=&quot;url&quot; value=&quot;$&#123;jdbc.url&#125;&quot;&gt;&lt;/property&gt;
-    &lt;property name=&quot;user&quot; value=&quot;$&#123;jdbc.username&#125;&quot;&gt;&lt;/property&gt;
-    &lt;property name=&quot;password&quot; value=&quot;$&#123;jdbc.password&#125;&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;
-</code></pre>
-<p>解決方案：<br>將property name改為”driverClassName”以及”username”即可</p>
-<pre><code class="xml">    &lt;bean id=&quot;dataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;&gt;
-        &lt;property name=&quot;driverClassName&quot; value=&quot;$&#123;jdbc.driver&#125;&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;url&quot; value=&quot;$&#123;jdbc.url&#125;&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;username&quot; value=&quot;$&#123;jdbc.username&#125;&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;password&quot; value=&quot;$&#123;jdbc.password&#125;&quot;&gt;&lt;/property&gt;
-    &lt;/bean&gt;
-</code></pre>
+        <p>有個常遇到的使用情境，就是將 el-table 的資料回顯到彈窗 el-dialog 給使用者修改，且在不使用 VueX 去管理資料的情況下，直接將獲取的資料直接丟到 data() 去，然後在 el-dialog 直接將 data() 展示在欄位上即可</p>
+<p>但因為是同一筆資料的引用，當你在 el-dialog 上修改資料時，連同 el-table 上展示的資料也會跟著變動，此時就可以使用深拷貝（Deep Copy / Deep Clone）的方式解決這個問題</p>
+<p><code>this.form = JSON.parse(JSON.stringify(row))</code></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>
