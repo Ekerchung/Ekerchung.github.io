@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Spring-MySQL配置報錯 | Myblog</title>
-  <meta name="keywords" content=" Spring , 踩坑 ">
-  <meta name="description" content="Spring-MySQL配置報錯 | Myblog">
+  <title>Vue使用Element UI時，清空form表單數據及更新表格資料問題 | Myblog</title>
+  <meta name="keywords" content=" 踩坑 , Vue ">
+  <meta name="description" content="Vue使用Element UI時，清空form表單數據及更新表格資料問題 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="踩坑紀錄問題一：Vue使用Element UI時，當使用form表單提交數據，會在提交數據之後將表單清空，但使用時提交的數據都為空。問題二：當新增或修改數據時，必須重新請求查詢資料庫，以更新表格數據，但更新後頁面沒顯示更新後的數據，在刷新頁面或再更新一筆數據時才出現。 有問題代碼如下：    &#x2F;&#x2F;提交用戶表單     submit()&amp;#123;       this.$refs.form.val">
 <meta property="og:type" content="article">
@@ -801,9 +801,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-06_Spring-MySQL配置報錯" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-25_Vue使用Element UI時，清空form表單數據及更新表格資料問題" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Spring-MySQL配置報錯</h1>
+        <h1 class="article-title">Vue使用Element UI時，清空form表單數據及更新表格資料問題</h1>
     
     <div class="article-meta">
         
@@ -813,11 +813,11 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="後端">後端</a> > 
+            <a  data-rel="前端">前端</a> > 
             
-            <a  data-rel="後端&lt;---&gt;Spring">Spring</a> > 
+            <a  data-rel="前端&lt;---&gt;Vue">Vue</a> > 
             
-            <a  data-rel="後端&lt;---&gt;Spring&lt;---&gt;踩坑">踩坑</a>
+            <a  data-rel="前端&lt;---&gt;Vue&lt;---&gt;踩坑">踩坑</a>
             
         </span>
         
@@ -825,21 +825,21 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color2">Spring</a>
-            
             <a class="color3">踩坑</a>
+            
+            <a class="color4">Vue</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-03-12 20:24:33'>2023-02-26 23:49</time>
+            Created At : <time class="date" title='Updated At: 2023-04-29 01:15:12'>2023-04-29 01:00</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:237</span>
+        <span>Count:426</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -858,7 +858,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C"><span class="toc-text">問題</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -874,22 +874,47 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>配置Spring中數據源後，啟動tomcat伺服器報錯</p>
-<h5 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h5><p>將property name配置為”driver”以及”user”報錯，原因是driver及user是內建的一個類，不能使用</p>
-<pre><code class="xml">&lt;bean id=&quot;dataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;&gt;
-    &lt;property name=&quot;driver&quot; value=&quot;$&#123;jdbc.driver&#125;&quot;&gt;&lt;/property&gt;
-    &lt;property name=&quot;url&quot; value=&quot;$&#123;jdbc.url&#125;&quot;&gt;&lt;/property&gt;
-    &lt;property name=&quot;user&quot; value=&quot;$&#123;jdbc.username&#125;&quot;&gt;&lt;/property&gt;
-    &lt;property name=&quot;password&quot; value=&quot;$&#123;jdbc.password&#125;&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;
+        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>問題一：<br>Vue使用Element UI時，當使用form表單提交數據，會在提交數據之後將表單清空，但使用時提交的數據都為空。<br>問題二：<br>當新增或修改數據時，必須重新請求查詢資料庫，以更新表格數據，但更新後頁面沒顯示更新後的數據，在刷新頁面或再更新一筆數據時才出現。</p>
+<p>有問題代碼如下：</p>
+<pre><code class="vue">   //提交用戶表單
+    submit()&#123;
+      this.$refs.form.validate(valid =&gt; &#123;
+        //驗證通過，執行if內的代碼
+        if(valid)&#123;
+          //新增或修改員工資料
+          this.fetchUpdateEmployee(this.form);
+          //重新查詢數據庫資料，更新數據
+          this.fetchEmployeeData();
+        &#125;
+        //清空form表單的數據
+        this.$refs.form.resetFields();
+        //關閉彈窗
+        this.dialogFormVisible = false;
+      &#125;)
+    &#125;,
 </code></pre>
-<p>解決方案：<br>將property name改為”driverClassName”以及”username”即可</p>
-<pre><code class="xml">    &lt;bean id=&quot;dataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;&gt;
-        &lt;property name=&quot;driverClassName&quot; value=&quot;$&#123;jdbc.driver&#125;&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;url&quot; value=&quot;$&#123;jdbc.url&#125;&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;username&quot; value=&quot;$&#123;jdbc.username&#125;&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;password&quot; value=&quot;$&#123;jdbc.password&#125;&quot;&gt;&lt;/property&gt;
-    &lt;/bean&gt;
+<p>解決方案：<br>經我測試過後，推測原因如下：<br>針對問題一：太快清空數據，在發送異步請求到後台之前，數據就已經被清掉了，造成數據缺失。<br>針對問題二：當重新查詢數據庫的請求線程速度快於新增或修改員工資料時，造成查詢資料在新增/修改資料之前，產生此問題。</p>
+<p>我使用定時器將這兩行代碼延後執行，避免上面兩個問題產生。</p>
+<pre><code class="vue">   //提交用戶表單
+    submit()&#123;
+      this.$refs.form.validate(valid =&gt; &#123;
+        //驗證通過，執行if內的代碼
+        if(valid)&#123;
+          //新增或修改員工資料
+          this.fetchUpdateEmployee(this.form);
+        &#125;
+        //關閉彈窗
+        this.dialogFormVisible = false;
+        //設置定時器，避免清空、查詢數據太快
+        setTimeout(() =&gt; &#123;
+          //重新查詢數據庫資料，更新數據
+          this.fetchEmployeeData();
+          //清空form表單的數據
+          this.$refs.form.resetFields();
+        &#125;, 200);
+
+      &#125;)
+    &#125;,
 </code></pre>
 
       
