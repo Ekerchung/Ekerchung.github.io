@@ -6,18 +6,18 @@
   <meta name="keywords" content=" 踩坑 , Vue ">
   <meta name="description" content="Vue Router菜單重複點擊-控制台報錯 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="踩坑紀錄使用Vuex保存數據後，刷新頁面圖表渲染沒資料 解決方案： 經查詢發現，經由created調用Actions裡面的異步請求的時間，會在mounted調用生成表格的配置前面，造成沒有數據 使用定時器來解決此問題 setTimeout(() &#x3D;&gt; &amp;#123;   var myChart1 &#x3D; echarts.init(this.$refs.echarts1);     &#x2F;&#x2F; 配製圖表1">
+<meta name="description" content="踩坑紀錄SpringBoot Data Jpa中新增數據到MySql報錯 Table &#39;msystem.hibernate_sequence&#39; doesn&#39;t exist 報錯原因：因為@GeneratedValue主鍵的生成策略，若不寫的話相當於@GeneratedValue(strategy&#x3D;GenerationType.AUTO)，但MySql是不支持的，Oracle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Vuex保存數據後，刷新頁面圖表渲染沒資料">
-<meta property="og:url" content="https://ekerchung.github.io/2023/04/27/22_%E4%BD%BF%E7%94%A8Vuex%E4%BF%9D%E5%AD%98%E6%95%B8%E6%93%9A%E5%BE%8C%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A0%81%E9%9D%A2%E5%9C%96%E8%A1%A8%E6%B8%B2%E6%9F%93%E6%B2%92%E8%B3%87%E6%96%99/index.html">
+<meta property="og:title" content="SpringBoot Data Jpa中新增數據到MySql報錯">
+<meta property="og:url" content="https://ekerchung.github.io/2023/04/28/23_SpringBoot%20Data%20Jpa%E4%B8%AD%E6%96%B0%E5%A2%9E%E6%95%B8%E6%93%9A%E5%88%B0MySql%E5%A0%B1%E9%8C%AF/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="踩坑紀錄使用Vuex保存數據後，刷新頁面圖表渲染沒資料 解決方案： 經查詢發現，經由created調用Actions裡面的異步請求的時間，會在mounted調用生成表格的配置前面，造成沒有數據 使用定時器來解決此問題 setTimeout(() &#x3D;&gt; &amp;#123;   var myChart1 &#x3D; echarts.init(this.$refs.echarts1);     &#x2F;&#x2F; 配製圖表1">
+<meta property="og:description" content="踩坑紀錄SpringBoot Data Jpa中新增數據到MySql報錯 Table &#39;msystem.hibernate_sequence&#39; doesn&#39;t exist 報錯原因：因為@GeneratedValue主鍵的生成策略，若不寫的話相當於@GeneratedValue(strategy&#x3D;GenerationType.AUTO)，但MySql是不支持的，Oracle">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-27T07:01:48.667Z">
-<meta property="article:modified_time" content="2023-04-27T08:58:23.993Z">
+<meta property="article:published_time" content="2023-04-28T04:05:16.450Z">
+<meta property="article:modified_time" content="2023-04-28T08:33:40.066Z">
 <meta property="article:author" content="Eker的編程筆記">
 <meta property="article:tag" content="踩坑">
-<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="hibernate">
 <meta name="twitter:card" content="summary">
 
 
@@ -144,7 +144,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(23)</small>
+                <small>(24)</small>
             
         </div>
     </li>
@@ -288,7 +288,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         後端
-                        <small>(9)</small>
+                        <small>(10)</small>
                         
                     </div>
                     
@@ -327,7 +327,7 @@
                                         
                                         SpringBoot
                                         
-                                            <small>(4
+                                            <small>(5
                                                 )</small>
                                         
                                     </div>
@@ -339,7 +339,7 @@
                                                         
                                                         踩坑
                                                         
-                                                            <small>(4)</small>
+                                                            <small>(5)</small>
                                                         
                                                     </div>
                                                 </li>
@@ -446,8 +446,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="23">
-<input type="hidden" id="yelog_site_word_count" value="140.4k">
+<input type="hidden" id="yelog_site_posts_number" value="24">
+<input type="hidden" id="yelog_site_word_count" value="140.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -548,6 +548,15 @@
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="All 後端 SpringBoot 踩坑 "
+           href="/2023/04/28/23_SpringBoot%20Data%20Jpa%E4%B8%AD%E6%96%B0%E5%A2%9E%E6%95%B8%E6%93%9A%E5%88%B0MySql%E5%A0%B1%E9%8C%AF/"
+           data-tag="踩坑,hibernate"
+           data-author="" >
+            <span class="post-title" title="SpringBoot Data Jpa中新增數據到MySql報錯">SpringBoot Data Jpa中新增數據到MySql報錯</span>
+            <span class="post-date" title="2023-04-28 12:05:16">2023/04/28</span>
+        </a>
         
         
         <a  class="All 前端 Vue 踩坑 "
@@ -714,7 +723,7 @@
         
         <a  class="All 後端 Spring "
            href="/2023/02/23/04_SSM-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%95%B4%E5%90%88/"
-           data-tag="springMVC,mybatis,spring"
+           data-tag="mybatis,springMVC,spring"
            data-author="" >
             <span class="post-title" title="SSM-配置文件整合">SSM-配置文件整合</span>
             <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>

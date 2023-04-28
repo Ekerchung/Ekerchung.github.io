@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>使用Vuex保存數據後，刷新頁面圖表渲染沒資料 | Myblog</title>
-  <meta name="keywords" content=" 踩坑 , Vue ">
-  <meta name="description" content="使用Vuex保存數據後，刷新頁面圖表渲染沒資料 | Myblog">
+  <title>SpringBoot Data Jpa中新增數據到MySql報錯 | Myblog</title>
+  <meta name="keywords" content=" 踩坑 , hibernate ">
+  <meta name="description" content="SpringBoot Data Jpa中新增數據到MySql報錯 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="踩坑紀錄SpringBoot Data Jpa中新增數據到MySql報錯 Table &#39;msystem.hibernate_sequence&#39; doesn&#39;t exist 報錯原因：因為@GeneratedValue主鍵的生成策略，若不寫的話相當於@GeneratedValue(strategy&#x3D;GenerationType.AUTO)，但MySql是不支持的，Oracle">
 <meta property="og:type" content="article">
@@ -783,9 +783,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-22_使用Vuex保存數據後，刷新頁面圖表渲染沒資料" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-23_SpringBoot Data Jpa中新增數據到MySql報錯" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">使用Vuex保存數據後，刷新頁面圖表渲染沒資料</h1>
+        <h1 class="article-title">SpringBoot Data Jpa中新增數據到MySql報錯</h1>
     
     <div class="article-meta">
         
@@ -795,11 +795,11 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="前端">前端</a> > 
+            <a  data-rel="後端">後端</a> > 
             
-            <a  data-rel="前端&lt;---&gt;Vue">Vue</a> > 
+            <a  data-rel="後端&lt;---&gt;SpringBoot">SpringBoot</a> > 
             
-            <a  data-rel="前端&lt;---&gt;Vue&lt;---&gt;踩坑">踩坑</a>
+            <a  data-rel="後端&lt;---&gt;SpringBoot&lt;---&gt;踩坑">踩坑</a>
             
         </span>
         
@@ -809,19 +809,19 @@
             
             <a class="color3">踩坑</a>
             
-            <a class="color4">Vue</a>
+            <a class="color5">hibernate</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-04-27 16:58:23'>2023-04-27 15:01</time>
+            Created At : <time class="date" title='Updated At: 2023-04-28 16:33:40'>2023-04-28 12:05</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:195</span>
+        <span>Count:325</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -856,24 +856,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>使用Vuex保存數據後，刷新頁面圖表渲染沒資料</p>
-<p>解決方案：</p>
-<p>經查詢發現，經由created調用Actions裡面的異步請求的時間，會在mounted調用生成表格的配置前面，造成沒有數據</p>
-<p>使用定時器來解決此問題</p>
-<pre><code class="vue.js">setTimeout(() =&gt; &#123;
-  var myChart1 = echarts.init(this.$refs.echarts1);
-    // 配製圖表1
-    myChart1.setOption(&#123;
-      .....
-    &#125;);
-&#125;, 1000);
+        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>SpringBoot Data Jpa中新增數據到MySql報錯</p>
+<p><code>Table &#39;msystem.hibernate_sequence&#39; doesn&#39;t exist</code></p>
+<p>報錯原因：<br>因為@GeneratedValue主鍵的生成策略，若不寫的話相當於@GeneratedValue(strategy=GenerationType.AUTO)，但MySql是不支持的，Oracle才支持</p>
+<p>報錯的Entity如下：</p>
+<pre><code class="java">@Data
+@Entity
+@Table(name = &quot;t_employee&quot;)
+public class Employee &#123;
+    @Id
+    @GeneratedValue
+    private int eId;
+    private String eName;
+    private String gender;
+    @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;)
+    private Date birthday;
+    private String phone;
+    private String address;
+&#125;
+
 </code></pre>
+<p>解決方案：<br>將生成策略定義為<code>IDENTITY</code>，代碼如下：</p>
+<pre><code class="java">    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int eId;
+</code></pre>
+<p>擴展知識如下：</p>
 <blockquote>
-<p>思考過下面方式，但都不可用</p>
-<ul>
-<li>使用this.$nextTick(() =&gt; {….});來解決，但需將調用數據、保存數據及渲染圖表都寫在$nextTick()內，不符合此問題使用</li>
-<li>使用watch監聽vuex的數據變化，因vuex中的state實際上並沒發生變化，問題是保存數據時間在渲染圖表之前造成，此方法物無效</li>
-</ul>
+<p>@GeneratedValue:主鍵的產生策略，通過strategy屬性指定。</p>
+<ol>
+<li>AUTO自動選擇一個最適合底層數據庫的主鍵生成策略。這個是默認選項，即如果只寫@GeneratedValue，等價於@GeneratedValue(strategy=GenerationType.AUTO)。  該策略為主鍵序列化,而mysql是不支持的 ，oracle支持的。所以才會報錯。</li>
+<li>IDENTITY　表自增長字段，Mysql支持的 auto increment，所以修改為此。Oracle不支持這種方式。</li>
+<li>SEQUENCE　通過序列產生主鍵，MySQL不支持這種方式。</li>
+<li>TABLE　通過表產生主鍵，框架借由表模擬序列產生主鍵，使用該策略可以使應用更易於數據庫移植。不同的JPA的實現生成的表名是不同的，Hibernate生成一個hibernate_sequences表。</li>
+</ol>
 </blockquote>
 
       
