@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>SpringBoot + Vue前後分離項目回傳日期差一天(8hr) | Myblog</title>
-  <meta name="keywords" content=" 踩坑 , Vue , hibernate ">
-  <meta name="description" content="SpringBoot + Vue前後分離項目回傳日期差一天(8hr) | Myblog">
+  <title>Vue使用Element UI使用彈窗內崁table的高度問題 | Myblog</title>
+  <meta name="keywords" content=" 踩坑 , Vue , Element UI ">
+  <meta name="description" content="Vue使用Element UI使用彈窗內崁table的高度問題 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="問題：當使用彈窗嵌套tabel，table的資料是點擊查詢後回顯到表單的時候，首次點擊彈窗顯示只會顯示一行表格的高度 解決方法：思考為何只有首次點擊才會有高度問題，是點擊彈窗並查詢資料時，資料尚未回顯到table中，所以彈窗只顯示一行的高度，待資料回寫後就變得怪怪的，解決方法為將彈窗設定延遲時間，待資料回顯後再彈窗 最後完成的代碼如下： methods: &amp;#123;     &#x2F;&#x2F;點擊查看時操作">
 <meta property="og:type" content="article">
@@ -833,9 +833,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-20_SpringBoot + Vue前後分離項目回傳日期差一天(8hr)" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-28_Vue使用Element UI使用彈窗內崁table的高度問題" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">SpringBoot + Vue前後分離項目回傳日期差一天(8hr)</h1>
+        <h1 class="article-title">Vue使用Element UI使用彈窗內崁table的高度問題</h1>
     
     <div class="article-meta">
         
@@ -845,11 +845,11 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="後端">後端</a> > 
+            <a  data-rel="前端">前端</a> > 
             
-            <a  data-rel="後端&lt;---&gt;SpringBoot">SpringBoot</a> > 
+            <a  data-rel="前端&lt;---&gt;Vue">Vue</a> > 
             
-            <a  data-rel="後端&lt;---&gt;SpringBoot&lt;---&gt;踩坑">踩坑</a>
+            <a  data-rel="前端&lt;---&gt;Vue&lt;---&gt;踩坑">踩坑</a>
             
         </span>
         
@@ -861,19 +861,19 @@
             
             <a class="color4">Vue</a>
             
-            <a class="color5">hibernate</a>
+            <a class="color1">Element UI</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-04-24 17:46:10'>2023-04-24 17:29</time>
+            Created At : <time class="date" title='Updated At: 2023-05-18 18:00:38'>2023-05-18 17:51</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:269</span>
+        <span>Count:208</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -892,7 +892,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%EF%BC%9A"><span class="toc-text">問題：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-text">解決方法：</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -908,37 +908,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)<br>，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr)</p>
-<p>解決方案：</p>
-<ul>
-<li>查詢MySQL數據返回不一致<ul>
-<li>使用全局配置將MySQL的時區與SpringBoot的時區調成一致<pre><code class="yaml">spring:
-datasource:
-  #配置MySql時區，配置了SpringBoot全局時區後，通常不用配
-  url: jdbc:mysql://localhost:3306/msystem?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Taipei
-jackson:
-  time-zone: Asia/Taipei #配置SpringBoot全局時區
+        <h3 id="問題："><a href="#問題：" class="headerlink" title="問題："></a>問題：</h3><p>當使用彈窗嵌套tabel，table的資料是點擊查詢後回顯到表單的時候，首次點擊彈窗顯示只會顯示一行表格的高度</p>
+<h3 id="解決方法："><a href="#解決方法：" class="headerlink" title="解決方法："></a>解決方法：</h3><p>思考為何只有首次點擊才會有高度問題，是點擊彈窗並查詢資料時，資料尚未回顯到table中，所以彈窗只顯示一行的高度，待資料回寫後就變得怪怪的，解決方法為將彈窗設定延遲時間，待資料回顯後再彈窗</p>
+<p>最後完成的代碼如下：</p>
+<pre><code class="javascript">methods: &#123;
+    //點擊查看時操作
+    handleCheck(row)&#123;
+        this.fetchOrderQueryData(&#123;&#39;lineId&#39;: row.lineId&#125;)
+        //將彈窗設定延時，先等資料查完再顯示表單，否則彈窗高度會只有一行
+        setTimeout(() =&gt; &#123;
+            //顯示彈窗
+            this.dialogFormVisible_check = true;
+        &#125;, 100);
+    &#125;
+&#125;
 </code></pre>
-</li>
-</ul>
-</li>
-<li>後台響應數據到Vue中，日期不一致<ul>
-<li>使用Moment.js設置Vue的全局時區，具體使用方法如下：<ul>
-<li>首先，安裝 Moment.js 庫。使用 npm 進行安裝<pre><code class="vue">npm install moment-timezone
-</code></pre>
-</li>
-<li>在 Vue.js 的入口文件中（一般為 main.js），將 Moment.js 庫設置為所需的時區，並設置為全局模塊<pre><code class="vue">import moment from &#39;moment-timezone&#39;;
-// 設置 Moment.js 库為台北時區
-moment.tz.setDefault(&#39;Asia/Taipei&#39;);
-// 設置全局 moment 對象
-Vue.prototype.$moment = moment;
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
       
        <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>

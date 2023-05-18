@@ -6,18 +6,19 @@
   <meta name="keywords" content=" mybatis ">
   <meta name="description" content="Mybatis筆記 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="踩坑紀錄問題一： 當前後分離項目要進行權限管理時，通常使用JWT來並使用Filter進行權限驗證，當完成代碼後，發現前端傳送的自定義的requestHeaders：Authorization無法由後端的request.getHeader(“Authorization”)獲取，除錯發現是因為跨域問題造成 問題二： 當後端使用過濾器進行token權限驗證，發現當登入後，進入首頁時發送axios請求的請">
+<meta name="description" content="問題：當使用彈窗嵌套tabel，table的資料是點擊查詢後回顯到表單的時候，首次點擊彈窗顯示只會顯示一行表格的高度 解決方法：思考為何只有首次點擊才會有高度問題，是點擊彈窗並查詢資料時，資料尚未回顯到table中，所以彈窗只顯示一行的高度，待資料回寫後就變得怪怪的，解決方法為將彈窗設定延遲時間，待資料回顯後再彈窗 最後完成的代碼如下： methods: &amp;#123;     &#x2F;&#x2F;點擊查看時操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前後分離項目，JWT使用filter完成的跨域問題">
-<meta property="og:url" content="https://ekerchung.github.io/2023/05/09/26_%E5%89%8D%E5%BE%8C%E5%88%86%E9%9B%A2%E9%A0%85%E7%9B%AE%EF%BC%8CJWT%E4%BD%BF%E7%94%A8filter%E5%AE%8C%E6%88%90%E7%9A%84%E8%B7%A8%E5%9F%9F%E5%95%8F%E9%A1%8C/index.html">
+<meta property="og:title" content="Vue使用Element UI使用彈窗內崁table的高度問題">
+<meta property="og:url" content="https://ekerchung.github.io/2023/05/18/28_Vue%E4%BD%BF%E7%94%A8Element%20UI%E4%BD%BF%E7%94%A8%E5%BD%88%E7%AA%97%E5%85%A7%E5%B4%81table%E7%9A%84%E9%AB%98%E5%BA%A6%E5%95%8F%E9%A1%8C/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="踩坑紀錄問題一： 當前後分離項目要進行權限管理時，通常使用JWT來並使用Filter進行權限驗證，當完成代碼後，發現前端傳送的自定義的requestHeaders：Authorization無法由後端的request.getHeader(“Authorization”)獲取，除錯發現是因為跨域問題造成 問題二： 當後端使用過濾器進行token權限驗證，發現當登入後，進入首頁時發送axios請求的請">
+<meta property="og:description" content="問題：當使用彈窗嵌套tabel，table的資料是點擊查詢後回顯到表單的時候，首次點擊彈窗顯示只會顯示一行表格的高度 解決方法：思考為何只有首次點擊才會有高度問題，是點擊彈窗並查詢資料時，資料尚未回顯到table中，所以彈窗只顯示一行的高度，待資料回寫後就變得怪怪的，解決方法為將彈窗設定延遲時間，待資料回顯後再彈窗 最後完成的代碼如下： methods: &amp;#123;     &#x2F;&#x2F;點擊查看時操作">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-05-08T17:10:58.686Z">
-<meta property="article:modified_time" content="2023-05-09T06:59:41.685Z">
+<meta property="article:published_time" content="2023-05-18T09:51:51.622Z">
+<meta property="article:modified_time" content="2023-05-18T10:00:38.812Z">
 <meta property="article:author" content="Eker的編程筆記">
 <meta property="article:tag" content="踩坑">
-<meta property="article:tag" content="SpringBoot">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="Element UI">
 <meta name="twitter:card" content="summary">
 
 
@@ -144,7 +145,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(27)</small>
+                <small>(29)</small>
             
         </div>
     </li>
@@ -211,7 +212,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         前端
-                        <small>(8)</small>
+                        <small>(10)</small>
                         
                     </div>
                     
@@ -250,7 +251,7 @@
                                         
                                         Vue
                                         
-                                            <small>(5
+                                            <small>(7
                                                 )</small>
                                         
                                     </div>
@@ -262,7 +263,7 @@
                                                         
                                                         踩坑
                                                         
-                                                            <small>(5)</small>
+                                                            <small>(7)</small>
                                                         
                                                     </div>
                                                 </li>
@@ -446,8 +447,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="27">
-<input type="hidden" id="yelog_site_word_count" value="142.2k">
+<input type="hidden" id="yelog_site_posts_number" value="29">
+<input type="hidden" id="yelog_site_word_count" value="144k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -496,6 +497,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>axios</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Element UI</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -548,6 +553,24 @@
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="All 前端 Vue 踩坑 "
+           href="/2023/05/18/28_Vue%E4%BD%BF%E7%94%A8Element%20UI%E4%BD%BF%E7%94%A8%E5%BD%88%E7%AA%97%E5%85%A7%E5%B4%81table%E7%9A%84%E9%AB%98%E5%BA%A6%E5%95%8F%E9%A1%8C/"
+           data-tag="踩坑,Vue,Element UI"
+           data-author="" >
+            <span class="post-title" title="Vue使用Element UI使用彈窗內崁table的高度問題">Vue使用Element UI使用彈窗內崁table的高度問題</span>
+            <span class="post-date" title="2023-05-18 17:51:51">2023/05/18</span>
+        </a>
+        
+        
+        <a  class="All 前端 Vue 踩坑 "
+           href="/2023/05/11/27_Vue%E4%BD%BF%E7%94%A8Element%20UI%E5%AE%8C%E6%88%90table%E5%B5%8C%E5%A5%97form%E8%A1%A8%E5%96%AE/"
+           data-tag="踩坑,Vue,Element UI"
+           data-author="" >
+            <span class="post-title" title="Vue使用Element UI完成table嵌套form表單">Vue使用Element UI完成table嵌套form表單</span>
+            <span class="post-date" title="2023-05-11 13:56:29">2023/05/11</span>
+        </a>
         
         
         <a  class="All 後端 SpringBoot 踩坑 "
@@ -750,7 +773,7 @@
         
         <a  class="All 後端 Spring "
            href="/2023/02/23/04_SSM-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%95%B4%E5%90%88/"
-           data-tag="spring,mybatis,springMVC"
+           data-tag="mybatis,springMVC,spring"
            data-author="" >
             <span class="post-title" title="SSM-配置文件整合">SSM-配置文件整合</span>
             <span class="post-date" title="2023-02-23 16:39:00">2023/02/23</span>

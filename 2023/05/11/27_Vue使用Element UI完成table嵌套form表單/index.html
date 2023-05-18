@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>SpringBoot + Vue前後分離項目回傳日期差一天(8hr) | Myblog</title>
-  <meta name="keywords" content=" 踩坑 , Vue , hibernate ">
-  <meta name="description" content="SpringBoot + Vue前後分離項目回傳日期差一天(8hr) | Myblog">
+  <title>Vue使用Element UI完成table嵌套form表單 | Myblog</title>
+  <meta name="keywords" content=" 踩坑 , Vue , Element UI ">
+  <meta name="description" content="Vue使用Element UI完成table嵌套form表單 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="問題：當使用彈窗嵌套tabel，table的資料是點擊查詢後回顯到表單的時候，首次點擊彈窗顯示只會顯示一行表格的高度 解決方法：思考為何只有首次點擊才會有高度問題，是點擊彈窗並查詢資料時，資料尚未回顯到table中，所以彈窗只顯示一行的高度，待資料回寫後就變得怪怪的，解決方法為將彈窗設定延遲時間，待資料回顯後再彈窗 最後完成的代碼如下： methods: &amp;#123;     &#x2F;&#x2F;點擊查看時操作">
 <meta property="og:type" content="article">
@@ -833,9 +833,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-20_SpringBoot + Vue前後分離項目回傳日期差一天(8hr)" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-27_Vue使用Element UI完成table嵌套form表單" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">SpringBoot + Vue前後分離項目回傳日期差一天(8hr)</h1>
+        <h1 class="article-title">Vue使用Element UI完成table嵌套form表單</h1>
     
     <div class="article-meta">
         
@@ -845,11 +845,11 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="後端">後端</a> > 
+            <a  data-rel="前端">前端</a> > 
             
-            <a  data-rel="後端&lt;---&gt;SpringBoot">SpringBoot</a> > 
+            <a  data-rel="前端&lt;---&gt;Vue">Vue</a> > 
             
-            <a  data-rel="後端&lt;---&gt;SpringBoot&lt;---&gt;踩坑">踩坑</a>
+            <a  data-rel="前端&lt;---&gt;Vue&lt;---&gt;踩坑">踩坑</a>
             
         </span>
         
@@ -861,19 +861,19 @@
             
             <a class="color4">Vue</a>
             
-            <a class="color5">hibernate</a>
+            <a class="color1">Element UI</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-04-24 17:46:10'>2023-04-24 17:29</time>
+            Created At : <time class="date" title='Updated At: 2023-05-11 14:05:02'>2023-05-11 13:56</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:269</span>
+        <span>Count:1.6k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -892,7 +892,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E9%80%94%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%95%8F%E9%A1%8C%EF%BC%9A"><span class="toc-text">完成途中遇到的問題：</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -908,37 +908,299 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>使用SpringBoot data JPA查詢數據時發現返回的日期與MySQL資料庫中的日期差一天(8hr)<br>，後續解決了後台查詢數據問題後，發現響應數據回前台Vue中的日期數據也差一天(8hr)</p>
-<p>解決方案：</p>
-<ul>
-<li>查詢MySQL數據返回不一致<ul>
-<li>使用全局配置將MySQL的時區與SpringBoot的時區調成一致<pre><code class="yaml">spring:
-datasource:
-  #配置MySql時區，配置了SpringBoot全局時區後，通常不用配
-  url: jdbc:mysql://localhost:3306/msystem?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Taipei
-jackson:
-  time-zone: Asia/Taipei #配置SpringBoot全局時區
+        <h3 id="完成途中遇到的問題："><a href="#完成途中遇到的問題：" class="headerlink" title="完成途中遇到的問題："></a>完成途中遇到的問題：</h3><p>當使用table嵌套form表單的時候，遇到了下面問題：</p>
+<ol>
+<li>如何在table中使用form表單</li>
+<li>table中使用form表單該如何使用校驗</li>
+<li>如何動態新增一行表單，並綁定數據(若直接綁定form.key，會造成全部表單都只綁定在同一個對象中)</li>
+</ol>
+<p>最後完成的代碼如下：</p>
+<pre><code class="vue">&lt;template&gt;
+  &lt;div class=&quot;manage&quot;&gt;
+    &lt;div class=&quot;manage-header&quot;&gt;
+      &lt;el-button type=&quot;primary&quot; @click=&quot;addTable&quot;&gt;+添加欄位&lt;/el-button&gt;
+    &lt;/div&gt;
+    &lt;el-form :model=&quot;purchaseForm&quot; ref=&quot;purchaseForm&quot; :rules=&quot;purchaseForm.rules&quot; inline-message&gt;
+      &lt;div class=&quot;common-tabel&quot;&gt;
+        &lt;!--    人員管理表格--&gt;
+        &lt;el-table
+            :data=&quot;purchaseForm.tableData&quot;
+            :row-class-name=&quot;rowClassName&quot;
+            height=&quot;90%&quot;
+            stripe
+            row-key=&quot;viewId&quot;
+            style=&quot;width: 100%&quot;&gt;
+          &lt;el-table-column label=&quot;序号&quot; align=&quot;center&quot; prop=&quot;id&quot; width=&quot;50&quot;&gt;&lt;/el-table-column&gt;
+          &lt;el-table-column
+              prop=&quot;p_date&quot;
+              label=&quot;進貨日&quot;
+              width=&quot;160&quot;&gt;
+            &lt;template slot-scope=&quot;scope&quot;&gt;
+              &lt;!-- prop的規則: 在普通的form表單中是一個對象,prop是對象的屬性. 表格是由多個對象組成的數組,在寫prop是需要根據索引給值.這里的tableData就相當於對象的屬性 !--&gt;
+              &lt;!-- rules也要單獨給 --&gt;
+              &lt;el-form-item
+                  :prop=&quot;&#39;tableData.&#39; + scope.$index + &#39;.p_date&#39;&quot;
+                  :rules=&#39;purchaseForm.rules.p_date&#39;&gt;
+                &lt;el-date-picker
+                    v-model=&quot;purchaseForm.tableData[scope.row.id-1].p_date&quot;
+                    value-format=&quot;yyyy-MM-dd&quot;
+                    placeholder=&quot;選擇日期&quot;&gt;
+                &lt;/el-date-picker&gt;
+              &lt;/el-form-item&gt;
+            &lt;/template&gt;
+          &lt;/el-table-column&gt;
+          &lt;el-table-column
+              prop= &quot;company_name&quot;
+              label=&quot;進貨廠商&quot;
+              width=&quot;180&quot;&gt;
+            &lt;template slot-scope=&quot;scope&quot;&gt;
+              &lt;el-form-item
+                  :prop=&quot;&#39;tableData.&#39; + scope.$index + &#39;.company_name&#39;&quot;
+                  :rules=&#39;purchaseForm.rules.company_name&#39;&gt;
+                &lt;el-select v-model=&quot;purchaseForm.tableData[scope.row.id-1].company_name&quot; placeholder=&quot;請選擇&quot;&gt;
+                  &lt;el-option
+                      v-for=&quot;item in companyData&quot;
+                      :key=&quot;item.companyId&quot;
+                      :label=&quot;item.companyName&quot;
+                      :value=&quot;item.companyId&quot;&gt;
+                  &lt;/el-option&gt;
+                &lt;/el-select&gt;
+              &lt;/el-form-item&gt;
+            &lt;/template&gt;
+          &lt;/el-table-column&gt;
+          &lt;el-table-column
+              prop=&quot;line_id&quot;
+              label=&quot;線材編號&quot;
+              width=&quot;150&quot;&gt;
+            &lt;template slot-scope=&quot;scope&quot;&gt;
+              &lt;el-form-item
+                  :prop=&quot;&#39;tableData.&#39; + scope.$index + &#39;.line_id&#39;&quot;
+                  :rules=&#39;purchaseForm.rules.line_id&#39;&gt;
+                &lt;el-input v-model=&quot;purchaseForm.tableData[scope.row.id-1].line_id&quot;
+                          oninput=&quot;value=value.replace(/[^\d]/g,&#39;&#39;)&quot;
+                          placeholder=&quot;請輸入線材編號&quot;&gt;
+
+                &lt;/el-input&gt;
+              &lt;/el-form-item&gt;
+            &lt;/template&gt;
+          &lt;/el-table-column&gt;
+          &lt;el-table-column
+              prop=&quot;line_type&quot;
+              label=&quot;端子&quot;
+              width=&quot;340&quot;&gt;
+            &lt;template slot-scope=&quot;scope&quot;&gt;
+              &lt;el-form-item
+                  :prop=&quot;&#39;tableData.&#39; + scope.$index + &#39;.line_type&#39;&quot;
+                  :rules=&#39;purchaseForm.rules.line_type&#39;&gt;
+                &lt;el-input v-model=&quot;purchaseForm.tableData[scope.row.id-1].line_type&quot;
+                          placeholder=&quot;請輸入端子&quot;&gt;
+
+                &lt;/el-input&gt;
+              &lt;/el-form-item&gt;
+            &lt;/template&gt;
+          &lt;/el-table-column&gt;
+          &lt;el-table-column
+              prop=&quot;line_name&quot;
+              label=&quot;品項&quot;
+              width=&quot;340&quot;&gt;
+            &lt;template slot-scope=&quot;scope&quot;&gt;
+              &lt;el-form-item
+                  :prop=&quot;&#39;tableData.&#39; + scope.$index + &#39;.line_name&#39;&quot;
+                  :rules=&#39;purchaseForm.rules.line_name&#39;&gt;
+                &lt;el-input v-model=&quot;purchaseForm.tableData[scope.row.id-1].line_name&quot;
+                          placeholder=&quot;請輸入品項&quot;&gt;
+
+                &lt;/el-input&gt;
+              &lt;/el-form-item&gt;
+            &lt;/template&gt;
+          &lt;/el-table-column&gt;
+          &lt;el-table-column
+              prop=&quot;total_count&quot;
+              label=&quot;進貨數量&quot;
+              width=&quot;150&quot;&gt;
+            &lt;template slot-scope=&quot;scope&quot;&gt;
+              &lt;el-form-item
+                  :prop=&quot;&#39;tableData.&#39; + scope.$index + &#39;.total_count&#39;&quot;
+                  :rules=&#39;purchaseForm.rules.total_count&#39;&gt;
+                &lt;el-input v-model=&quot;purchaseForm.tableData[scope.row.id-1].total_count&quot;
+                          oninput=&quot;value=value.replace(/[^\d]/g,&#39;&#39;)&quot;
+                          placeholder=&quot;請輸入數量&quot;&gt;
+
+                &lt;/el-input&gt;
+              &lt;/el-form-item&gt;
+            &lt;/template&gt;
+          &lt;/el-table-column&gt;
+          &lt;el-table-column
+              prop=&quot;unit_price&quot;
+              label=&quot;進貨單價&quot;
+              width=&quot;150&quot;&gt;
+            &lt;template slot-scope=&quot;scope&quot;&gt;
+              &lt;el-form-item
+                  :prop=&quot;&#39;tableData.&#39; + scope.$index + &#39;.unit_price&#39;&quot;
+                  :rules=&#39;purchaseForm.rules.unit_price&#39;&gt;
+                &lt;el-input v-model=&quot;purchaseForm.tableData[scope.row.id-1].unit_price&quot;
+                          oninput=&quot;value=value.replace(/[^\d]/g,&#39;&#39;)&quot;
+                          placeholder=&quot;請輸入單價&quot;&gt;
+
+                &lt;/el-input&gt;
+              &lt;/el-form-item&gt;
+            &lt;/template&gt;
+          &lt;/el-table-column&gt;
+          &lt;el-table-column
+              prop=&quot;addr&quot;
+              label=&quot;操作&quot;
+              width=&quot;120&quot;&gt;
+            &lt;template slot-scope=&quot;scope&quot;&gt;
+              &lt;el-button type=&quot;danger&quot; size=&quot;mini&quot; @click=&quot;deleteTab(scope.row)&quot;&gt;刪除&lt;/el-button&gt;
+            &lt;/template&gt;
+          &lt;/el-table-column&gt;
+        &lt;/el-table&gt;
+        &lt;el-button type=&quot;primary&quot; class=&quot;submit_btn&quot; @click=&quot;submit&quot;&gt;提交&lt;/el-button&gt;
+      &lt;/div&gt;
+    &lt;/el-form&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import &#123;mapActions, mapState&#125; from &quot;vuex&quot;;
+
+export default &#123;
+  name:&#39;LinePurchase&#39;,
+  data()&#123;
+    return&#123;
+      purchaseForm:&#123;
+        tableData: [&#123;
+          p_date: &#39;&#39;,
+          company_name: &#39;&#39;,
+          line_id: &#39;&#39;,
+          line_type: &#39;&#39;,
+          line_name: &#39;&#39;,
+          total_count: &#39;&#39;,
+          unit_price: &#39;&#39;,
+        &#125;,],
+
+        rules: &#123;
+          company_name: [
+            &#123; required: true, message: &#39;請選擇進貨廠商&#39;, trigger: &#39;change&#39; &#125;
+          ],
+          line_id: [
+            &#123; required: true, message: &#39;請輸入線材編號&#39;, trigger: &#39;blur&#39; &#125;
+          ],
+          line_type: [
+            &#123; required: true, message: &#39;請輸入端子&#39;, trigger: &#39;blur&#39; &#125;
+          ],
+          line_name: [
+            &#123; required: true, message: &#39;請輸入品項&#39;, trigger: &#39;blur&#39; &#125;
+          ],
+          total_count: [
+            &#123; required: true, message: &#39;請輸入進貨數量&#39;, trigger: &#39;blur&#39; &#125;
+          ],
+          unit_price: [
+            &#123; required: true, message: &#39;請輸入進貨單價&#39;, trigger: &#39;blur&#39; &#125;
+          ],
+        &#125;
+      &#125;,
+    &#125;
+  &#125;,
+  computed: &#123;
+    ...mapState(&#39;data&#39;,[&#39;goodData&#39;,&#39;companyData&#39;,&#39;employeeData&#39;,&#39;orderData&#39;,&#39;returnData&#39;,&#39;countData&#39;]),
+  &#125;,
+  methods: &#123;
+    ...mapActions(&#39;data&#39;, [&#39;fetchGoodData&#39;, &#39;fetchCompanyData&#39;, &#39;fetchEmployeeData&#39;, &#39;fetchOrderData&#39;, &#39;fetchReturnData&#39;]),
+    ...mapActions(&#39;line&#39;, [&#39;fetchAddLineData&#39;]),
+    //添加一行表單
+    addTable () &#123;
+      let newRowData = &#123;
+        p_date: &#39;&#39;,
+        company_name: &#39;&#39;,
+        line_id: &#39;&#39;,
+        line_type: &#39;&#39;,
+        line_name: &#39;&#39;,
+        total_count: &#39;&#39;,
+        unit_price: &#39;&#39;,
+      &#125;
+      this.purchaseForm.tableData.push(newRowData);
+    &#125;,
+    // 提交數據
+    submit () &#123;
+      this.$refs.purchaseForm.validate(valid =&gt; &#123;
+        //驗證通過，執行if內的代碼
+        if(valid)&#123;
+          // 新增新增線材資料
+          this.fetchAddLineData(this.purchaseForm.tableData);
+
+          //清空form表單的數據
+          setTimeout(() =&gt; &#123;
+            //重置表單數據
+            this.purchaseForm.tableData = [&#123;
+              p_date: &#39;&#39;,
+              company_name: &#39;&#39;,
+              line_id: &#39;&#39;,
+              line_type: &#39;&#39;,
+              line_name: &#39;&#39;,
+              total_count: &#39;&#39;,
+              unit_price: &#39;&#39;,
+            &#125;,];
+            this.$refs.purchaseForm.resetFields();
+          &#125;, 2000);
+        &#125;
+
+      &#125;)
+    &#125;,
+    //回調函數，定義表格的序號，可用來綁定資料數組
+    rowClassName(&#123;row, rowIndex&#125;) &#123;
+      row.id = rowIndex +1;
+      &#125;,
+    //刪除一行表格
+    deleteTab (data) &#123;
+      //獲取當前行的數組位子
+      let len = data.id - 1;
+      //將此數組位子的資料刪除
+      this.purchaseForm.tableData.splice(len,1);
+    &#125;
+  &#125;,
+  created() &#123;
+    this.fetchCompanyData();
+  &#125;,
+&#125;
+&lt;/script&gt;
+
+&lt;style&gt;
+/* 日期选择框的宽度 */
+.el-date-editor.el-input, .el-date-editor.el-input__inner &#123;
+  width: 140px;
+&#125;
+.el-form-item &#123;
+  margin-bottom: auto;
+&#125;
+
+.manage &#123;
+  height: 100%;
+&#125;
+
+.manage .manage-header &#123;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+&#125;
+
+.manage .common-tabel &#123;
+  position: relative;
+  height: 80vh;
+&#125;
+
+.manage .common-tabel .pager &#123;
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+&#125;
+.submit_btn&#123;
+  margin-left: 1400px;
+  margin-top: 20px;
+&#125;
+
+&lt;/style&gt;
 </code></pre>
-</li>
-</ul>
-</li>
-<li>後台響應數據到Vue中，日期不一致<ul>
-<li>使用Moment.js設置Vue的全局時區，具體使用方法如下：<ul>
-<li>首先，安裝 Moment.js 庫。使用 npm 進行安裝<pre><code class="vue">npm install moment-timezone
-</code></pre>
-</li>
-<li>在 Vue.js 的入口文件中（一般為 main.js），將 Moment.js 庫設置為所需的時區，並設置為全局模塊<pre><code class="vue">import moment from &#39;moment-timezone&#39;;
-// 設置 Moment.js 库為台北時區
-moment.tz.setDefault(&#39;Asia/Taipei&#39;);
-// 設置全局 moment 對象
-Vue.prototype.$moment = moment;
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
       
        <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>
