@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>執行Vue項目報錯error_0308010C | Myblog</title>
-  <meta name="keywords" content=" 踩坑 , Vue ">
-  <meta name="description" content="執行Vue項目報錯error_0308010C | Myblog">
+  <title>Vue使用Element UI使用this.$refs[&#39;form&#39;].resetFields()方法重置表單無效 | Myblog</title>
+  <meta name="keywords" content=" 踩坑 , Vue , Element UI ">
+  <meta name="description" content="Vue使用Element UI使用this.$refs[&#39;form&#39;].resetFields()方法重置表單無效 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="問題：當使用使用this.$refs[‘form’].resetFields()方法重置表單時，幾個問題整理如下： 問題1： 用法不對 問題2： 在還沒有顯示對話框之前就調用this.$refs[‘form’].resetFields()，會報錯。 問題3： 如果添加和修改共用一個表單時就會出現重置無效的情況。 解決方法：問題一： 要想this.$refs[‘form’].resetFields(">
 <meta property="og:type" content="article">
@@ -842,9 +842,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-17_執行Vue項目報錯error_0308010C" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-29_Vue使用Element UI使用this.$refs[&#39;form&#39;].resetFields()方法重置表單無效" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">執行Vue項目報錯error_0308010C</h1>
+        <h1 class="article-title">Vue使用Element UI使用this.$refs[&#39;form&#39;].resetFields()方法重置表單無效</h1>
     
     <div class="article-meta">
         
@@ -870,17 +870,19 @@
             
             <a class="color4">Vue</a>
             
+            <a class="color1">Element UI</a>
+            
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-04-18 00:59:31'>2023-04-18 00:37</time>
+            Created At : <time class="date" title='Updated At: 2023-05-19 16:14:42'>2023-05-19 16:05</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:353</span>
+        <span>Count:315</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -899,7 +901,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%B4%80%E9%8C%84"><span class="toc-text">踩坑紀錄</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%EF%BC%9A"><span class="toc-text">問題：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-text">解決方法：</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -915,43 +917,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="踩坑紀錄"><a href="#踩坑紀錄" class="headerlink" title="踩坑紀錄"></a>踩坑紀錄</h3><p>創建Vue專案後，執行<code>npm run serve</code> 報錯”error:03000086:digital envelope routines::initialization error”</p>
-<p>解決方案：<br>經過一番探索，終於找到了癥結所在：主要是nodeJs V17版本發布了OpenSSL3.0對算法和秘鑰大小增加了更為嚴格的限制，nodeJs v17之前版本沒影響，但V17和之後版本會出現這個錯誤。<br>一句話總結，說白了就是npm升級導致與 openssl 不兼容導致的初始化失敗，也就是node.js版本過高的原因造成的運行失敗。</p>
-<ul>
-<li>方式一：</li>
-</ul>
-<ol>
-<li>在package.json的scripts中新增<code>SET NODE_OPTIONS=--openssl-legacy-provider</code></li>
-</ol>
-<p>添加前：</p>
-<pre><code class="javascript">&quot;scripts&quot;: &#123;
-&quot;serve&quot;: &quot;vue-cli-service serve&quot;,
-&quot;build&quot;: &quot;vue-cli-service build&quot;,
-&quot;lint&quot;: &quot;vue-cli-service lint&quot;
-&#125;,
+        <h3 id="問題："><a href="#問題：" class="headerlink" title="問題："></a>問題：</h3><p>當使用使用this.$refs[‘form’].resetFields()方法重置表單時，幾個問題整理如下：</p>
+<p>問題1：</p>
+<p>用法不對</p>
+<p>問題2：</p>
+<p>在還沒有顯示對話框之前就調用this.$refs[‘form’].resetFields()，會報錯。</p>
+<p>問題3：</p>
+<p>如果添加和修改共用一個表單時就會出現重置無效的情況。</p>
+<h3 id="解決方法："><a href="#解決方法：" class="headerlink" title="解決方法："></a>解決方法：</h3><p>問題一：</p>
+<p>要想this.$refs[‘form’].resetFields()方法有效，必須配置el-form :model 屬性和el-form-item中的prop屬性，才可以。</p>
+<p>問題二：</p>
+<pre><code class="javascript">this.$nextTick(() =&gt; &#123;
+    this.$refs[&#39;form&#39;].resetFields();
+&#125;);
 </code></pre>
-<p>添加後：</p>
-<pre><code class="javascript"> &quot;scripts&quot;: &#123;
-  &quot;serve&quot;: &quot;SET NODE_OPTIONS=--openssl-legacy-provider &amp;&amp; vue-cli-service serve&quot;,
-  &quot;build&quot;: &quot;vue-cli-service build&quot;,
-  &quot;lint&quot;: &quot;vue-cli-service lint&quot;
-&#125;,
+<p>問題三：</p>
+<p>將為表單對象賦值的操作放在對話框顯示之後的一個執行周期執行。</p>
+<pre><code class="javascript">this.$nextTick(() =&gt; &#123;
+    // utils.copyFormObject(data, this.form);
+    this.form = JSON.parse(JSON.stringify(row));
+&#125;);
 </code></pre>
 <blockquote>
-<p>注意：如果團隊中node版本不一致，不要將該package.json提交。</p>
+<p>思考：為什麽要放在$nextTick()中就可以了??<br>this.$refs[‘form’].resetFields()這個做法其實是重置表單到初始值，不是清空表單，當表單第一次在頁面中渲染時所用的數據就是初始數據，如果修改對象的表單賦值沒有放在nextTick中，就會在表單渲染時就會將這個修改對象作為初始值，所以出現無效了。使用nextTick保證表單在第一次渲染時是空值就可以了。</p>
 </blockquote>
-<ol start="2">
-<li>與第一種方法類似，在編輯器集成終端里，直接設置環境變量，進行控制（只能臨時解決）</li>
-</ol>
-<p>找到package.json文件右鍵，在集成終端中打開後，直接輸入set NODE_OPTIONS=–openssl-legacy-provider回車，然後npm run serve重新運行項目即可。</p>
-<pre><code class="javascript">// windows下
-set NODE_OPTIONS=--openssl-legacy-provider
-// linux下
-export NODE_OPTIONS=--openssl-legacy-provider
-</code></pre>
-<ul>
-<li>方式二：更換node.js版本</li>
-</ul>
 
       
        <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>
