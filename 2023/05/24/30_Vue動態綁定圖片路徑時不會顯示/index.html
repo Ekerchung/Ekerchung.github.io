@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Vue使用Element UI使用this.$refs[&#39;form&#39;].resetFields()方法重置表單無效 | Myblog</title>
-  <meta name="keywords" content=" Vue , 踩坑 , Element UI ">
-  <meta name="description" content="Vue使用Element UI使用this.$refs[&#39;form&#39;].resetFields()方法重置表單無效 | Myblog">
+  <title>Vue動態綁定圖片路徑時不會顯示 | Myblog</title>
+  <meta name="keywords" content=" Vue , 踩坑 ">
+  <meta name="description" content="Vue動態綁定圖片路徑時不會顯示 | Myblog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="問題：在使用固定圖片路徑時，圖片顯示正常，但動態綁定圖片路徑時不會顯示 解決方法：使用require動態加載 &lt;template&gt;         &lt;!--      帳號信息--&gt;         &lt;el-card class&#x3D;&quot;box-card&quot; style&#x3D;&quot;height: 255px&quot;&gt;             &amp;">
 <meta property="og:type" content="article">
@@ -850,9 +850,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-29_Vue使用Element UI使用this.$refs[&#39;form&#39;].resetFields()方法重置表單無效" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-30_Vue動態綁定圖片路徑時不會顯示" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Vue使用Element UI使用this.$refs[&#39;form&#39;].resetFields()方法重置表單無效</h1>
+        <h1 class="article-title">Vue動態綁定圖片路徑時不會顯示</h1>
     
     <div class="article-meta">
         
@@ -878,19 +878,17 @@
             
             <a class="color3">踩坑</a>
             
-            <a class="color1">Element UI</a>
-            
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-05-19 16:14:42'>2023-05-19 16:05</time>
+            Created At : <time class="date" title='Updated At: 2023-05-24 02:35:58'>2023-05-24 02:29</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:315</span>
+        <span>Count:204</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -925,30 +923,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="問題："><a href="#問題：" class="headerlink" title="問題："></a>問題：</h3><p>當使用使用this.$refs[‘form’].resetFields()方法重置表單時，幾個問題整理如下：</p>
-<p>問題1：</p>
-<p>用法不對</p>
-<p>問題2：</p>
-<p>在還沒有顯示對話框之前就調用this.$refs[‘form’].resetFields()，會報錯。</p>
-<p>問題3：</p>
-<p>如果添加和修改共用一個表單時就會出現重置無效的情況。</p>
-<h3 id="解決方法："><a href="#解決方法：" class="headerlink" title="解決方法："></a>解決方法：</h3><p>問題一：</p>
-<p>要想this.$refs[‘form’].resetFields()方法有效，必須配置el-form :model 屬性和el-form-item中的prop屬性，才可以。</p>
-<p>問題二：</p>
-<pre><code class="javascript">this.$nextTick(() =&gt; &#123;
-    this.$refs[&#39;form&#39;].resetFields();
-&#125;);
+        <h3 id="問題："><a href="#問題：" class="headerlink" title="問題："></a>問題：</h3><p>在使用固定圖片路徑時，圖片顯示正常，但動態綁定圖片路徑時不會顯示</p>
+<h3 id="解決方法："><a href="#解決方法：" class="headerlink" title="解決方法："></a>解決方法：</h3><p>使用<strong>require</strong>動態加載</p>
+<pre><code class="javascript">&lt;template&gt;
+        &lt;!--      帳號信息--&gt;
+        &lt;el-card class=&quot;box-card&quot; style=&quot;height: 255px&quot;&gt;
+            &lt;div class=&quot;user&quot;&gt;
+                &lt;img :src=imgPath alt=&quot;&quot;&gt;
+                &lt;div class=&quot;userinfo&quot;&gt;
+                    &lt;p class=&quot;name&quot;&gt;&#123;&#123;employee.name&#125;&#125;&lt;/p&gt;
+                    &lt;p class=&quot;access&quot;&gt;超级管理员&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;login-info&quot;&gt;
+                &lt;p&gt;上次登錄時間：&lt;span&gt;&#123;&#123;lastLoginTime&#125;&#125;&lt;/span&gt;&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/el-card&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default &#123;
+    created() &#123;
+    //動態獲取帳號圖像
+    this.username = localStorage.getItem(&#39;username&#39;);
+    this.imgPath = require(`@/assets/images/$&#123;this.username&#125;.png`);
+    &#125;,
+&#125;   
+&lt;/script&gt;
 </code></pre>
-<p>問題三：</p>
-<p>將為表單對象賦值的操作放在對話框顯示之後的一個執行周期執行。</p>
-<pre><code class="javascript">this.$nextTick(() =&gt; &#123;
-    // utils.copyFormObject(data, this.form);
-    this.form = JSON.parse(JSON.stringify(row));
-&#125;);
-</code></pre>
-<blockquote>
-<p>思考：為什麽要放在$nextTick()中就可以了??<br>this.$refs[‘form’].resetFields()這個做法其實是重置表單到初始值，不是清空表單，當表單第一次在頁面中渲染時所用的數據就是初始數據，如果修改對象的表單賦值沒有放在nextTick中，就會在表單渲染時就會將這個修改對象作為初始值，所以出現無效了。使用nextTick保證表單在第一次渲染時是空值就可以了。</p>
-</blockquote>
 
       
        <hr><span style="font-style: italic;color: gray;"> 轉載請注明來源，歡迎對文章中的引用來源進行考證，歡迎指出任何有錯誤或不夠清晰的表達。可以郵件至 b8954008@gmail.com </span>
